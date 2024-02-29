@@ -251,6 +251,7 @@ UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+game.Players.LocalPlayer.PlayerGui.Main.ContextActionGui:Destroy()
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
