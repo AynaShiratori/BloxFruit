@@ -1,113 +1,51 @@
 task.wait(5)
-FrameRateBoost = false
+FrameRateBoost = true
+task.spawn(function()
+  while task.wait(0.2) do
+    game:GetService'VirtualUser':CaptureController()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+  end
+end)
 
-getgenv().Key = ''
-getgenv().Setting = {
-    ["Team"] = "Pirates",
-    ["Webhook"] = {
-        ["Enabled"] = false,
-        ["Url Webhook"] = "",
-    },
-    ["Misc"] = {
-        ["AutoBuyRandomandStoreFruit"] = true,
-        ["AutoBuySurprise"] = false,
-    },
-    ["Click"] = {
-        ["Enable"] = true,
-        ["Click Gun"] = false,
-        ["OnLowHealthDisable"] = false,
-        ["LowHealth"] = 0,
-    },
-    ["SafeZone"] = {
-        ["Enable"] = true,
-        ["LowHealth"] = 5000,
-        ["MaxHealth"] = 6000,
-        ["Teleport Y"] = 2000
-    },
-    ["Race V4"] = {
-        ["Enable"] = false,
-    },
-    ["Invisible"] = true,
-    ["White Screen"] = false,
-    ["GunMethod"] = false,
-    ["SpamSkill"] = false,
-    ["Weapons"] = {
-        ["Melee"] = {
-            ["Enable"] = true,
-            ["Delay"] = 3,
-            ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.1,
-                },
-               [ "X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.2,
-                },
-
-                ["C"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 1,
-                },
+getgenv().SpamSkill = false
+getgenv().AutoUseRaceV3 = false
+getgenv().AutoUseRacev4 = false
+getgenv().SpamSkillOnRaceV4 = false
+getgenv().Invisible = true
+getgenv().InCombatNoReset = true
+getgenv().Team = "Pirates"
+getgenv().TweenSpeed = 350
+ getgenv().Setting = {
+        ["Melee"] = {["Enable"] = true, ["Delay"] = 3,
+          ["Skills"] = {
+            ["Z"] = {["Enable"] = true,["HoldTime"] = 0.1, ["TimeToNextSkill"] = 0,},
+            [ "X"] = {["Enable"] = true,["HoldTime"] = 0.2, ["TimeToNextSkill"] = 0,},
+            ["C"] = {["Enable"] = true,["HoldTime"] = 1, ["TimeToNextSkill"] = 0,},
             },
         },
-        ["Blox Fruit"] = {
-            ["Enable"] = false,
-            ["Delay"] = 1,
+        ["Blox Fruit"] = {["Enable"] = false, ["Delay"] = 2,
             ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.12,
-                },
-                ["X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 2,
-                },
-
-                ["C"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.14,
-                },
-                ["V"] = {
-                    ["Enable"] = false,
-                    ["HoldTime"] = 0,
-                },
-                ["F"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.07,
-                },
+                ["Z"] = {["Enable"] = true, ["HoldTime"] = 1, ["TimeToNextSkill"] = 0,},
+                ["X"] = { ["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
+                ["C"] = { ["Enable"] = true, ["HoldTime"] = 0,["TimeToNextSkill"] = 0, },
+                ["V"] = { ["Enable"] = false, ["HoldTime"] = 0,["TimeToNextSkill"] = 0,},
+                ["F"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
             },
         },
-        ["Gun"] = {
-            ["Enable"] = false,
-            ["Delay"] = 2,
+        ["Sword"] = { ["Enable"] = false, ["Delay"] = 1.5,
             ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.15,
-                },
-                ["X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.13,
-                },
+                ["Z"] = {["Enable"] = true,  ["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
+                ["X"] = {["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
             },
         },
-        ["Sword"] = {
-            ["Enable"] = false,
-            ["Delay"] = 1,
+        ["Gun"] = {["Enable"] = false, ["Delay"] = 2,
             ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.11,
-                },
-                ["X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.17,
+                ["Z"] = {["Enable"] = true,["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
+                ["X"] = {["Enable"] = true,["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,
                 },
             },
-        },
+        }
     }
-}
 
 task.spawn(function()
   repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
@@ -228,10 +166,9 @@ if FrameRateBoost then
 end
 
 task.spawn(function()
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BountyShit.lua"))()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
 end)
 
-game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
