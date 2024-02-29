@@ -312,7 +312,7 @@ uselesslabelone.BackgroundTransparency = 1.000
 uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
 uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
 uselesslabelone.Font = Enum.Font.SourceSans
-uselesslabelone.Text = "Ayna Shiratori"
+uselesslabelone.Text = game.Players.LocalPlayer.Name
 uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
 uselesslabelone.TextSize = 14.000
 
@@ -384,7 +384,7 @@ pinglabel.BackgroundTransparency = 1.000
 pinglabel.Position = UDim2.new(0.1, 0, 0.371578127, 0)
 pinglabel.Size = UDim2.new(0, 55, 0, 24)
 pinglabel.Font = Enum.Font.SourceSans
-pinglabel.Text = game.Players.LocalPlayer.Name
+pinglabel.Text = "0"
 pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 pinglabel.TextSize = 14.000
 pinglabel.TextWrapped = true
@@ -409,6 +409,27 @@ uselesslabelfour.Font = Enum.Font.SourceSans
 uselesslabelfour.Text = ""
 uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
 uselesslabelfour.TextSize = 14.000
+
+local FPSsLabel = pinglabel
+local RunService = game:GetService("RunService")
+local RenderStepped = RunService.RenderStepped
+local sec = nil
+local FPS = {}
+
+local function fre()
+	local fr = tick()
+	for index = #FPS,1,-1 do
+		FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+	end
+	FPS[1] = fr
+	local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+	fps = math.floor(fps)
+	pinglabel.Text = fps
+end
+
+
+sec = tick()
+RenderStepped:Connect(fre)
 
 local Drag = game.CoreGui.thisoneissocoldww.madebybloodofbatus
 gsCoreGui = game:GetService("CoreGui")
@@ -449,10 +470,20 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
-repeat task.wait(1) until game.Workspace.Characters:FindFirstChild(game.Players.LocalPlayer.Name
+repeat task.wait(1) until game.Workspace.Characters:FindFirstChild(game.Players.LocalPlayer.Name)
+
+task.spawn(function()
+    while task.wait(1) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+            break
+        end
+    end
+end)
 
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.ContextActionGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.ShopButton:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.MenuButton:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.InventoryButton:Destroy()
@@ -470,41 +501,9 @@ game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.Stats:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.Crew:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.Allies:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Stars:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Enchants:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.CelebrationShop:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Confirm:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Level:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Fragments:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Beli:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Craft:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Enegry:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.FruitInventory:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Colors:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.AwakeningToggler:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.RaceEnegry:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Gateway:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.FruitShop:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Fire:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Trade:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Skills:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Quest:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Titles:Destroy()
-game.Players.LocalPlayer.PlayerGui.MobileMouseLock:Destroy()
 game:GetService("ReplicatedStorage").Effect.Container:Destroy()
 game:GetService("ReplicatedStorage").FX:Destroy()
 game:GetService("ReplicatedStorage").Assets:Destroy()
-
-task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            break
-        end
-    end
-end)
 
 local AFKDelayCheck = 300
 task.spawn(function()
@@ -525,3 +524,5 @@ task.spawn(function()
         end
     end
 end)
+
+print("Executed")
