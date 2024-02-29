@@ -5,8 +5,8 @@ getgenv().Key = ''
 getgenv().Setting = {
     ["Team"] = "Pirates",
     ["Webhook"] = {
-        ["Enabled"] = true,
-        ["Url Webhook"] = "https://discord.com/api/webhooks/1198957951172476968/9C1Wklj3x7WthwBmx7K88V3rheltSDfl7Xswj8JUME5rD8VlWQoyg35pBPujLvkbsaDq",
+        ["Enabled"] = false,
+        ["Url Webhook"] = "",
     },
     ["Misc"] = {
         ["AutoBuyRandomandStoreFruit"] = true,
@@ -15,17 +15,17 @@ getgenv().Setting = {
     ["Click"] = {
         ["Enable"] = true,
         ["Click Gun"] = false,
-        ["OnLowHealthDisable"] = true,
-        ["LowHealth"] = 4500,
+        ["OnLowHealthDisable"] = false,
+        ["LowHealth"] = 0,
     },
     ["SafeZone"] = {
         ["Enable"] = true,
-        ["LowHealth"] = 5500,
-        ["MaxHealth"] = 6500,
+        ["LowHealth"] = 6500,
+        ["MaxHealth"] = 7000,
         ["Teleport Y"] = 2000
     },
     ["Race V4"] = {
-        ["Enable"] = true,
+        ["Enable"] = false,
     },
     ["Invisible"] = false,
     ["White Screen"] = false,
