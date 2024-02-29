@@ -108,26 +108,11 @@ getgenv().Setting = {
     }
 }
 
-local function HopServer()
-local currentJobId = game.JobId
-repeat
-    task.spawn(pcall, function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer, game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(math.random(1, 100))[math.random(1, 100)])
-    end)    
-    wait(2)
-until game.JobId ~= currentJobId
-end
-
 task.spawn(function()
-    repeat wait() until game.CoreGui:FindFirstChild('RobloxPromptGui')
-    local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
-
-    po.ChildAdded:connect(function(a)
-            repeat
-                HopServer()
-                wait(30)
-            until false
-    end)
+  repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
+  game:GetService("NetworkClient").ChildRemoved:Connect(function()
+  game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  end)
 end)
 
 local vu = game:service'VirtualUser'
@@ -296,7 +281,7 @@ DestroyButton.BackgroundTransparency = 1.000
 DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
 DestroyButton.Size = UDim2.new(0, 27, 0, 15)
 DestroyButton.Font = Enum.Font.SourceSans
-DestroyButton.Text = "O"
+DestroyButton.Text = "[]"
 DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DestroyButton.TextSize = 14.000
 
@@ -312,7 +297,7 @@ uselesslabelone.BackgroundTransparency = 1.000
 uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
 uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
 uselesslabelone.Font = Enum.Font.SourceSans
-uselesslabelone.Text = game.Players.LocalPlayer.Name
+uselesslabelone.Text = "Ayna Shiratori"
 uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
 uselesslabelone.TextSize = 14.000
 
@@ -320,10 +305,10 @@ timerlabel.Name = "timerlabel"
 timerlabel.Parent = madebybloodofbatus
 timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 timerlabel.BackgroundTransparency = 1.000
-timerlabel.Position = UDim2.new(0.63, 0, 0.68194294, 0)
+timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
 timerlabel.Size = UDim2.new(0, 60, 0, 24)
 timerlabel.Font = Enum.Font.SourceSans
-timerlabel.Text = ""
+timerlabel.Text = "0:0:0"
 timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 timerlabel.TextSize = 14.000
 
@@ -334,7 +319,7 @@ uselesslabeltwo.BackgroundTransparency = 1.000
 uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
 uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
 uselesslabeltwo.Font = Enum.Font.SourceSans
-uselesslabeltwo.Text = ""
+uselesslabeltwo.Text = "Bounty: "
 uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
 uselesslabeltwo.TextSize = 14.000
 
@@ -342,9 +327,32 @@ fpslabel.Name = "fpslabel"
 fpslabel.Parent = madebybloodofbatus
 fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 fpslabel.BackgroundTransparency = 1.000
-fpslabel.Position = UDim2.new(0.54, 0, 0.358796299, 0)
+fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
 fpslabel.Size = UDim2.new(0, 55, 0, 24)
 fpslabel.Font = Enum.Font.SourceSans
+fpslabel.Text = "Loading..."
+fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+fpslabel.TextSize = 14.000
+
+uselesslabelthree.Name = "uselesslabelthree"
+uselesslabelthree.Parent = madebybloodofbatus
+uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+uselesslabelthree.BackgroundTransparency = 1.000
+uselesslabelthree.Position = UDim2.new(0.506917477, 0, 0.352585167, 0)
+uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
+uselesslabelthree.Font = Enum.Font.SourceSans
+uselesslabelthree.Text = "Fps: "
+uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
+uselesslabelthree.TextSize = 14.000
+
+pinglabel.Name = "pinglabel"
+pinglabel.Parent = madebybloodofbatus
+pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+pinglabel.BackgroundTransparency = 1.000
+pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
+pinglabel.Size = UDim2.new(0, 55, 0, 24)
+pinglabel.Font = Enum.Font.SourceSans
+pinglabel.Text = ""
 
 function comma_value(amount)
 	local formatted = amount
@@ -359,32 +367,10 @@ end
 
 task.spawn(function()
   while task.wait(1) do
-    fpslabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+    pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
   end
 end)
 
-fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-fpslabel.TextSize = 14.000
-
-uselesslabelthree.Name = "uselesslabelthree"
-uselesslabelthree.Parent = madebybloodofbatus
-uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-uselesslabelthree.BackgroundTransparency = 1.000
-uselesslabelthree.Position = UDim2.new(0.506917477, 0, 0.352585167, 0)
-uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
-uselesslabelthree.Font = Enum.Font.SourceSans
-uselesslabelthree.Text = ""
-uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
-uselesslabelthree.TextSize = 14.000
-
-pinglabel.Name = "pinglabel"
-pinglabel.Parent = madebybloodofbatus
-pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-pinglabel.BackgroundTransparency = 1.000
-pinglabel.Position = UDim2.new(0.1, 0, 0.371578127, 0)
-pinglabel.Size = UDim2.new(0, 55, 0, 24)
-pinglabel.Font = Enum.Font.SourceSans
-pinglabel.Text = "0"
 pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 pinglabel.TextSize = 14.000
 pinglabel.TextWrapped = true
@@ -406,30 +392,9 @@ uselesslabelfour.BackgroundTransparency = 1.000
 uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
 uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
 uselesslabelfour.Font = Enum.Font.SourceSans
-uselesslabelfour.Text = ""
+uselesslabelfour.Text = game.Players.LocalPlayer.Name
 uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
 uselesslabelfour.TextSize = 14.000
-
-local FPSsLabel = pinglabel
-local RunService = game:GetService("RunService")
-local RenderStepped = RunService.RenderStepped
-local sec = nil
-local FPS = {}
-
-local function fre()
-	local fr = tick()
-	for index = #FPS,1,-1 do
-		FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
-	end
-	FPS[1] = fr
-	local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
-	fps = math.floor(fps)
-	pinglabel.Text = fps
-end
-
-
-sec = tick()
-RenderStepped:Connect(fre)
 
 local Drag = game.CoreGui.thisoneissocoldww.madebybloodofbatus
 gsCoreGui = game:GetService("CoreGui")
@@ -505,5 +470,45 @@ task.spawn(function()
         end
     end
 end)
+
+local FPSsLabel = fpslabel
+local RunService = game:GetService("RunService")
+local RenderStepped = RunService.RenderStepped
+local sec = nil
+local FPS = {}
+
+local function fre()
+	local fr = tick()
+	for index = #FPS,1,-1 do
+		FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+	end
+	FPS[1] = fr
+	local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+	fps = math.floor(fps)
+	fpslabel.Text = fps
+end
+
+sec = tick()
+RenderStepped:Connect(fre)
+
+local saniye = 0
+local dakika = 0
+local saat = 0
+getgenv().zamanbaslaticisi = true
+while true do
+		if getgenv().zamanbaslaticisi then
+			saniye = saniye + 1
+			wait(1)
+		end --if zaman baslaticisi end
+		if saniye >= 60 then
+			saniye = 0
+			dakika = dakika + 1
+		end --if saniye 60 end
+		if dakika >= 60 then
+			dakika = 0
+			saat = saat + 1
+		end --if dakika 60 end
+		timerlabel.Text = saat..":"..dakika..":"..saniye
+	end
 
 print("Executed")
