@@ -20,14 +20,14 @@ getgenv().Setting = {
     },
     ["SafeZone"] = {
         ["Enable"] = true,
-        ["LowHealth"] = 6500,
-        ["MaxHealth"] = 7000,
+        ["LowHealth"] = 5000,
+        ["MaxHealth"] = 6000,
         ["Teleport Y"] = 2000
     },
     ["Race V4"] = {
         ["Enable"] = false,
     },
-    ["Invisible"] = false,
+    ["Invisible"] = true,
     ["White Screen"] = false,
     ["GunMethod"] = false,
     ["SpamSkill"] = false,
@@ -38,16 +38,16 @@ getgenv().Setting = {
             ["Skills"] = {
                 ["Z"] = {
                     ["Enable"] = true,
-                    ["HoldTime"] = 0.11,
+                    ["HoldTime"] = 0.1,
                 },
                [ "X"] = {
                     ["Enable"] = true,
-                    ["HoldTime"] = 0.14,
+                    ["HoldTime"] = 0.2,
                 },
 
                 ["C"] = {
                     ["Enable"] = true,
-                    ["HoldTime"] = 2,
+                    ["HoldTime"] = 1,
                 },
             },
         },
