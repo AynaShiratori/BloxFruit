@@ -20,8 +20,8 @@ getgenv().Setting = {
     },
     ["SafeZone"] = {
         ["Enable"] = true,
-        ["LowHealth"] = 4500,
-        ["MaxHealth"] = 5000,
+        ["LowHealth"] = 5500,
+        ["MaxHealth"] = 6500,
         ["Teleport Y"] = 2000
     },
     ["Race V4"] = {
