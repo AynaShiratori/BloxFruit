@@ -470,8 +470,6 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
-repeat task.wait(1) until game.Workspace.Characters:FindFirstChild(game.Players.LocalPlayer.Name)
-
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
@@ -483,24 +481,7 @@ task.spawn(function()
 end)
 
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.ShopButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.MenuButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.InventoryButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.StatsButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Settings:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Mute:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.HomeButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.CrewButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.AlliesButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Code:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Compass:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Shop:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Stats:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Crew:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Allies:Destroy()
 game:GetService("ReplicatedStorage").Effect.Container:Destroy()
 game:GetService("ReplicatedStorage").FX:Destroy()
 game:GetService("ReplicatedStorage").Assets:Destroy()
