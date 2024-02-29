@@ -1,4 +1,5 @@
-FrameRateBoost = true
+task.wait(5)
+FrameRateBoost = false
 
 getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
