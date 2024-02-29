@@ -251,83 +251,8 @@ UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
-game.Players.LocalPlayer.PlayerGui.Main.ContextActionGui:Destroy()
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
-game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.ShopButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.MenuButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.InventoryButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.StatsButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Settings:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Mute:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.HomeButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.CrewButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.AlliesButton:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Code:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Compass:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Shop:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Stats:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Crew:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Allies:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Stars:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Enchants:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.CelebrationShop:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Confirm:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Level:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Fragments:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Beli:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Craft:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Enegry:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.FruitInventory:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Colors:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.AwakeningToggler:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.RaceEnegry:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Gateway:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.FruitShop:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Fire:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Trade:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Skills:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Quest:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.Titles:Destroy()
-game.Players.LocalPlayer.PlayerGui.MobileMouseLock:Destroy()
-game:GetService("ReplicatedStorage").Effect.Container:Destroy()
-game:GetService("ReplicatedStorage").FX:Destroy()
-game:GetService("ReplicatedStorage").Assets:Destroy()
-
-task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-         game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
-            break
-        end
-    end
-end)
-
-local AFKDelayCheck = 300
-task.spawn(function()
-    local PlayerAbcdf = game.Players.LocalPlayer
-    local currentBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
-    print("Current Bounty:", currentBountyAbcdf)
-    while true do
-        wait(AFKDelayCheck)
-        print("Checking Bounty")
-        if PlayerAbcdf then
-            local newBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
-            if (newBountyAbcdf == currentBountyAbcdf and currentBountyAbcdf > 1) then
-                print("Bounty Is Stucked, Server Hopping...")
-                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Server Hopping...")
-            else
-                currentBountyAbcdf = newBountyAbcdf
-            end
-        end
-    end
-end)
 
 if getgenv().AntiAfkExecuted and thisoneissocoldww then 
     getgenv().AntiAfkExecuted = false
@@ -522,4 +447,81 @@ UserInputService.InputChanged:Connect(function(input)
 	if input == dragInput and dragging and Drag.Size then
 		update(input)
 	end
+end)
+
+repeat task.wait(1) until game.Workspace.Characters:FindFirstChild(game.Players.LocalPlayer.Name
+
+game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.ContextActionGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.ShopButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.MenuButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.InventoryButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.StatsButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Settings:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Mute:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.HomeButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.CrewButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.AlliesButton:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Code:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Compass:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Shop:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Stats:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Crew:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Allies:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Stars:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Enchants:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.CelebrationShop:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Confirm:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Level:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Fragments:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Beli:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Craft:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Enegry:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.FruitInventory:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Colors:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.AwakeningToggler:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.RaceEnegry:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Gateway:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.FruitShop:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Fire:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Trade:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Skills:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Quest:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.Titles:Destroy()
+game.Players.LocalPlayer.PlayerGui.MobileMouseLock:Destroy()
+game:GetService("ReplicatedStorage").Effect.Container:Destroy()
+game:GetService("ReplicatedStorage").FX:Destroy()
+game:GetService("ReplicatedStorage").Assets:Destroy()
+
+task.spawn(function()
+    while task.wait(1) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+            break
+        end
+    end
+end)
+
+local AFKDelayCheck = 300
+task.spawn(function()
+    local PlayerAbcdf = game.Players.LocalPlayer
+    local currentBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
+    print("Current Bounty:", currentBountyAbcdf)
+    while true do
+        wait(AFKDelayCheck)
+        print("Checking Bounty")
+        if PlayerAbcdf then
+            local newBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
+            if (newBountyAbcdf == currentBountyAbcdf and currentBountyAbcdf > 1) then
+                print("Bounty Is Stucked, Server Hopping...")
+                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Server Hopping...")
+            else
+                currentBountyAbcdf = newBountyAbcdf
+            end
+        end
+    end
 end)
