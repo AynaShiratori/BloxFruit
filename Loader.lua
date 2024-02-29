@@ -328,8 +328,6 @@ task.spawn(function()
     end
 end)
 
-repeat task.wait(1) until game.Workspace.Characters:FindFirstChild(game.Players.LocalPlayer.Name)
-
 if getgenv().AntiAfkExecuted and thisoneissocoldww then 
     getgenv().AntiAfkExecuted = false
 	getgenv().zamanbaslaticisi = false
