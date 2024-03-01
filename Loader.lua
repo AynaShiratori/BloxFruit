@@ -162,28 +162,48 @@ end
 
 task.spawn(function()
     if FrameRateBoost then
+        task.wait(0.1)
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
+        task.wait(0.1)
         game:GetService("Lighting"):ClearAllChildren()
+        task.wait(0.1)
         TextureLow()
+        task.wait(0.1)
         WaterRemove()
+        task.wait(0.1)
         ObjectRemove()
+        task.wait(0.1)
         InvisibleObject()
     end
 end)
 
+task.wait(0.1)
 settings().Rendering.QualityLevel = "1"
+task.wait(0.1)
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
+task.wait(0.1)
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
+task.wait(0.1)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+task.wait(0.1)
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
+task.wait(0.1)
 game:GetService("ReplicatedStorage").Effect.Container:Remove()
+task.wait(0.1)
 game:GetService("ReplicatedStorage").ClientWeapons:Remove()
+task.wait(0.1)
 game:GetService("ReplicatedStorage").FX:Remove()
+task.wait(0.1)
 game:GetService("ReplicatedStorage").Assets:Remove()
 
 task.spawn(function()
@@ -196,8 +216,11 @@ end)
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+            break
         end
     end
 end)
@@ -205,16 +228,22 @@ end)
 task.spawn(function()
     while task.wait(1) do
         if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
+            task.wait(0.1)
             game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
+            task.wait(0.1)
             game:GetService("CoreGui").SGStats:Destroy()
+            break
         end
     end
 end)
 
-if getgenv().AntiAfkExecuted and thisoneissocoldww then 
-    getgenv().AntiAfkExecuted = false
-	getgenv().zamanbaslaticisi = false
+if getgenv().AntiAfkExecuted and thisoneissocoldww then
+	task.wait(0.1)
 	game.CoreGui.thisoneissocoldww:Destroy()
+	task.wait(0.1)
+	getgenv().AntiAfkExecuted = false
+	task.wait(0.1)
+	getgenv().zamanbaslaticisi = false
 end
 
 getgenv().AntiAfkExecuted = true
@@ -480,24 +509,42 @@ repeat
     end
     wait(1)
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
-task.wait(5)
+task.wait(3)
 
 game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
