@@ -536,7 +536,7 @@ game:GetService("CoreGui").SGStats.ClientStats.Visible = false
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
 task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
 task.wait(0.1)
