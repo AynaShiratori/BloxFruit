@@ -177,6 +177,14 @@ game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 
+task.spawn(function()
+  task.wait(60)
+  game:GetService("ReplicatedStorage").Effect.Container:Destroy()
+  game:GetService("ReplicatedStorage").FX:Destroy()
+  game:GetService("ReplicatedStorage").Assets:Destroy()
+  game:GetService("ReplicatedStorage").ClientWeapons:Destroy()
+end)
+
 if getgenv().AntiAfkExecuted and thisoneissocoldww then 
     getgenv().AntiAfkExecuted = false
 	getgenv().zamanbaslaticisi = false
@@ -380,6 +388,8 @@ task.spawn(function()
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+           game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+           game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
             break
         end
     end
@@ -444,13 +454,5 @@ while true do
 		end --if dakika 60 end
 		timerlabel.Text = saat..":"..dakika..":"..saniye
 	end
-
-game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-task.wait(60)
-game:GetService("ReplicatedStorage").Effect.Container:Destroy()
-game:GetService("ReplicatedStorage").FX:Destroy()
-game:GetService("ReplicatedStorage").Assets:Destroy()
-game:GetService("ReplicatedStorage").ClientWeapons:Destroy()
 
 print("Executed")
