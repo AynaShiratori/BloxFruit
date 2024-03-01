@@ -532,9 +532,9 @@ repeat
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
 
 task.wait(1)
-game.Players.LocalPlayer.PlayerGui.ScreenGui.Eanbled = false
+game:GetService("CoreGui").SGStats.ClientStats.Visible = false
 task.wait(0.1)
-game:GetService("CoreGui").SGStats.Enabled = false
+game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
 task.wait(0.1)
