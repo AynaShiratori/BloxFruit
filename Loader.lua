@@ -450,7 +450,7 @@ task.spawn(function()
 	end
 end)
 
-task.wait(6)
+task.wait(10)
 getgenv().Team = "Pirates"
 local function SelectTeam()
     local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
