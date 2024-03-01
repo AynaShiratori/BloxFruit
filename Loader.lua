@@ -39,6 +39,9 @@ getgenv().TweenSpeed = 350
             },
         }
     }
+task.spawn(function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
+end)
 
 task.spawn(function()
   repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
@@ -150,10 +153,6 @@ function InvisibleObject()
 end
 
 task.spawn(function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
-end)
-
-task.spawn(function()
     if FrameRateBoost then
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
         task.wait(2)
@@ -176,13 +175,14 @@ game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
+game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
 
 task.spawn(function()
   task.wait(60)
-  game:GetService("ReplicatedStorage").Effect.Container:Destroy()
-  game:GetService("ReplicatedStorage").FX:Destroy()
-  game:GetService("ReplicatedStorage").Assets:Destroy()
-  game:GetService("ReplicatedStorage").ClientWeapons:Destroy()
+    game:GetService("ReplicatedStorage").Effect.Container:Destroy()
+    game:GetService("ReplicatedStorage").FX:Destroy()
+    game:GetService("ReplicatedStorage").Assets:Destroy()
 end)
 
 if getgenv().AntiAfkExecuted and thisoneissocoldww then 
@@ -388,8 +388,6 @@ task.spawn(function()
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-           game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-           game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
             break
         end
     end
@@ -454,5 +452,3 @@ while true do
 		end --if dakika 60 end
 		timerlabel.Text = saat..":"..dakika..":"..saniye
 	end
-
-print("Executed")
