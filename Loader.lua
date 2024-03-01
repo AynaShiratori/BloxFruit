@@ -441,7 +441,7 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
-local AFKDelayCheck = 300
+local AFKDelayCheck = 600
 task.spawn(function()
     local PlayerAbcdf = game.Players.LocalPlayer
     local currentBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
