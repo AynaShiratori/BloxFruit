@@ -152,6 +152,14 @@ function InvisibleObject()
     end
 end
 
+function UnInvisibleObject()
+    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) and v.Transparency then
+            v.Transparency = 0
+        end
+    end
+end
+
 task.spawn(function()
     if FrameRateBoost then
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
@@ -171,12 +179,39 @@ game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-
 game:GetService("ReplicatedStorage").Effect.Container:Remove()
 game:GetService("ReplicatedStorage").ClientWeapons:Remove()
 game:GetService("ReplicatedStorage").FX:Remove()
 game:GetService("ReplicatedStorage").Assets:Remove()
+
+task.spawn(function()
+	while task.wait(1) do
+		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
+		game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
+	end
+end)
+
+task.spawn(function()
+    while task.wait(1) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+            break
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait(1) do
+        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
+            game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
+            game:GetService("CoreGui").SGStats:Destroy()
+            break
+        end
+    end
+end)
 
 if getgenv().AntiAfkExecuted and thisoneissocoldww then 
     getgenv().AntiAfkExecuted = false
@@ -227,8 +262,10 @@ DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DestroyButton.TextSize = 14.000
 
 DestroyButton.MouseButton1Click:connect(function()	
-	wait(0.1)
 	game:GetService("RunService"):Set3dRenderingEnabled(true)
+	UnInvisibleObject()
+	getgenv().AntiAfkExecuted = false
+	thisoneissocoldww:Destroy()
 end)
 
 uselesslabelone.Name = "uselesslabelone"
@@ -376,16 +413,6 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
-task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            break
-        end
-    end
-end)
-
 local AFKDelayCheck = 300
 task.spawn(function()
     local PlayerAbcdf = game.Players.LocalPlayer
@@ -448,35 +475,30 @@ task.spawn(function()
 	end
 end)
 
-task.wait(10)
-getgenv().Team = "Pirates"
-local function SelectTeam()
-    local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
-    local UIController = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("UIController", true)
-
-    if UIController and ChooseTeam then
-        for i, v in pairs(getgc()) do
-            if type(v) == "function" and getfenv(v).script == UIController then
-                local constant = getconstants(v)
-                if constant[1] == getgenv().Team and #constant == 1 then
-                    v(getgenv().Team)
-                end
-            end
-        end
-    end
-end
-
 repeat
     task.wait()
     if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
         break
     end
-
-    local success, errorMessage = pcall(SelectTeam)
-    if not success then
-        warn("Error in SelectTeam function: " .. errorMessage)
-    end
-
     wait(1)
-until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
 
+game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
+game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
