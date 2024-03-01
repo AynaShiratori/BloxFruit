@@ -532,10 +532,6 @@ repeat
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
 
 task.wait(1)
-game:GetService("CoreGui").SGStats.ClientStats.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
-task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
@@ -573,3 +569,8 @@ task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
+task.wait(0.1)
+game:GetService("CoreGui").SGStats.ClientStats.Visible = false
+task.wait(0.1)
+game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
+task.wait(0.1)
