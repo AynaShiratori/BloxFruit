@@ -220,7 +220,6 @@ task.spawn(function()
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            break
         end
     end
 end)
