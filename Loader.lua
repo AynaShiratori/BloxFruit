@@ -70,6 +70,22 @@ repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 
+local LocalPlayerAsd = game.Players.LocalPlayer
+if LocalPlayerAsd then
+    if not isfile(".flux_settings") then
+        writefile(".flux_settings")
+    end
+
+    if not isfile(".fluxus_auth_store") then
+        writefile(".fluxus_auth_store")
+    end
+
+    local FluxusSettingsData = '{"SaveTabs":true,"ConsoleOutput":false,"CenterMinimize":false,"FPSUnlocker":false,"ConsoleError":false,"NoAnims":true,"SaveSettings":true,"ConsoleWarning":false,"FastAnims":false}'
+    writefile(".flux_settings", FluxusSettingsData)
+else
+    game.Players.LocalPlayer:Kick("Failed To Auto Load Fluxus Settings")
+end
+
 function TextureLow()
     if not game:IsLoaded() then repeat wait() until game:IsLoaded() end
     if hookfunction and setreadonly then
@@ -287,9 +303,11 @@ DestroyButton.TextSize = 14.000
 
 DestroyButton.MouseButton1Click:connect(function()	
 	game:GetService("RunService"):Set3dRenderingEnabled(true)
-	UnInvisibleObject()
-	getgenv().AntiAfkExecuted = false
-	thisoneissocoldww:Destroy()
+	for i = 1,2 do
+		UnInvisibleObject()
+		getgenv().AntiAfkExecuted = false
+		thisoneissocoldww:Destroy()
+	end
 end)
 
 uselesslabelone.Name = "uselesslabelone"
@@ -516,7 +534,7 @@ local function SelectTeam()
     end
 end
 
-task.wait(15)
+task.wait(13)
 repeat
     task.wait()
     if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
@@ -531,7 +549,14 @@ repeat
     wait(1)
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
 
-task.wait(1)
+task.wait(0.1)
+task.spawn(function()
+	game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
+end)
+task.wait(0.1)
+task.spawn(function()
+	game:GetService("CoreGui").SGStats.ClientStats.Visible = false
+end)
 game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
@@ -569,8 +594,3 @@ task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
-task.wait(0.1)
-game:GetService("CoreGui").SGStats.ClientStats.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
-task.wait(0.1)
