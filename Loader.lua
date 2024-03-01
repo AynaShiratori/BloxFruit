@@ -432,7 +432,8 @@ local saniye = 0
 local dakika = 0
 local saat = 0
 getgenv().zamanbaslaticisi = true
-while true do
+task.spawn(function()
+	while true do
 		if getgenv().zamanbaslaticisi then
 			saniye = saniye + 1
 			wait(1)
@@ -447,3 +448,36 @@ while true do
 		end --if dakika 60 end
 		timerlabel.Text = saat..":"..dakika..":"..saniye
 	end
+end)
+
+task.wait(3)
+getgenv().Team = "Pirates"
+local function SelectTeam()
+    local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
+    local UIController = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("UIController", true)
+
+    if UIController and ChooseTeam then
+        for i, v in pairs(getgc()) do
+            if type(v) == "function" and getfenv(v).script == UIController then
+                local constant = getconstants(v)
+                if constant[1] == getgenv().Team and #constant == 1 then
+                    v(getgenv().Team)
+                end
+            end
+        end
+    end
+end
+
+repeat
+    task.wait()
+    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        break
+    end
+
+    local success, errorMessage = pcall(SelectTeam)
+    if not success then
+        warn("Error in SelectTeam function: " .. errorMessage)
+    end
+
+    wait(1)
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
