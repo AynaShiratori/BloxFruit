@@ -155,15 +155,10 @@ end
 task.spawn(function()
     if FrameRateBoost then
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
-        task.wait(2)
         game:GetService("Lighting"):ClearAllChildren()
-        task.wait(2)
         TextureLow()
-        task.wait(2)
         WaterRemove()
-        task.wait(2)
         ObjectRemove()
-        task.wait(2)
         InvisibleObject()
     end
 end)
