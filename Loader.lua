@@ -43,6 +43,7 @@ task.spawn(function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
 end)
 
+task.wait(0.1)
 task.spawn(function()
   repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
   game:GetService("NetworkClient").ChildRemoved:Connect(function()
@@ -50,16 +51,19 @@ task.spawn(function()
   end)
 end)
 
+task.wait(0.1)
 local vu = game:service'VirtualUser'
 game:service'Players'.LocalPlayer.Idled:connect(function()
     vu:CaptureController()
     vu:ClickButton2(Vector2.new())
 end)
 
+task.wait(0.1)
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
 end
 
+task.wait(0.1)
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
@@ -206,6 +210,7 @@ game:GetService("ReplicatedStorage").FX:Remove()
 task.wait(0.1)
 game:GetService("ReplicatedStorage").Assets:Remove()
 
+task.wait(0.1)
 task.spawn(function()
 	while task.wait(1) do
 		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
@@ -213,6 +218,7 @@ task.spawn(function()
 	end
 end)
 
+task.wait(0.1)
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
@@ -220,22 +226,13 @@ task.spawn(function()
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-        end
-    end
-end)
-
-task.spawn(function()
-    while task.wait(1) do
-        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
-            task.wait(0.1)
             game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
-            task.wait(0.1)
             game:GetService("CoreGui").SGStats:Destroy()
-            break
         end
     end
 end)
 
+task.wait(0.1)
 if getgenv().AntiAfkExecuted and thisoneissocoldww then
 	task.wait(0.1)
 	game.CoreGui.thisoneissocoldww:Destroy()
@@ -441,6 +438,7 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
+task.wait(0.1)
 local AFKDelayCheck = 600
 task.spawn(function()
     local PlayerAbcdf = game.Players.LocalPlayer
