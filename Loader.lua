@@ -173,12 +173,10 @@ game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
 
-task.spawn(function()
-  task.wait(60)
-    game:GetService("ReplicatedStorage").Effect.Container:Destroy()
-    game:GetService("ReplicatedStorage").FX:Destroy()
-    game:GetService("ReplicatedStorage").Assets:Destroy()
-end)
+game:GetService("ReplicatedStorage").Effect.Container:Remove()
+game:GetService("ReplicatedStorage").ClientWeapons:Remove()
+game:GetService("ReplicatedStorage").FX:Remove()
+game:GetService("ReplicatedStorage").Assets:Remove()
 
 if getgenv().AntiAfkExecuted and thisoneissocoldww then 
     getgenv().AntiAfkExecuted = false
@@ -481,3 +479,4 @@ repeat
 
     wait(1)
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+
