@@ -502,15 +502,38 @@ task.spawn(function()
 	end
 end)
 
+local function SelectTeam()
+    local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
+    local UIController = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("UIController", true)
+
+    if UIController and ChooseTeam then
+        for i, v in pairs(getgc()) do
+            if type(v) == "function" and getfenv(v).script == UIController then
+                local constant = getconstants(v)
+                if constant[1] == getgenv().Team and #constant == 1 then
+                    v(getgenv().Team)
+                end
+            end
+        end
+    end
+end
+
+task.wait(15)
 repeat
     task.wait()
     if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
         break
     end
+
+    local success, errorMessage = pcall(SelectTeam)
+    if not success then
+        warn("Error in SelectTeam function: " .. errorMessage)
+    end
+
     wait(1)
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
-task.wait(3)
 
+task.wait(1)
 game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
