@@ -198,7 +198,6 @@ task.spawn(function()
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            break
         end
     end
 end)
@@ -208,7 +207,6 @@ task.spawn(function()
         if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") then
             game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
             game:GetService("CoreGui").SGStats:Destroy()
-            break
         end
     end
 end)
@@ -482,6 +480,7 @@ repeat
     end
     wait(1)
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
+task.wait(5)
 
 game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
