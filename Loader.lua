@@ -244,6 +244,8 @@ if getgenv().AntiAfkExecuted and thisoneissocoldww then
 	getgenv().AntiAfkExecuted = false
 	task.wait(0.1)
 	getgenv().zamanbaslaticisi = false
+	task.wait(0.1)
+	UnInvisibleObject()
 end
 
 getgenv().AntiAfkExecuted = true
