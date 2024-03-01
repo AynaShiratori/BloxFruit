@@ -153,10 +153,7 @@ task.spawn(function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
 end)
 
-
-
 if FrameRateBoost then
-    task.wait(5)
     game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
     game:GetService("Lighting"):ClearAllChildren()
     TextureLow()
@@ -194,6 +191,8 @@ local pinglabel = Instance.new("TextLabel")
 local uselessframeone = Instance.new("Frame")
 local UICornerww = Instance.new("UICorner")
 local uselesslabelfour = Instance.new("TextLabel")
+
+thisoneissocoldww.IgnoreGuiInset = true
 
 thisoneissocoldww.Name = "thisoneissocoldww"
 thisoneissocoldww.Parent = game.CoreGui
