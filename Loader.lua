@@ -226,8 +226,7 @@ task.spawn(function()
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
-            game:GetService("CoreGui").SGStats:Destroy()
+            break
         end
     end
 end)
@@ -533,6 +532,10 @@ repeat
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
 
 task.wait(1)
+game.Players.LocalPlayer.PlayerGui.ScreenGui.Eanbled = false
+task.wait(0.1)
+game:GetService("CoreGui").SGStats.Enabled = false
+task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
 task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
