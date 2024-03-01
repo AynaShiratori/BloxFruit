@@ -153,14 +153,21 @@ task.spawn(function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
 end)
 
-if FrameRateBoost then
-    game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
-    game:GetService("Lighting"):ClearAllChildren()
-    TextureLow()
-    WaterRemove()
-    ObjectRemove()
-    InvisibleObject()
-end
+task.spawn(function()
+    if FrameRateBoost then
+        game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
+        task.wait(2)
+        game:GetService("Lighting"):ClearAllChildren()
+        task.wait(2)
+        TextureLow()
+        task.wait(2)
+        WaterRemove()
+        task.wait(2)
+        ObjectRemove()
+        task.wait(2)
+        InvisibleObject()
+    end
+end)
 
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
@@ -378,12 +385,6 @@ task.spawn(function()
     end
 end)
 
-game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-game:GetService("ReplicatedStorage").Effect.Container:Destroy()
-game:GetService("ReplicatedStorage").FX:Destroy()
-game:GetService("ReplicatedStorage").Assets:Destroy()
-
 local AFKDelayCheck = 300
 task.spawn(function()
     local PlayerAbcdf = game.Players.LocalPlayer
@@ -443,5 +444,13 @@ while true do
 		end --if dakika 60 end
 		timerlabel.Text = saat..":"..dakika..":"..saniye
 	end
+
+game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
+task.wait(60)
+game:GetService("ReplicatedStorage").Effect.Container:Destroy()
+game:GetService("ReplicatedStorage").FX:Destroy()
+game:GetService("ReplicatedStorage").Assets:Destroy()
+game:GetService("ReplicatedStorage").ClientWeapons:Destroy()
 
 print("Executed")
