@@ -1,18 +1,11 @@
-task.wait(5)
 FrameRateBoost = true
-task.spawn(function()
-  while task.wait(0.2) do
-    game:GetService'VirtualUser':CaptureController()
-    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-  end
-end)
 
 getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
 getgenv().SpamSkillOnRaceV4 = false
 getgenv().Invisible = true
-getgenv().InCombatNoReset = true
+getgenv().InCombatNoReset = false
 getgenv().Team = "Pirates"
 getgenv().TweenSpeed = 350
  getgenv().Setting = {
@@ -156,7 +149,14 @@ function InvisibleObject()
     end
 end
 
+task.spawn(function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
+end)
+
+
+
 if FrameRateBoost then
+    task.wait(5)
     game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
     game:GetService("Lighting"):ClearAllChildren()
     TextureLow()
@@ -164,10 +164,6 @@ if FrameRateBoost then
     ObjectRemove()
     InvisibleObject()
 end
-
-task.spawn(function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
-end)
 
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
