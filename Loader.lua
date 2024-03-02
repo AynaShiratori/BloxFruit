@@ -303,10 +303,9 @@ DestroyButton.TextSize = 14.000
 
 DestroyButton.MouseButton1Click:connect(function()	
 	game:GetService("RunService"):Set3dRenderingEnabled(true)
-	for i = 1,2 do
-		UnInvisibleObject()
-		getgenv().AntiAfkExecuted = false
-		thisoneissocoldww:Destroy()
+	UnInvisibleObject()
+	getgenv().AntiAfkExecuted = false
+        thisoneissocoldww:Destroy()
 	end
 end)
 
