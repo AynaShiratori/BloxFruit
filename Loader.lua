@@ -1,5 +1,4 @@
-FrameRateBoost = true
-
+getgenv().FrameRateBoost = true
 getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
@@ -69,22 +68,6 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-
-local LocalPlayerAsd = game.Players.LocalPlayer
-if LocalPlayerAsd then
-    if not isfile(".flux_settings") then
-        writefile(".flux_settings")
-    end
-
-    if not isfile(".fluxus_auth_store") then
-        writefile(".fluxus_auth_store")
-    end
-
-    local FluxusSettingsData = '{"SaveTabs":true,"ConsoleOutput":false,"CenterMinimize":false,"FPSUnlocker":false,"ConsoleError":false,"NoAnims":true,"SaveSettings":true,"ConsoleWarning":false,"FastAnims":false}'
-    writefile(".flux_settings", FluxusSettingsData)
-else
-    game.Players.LocalPlayer:Kick("Failed To Auto Load Fluxus Settings")
-end
 
 function TextureLow()
     if not game:IsLoaded() then repeat wait() until game:IsLoaded() end
@@ -181,7 +164,7 @@ function UnInvisibleObject()
 end
 
 task.spawn(function()
-    if FrameRateBoost then
+    if getgenv().FrameRateBoost then
         task.wait(0.1)
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
         task.wait(0.1)
@@ -301,12 +284,12 @@ DestroyButton.Text = "[]"
 DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DestroyButton.TextSize = 14.000
 
-DestroyButton.MouseButton1Click:connect(function()	
-	game:GetService("RunService"):Set3dRenderingEnabled(true)
-	UnInvisibleObject()
-	getgenv().AntiAfkExecuted = false
-        thisoneissocoldww:Destroy()
-	end
+DestroyButton.MouseButton1Click:connect(function()
+    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) and v.Transparency then
+            v.Transparency = 0
+        end
+    end
 end)
 
 uselesslabelone.Name = "uselesslabelone"
@@ -549,9 +532,6 @@ repeat
 until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
 
 task.wait(0.1)
-task.spawn(function()
-	game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Visible = false
-end)
 task.wait(0.1)
 task.spawn(function()
 	game:GetService("CoreGui").SGStats.ClientStats.Visible = false
