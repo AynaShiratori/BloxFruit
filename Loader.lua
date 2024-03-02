@@ -136,16 +136,6 @@ task.spawn(function()
     end
 end)
 
-function EquipDragonTalon()
-	game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon"))
-end
-
-task.spawn(function()
-	while task.wait(0.03) do
-		EquipDragonTalon()
-	end
-end)
-
 local AFKDelayCheck = 600
 task.spawn(function()
     local PlayerAbcdf = game.Players.LocalPlayer
@@ -439,4 +429,14 @@ task.spawn(function()
 		end --if dakika 60 end
 		timerlabel.Text = saat..":"..dakika..":"..saniye
 	end
+end)
+
+function EquipDragonTalon()
+  game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon"))
+end
+
+task.spawn(function()
+  while task.wait(0.5) do
+    EquipDragonTalon()
+  end
 end)
