@@ -142,7 +142,9 @@ function EquipDragonTalon()
 	end
 end
 
-EquipDragonTalon()
+task.spawn(function()
+	EquipDragonTalon()
+end)
 task.spawn(function()
 	while task.wait(10) do
 		EquipDragonTalon()
@@ -249,7 +251,7 @@ DestroyButton.BackgroundTransparency = 1.000
 DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
 DestroyButton.Size = UDim2.new(0, 27, 0, 15)
 DestroyButton.Font = Enum.Font.SourceSans
-DestroyButton.Text = "[]"
+DestroyButton.Text = "X"
 DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DestroyButton.TextSize = 14.000
 
