@@ -1,14 +1,14 @@
-getgenv().FrameRateBoost = true
+getgenv().FrameRateBoost = false
 getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
 getgenv().SpamSkillOnRaceV4 = false
-getgenv().Invisible = true
+getgenv().Invisible = false
 getgenv().InCombatNoReset = false
 getgenv().Team = "Pirates"
-getgenv().TweenSpeed = 350
+getgenv().TweenSpeed = 340
  getgenv().Setting = {
-        ["Melee"] = {["Enable"] = true, ["Delay"] = 3,
+        ["Melee"] = {["Enable"] = true, ["Delay"] = 99,
           ["Skills"] = {
             ["Z"] = {["Enable"] = true,["HoldTime"] = 0.1, ["TimeToNextSkill"] = 0,},
             [ "X"] = {["Enable"] = true,["HoldTime"] = 0.2, ["TimeToNextSkill"] = 0,},
@@ -38,11 +38,8 @@ getgenv().TweenSpeed = 350
             },
         }
     }
-task.spawn(function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
-end)
 
-task.wait(0.1)
+game:GetService("RunService"):Set3dRenderingEnabled(false)
 task.spawn(function()
   repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
   game:GetService("NetworkClient").ChildRemoved:Connect(function()
@@ -50,86 +47,39 @@ task.spawn(function()
   end)
 end)
 
-task.wait(0.1)
 local vu = game:service'VirtualUser'
 game:service'Players'.LocalPlayer.Idled:connect(function()
     vu:CaptureController()
     vu:ClickButton2(Vector2.new())
 end)
 
-task.wait(0.1)
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
 end
 
-task.wait(0.1)
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 
-function TextureLow()
-    if not game:IsLoaded() then repeat wait() until game:IsLoaded() end
-    if hookfunction and setreadonly then
-        local mt = getrawmetatable(game)
-        local old = mt.__newindex
-        setreadonly(mt, false)
-        local sda
-        sda = hookfunction(old, function(t, k, v)
-            if k == "Material" then
-                if v ~= Enum.Material.Neon and v ~= Enum.Material.Plastic and v ~= Enum.Material.ForceField then v = Enum.Material.Plastic end
-            elseif k == "TopSurface" then v = "Smooth"
-            elseif k == "Reflectance" or k == "WaterWaveSize" or k == "WaterWaveSpeed" or k == "WaterReflectance" then v = 0
-            elseif k == "WaterTransparency" then v = 1
-            elseif k == "GlobalShadows" then v = false end
-            return sda(t, k, v)
-        end)
-        setreadonly(mt, true)
-    end
+task.spawn(function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
+end)
 
-    local g = game
-    local w = g.Workspace
-    local l = g:GetService"Lighting"
-    local t = w:WaitForChild"Terrain"
-    t.WaterWaveSize = 0
-    t.WaterWaveSpeed = 0
-    t.WaterReflectance = 0
-    t.WaterTransparency = 1
-    l.GlobalShadows = false
-
-    function change(v)
-        pcall(function()
-            if v.Material ~= Enum.Material.Neon and v.Material ~= Enum.Material.Plastic and v.Material ~= Enum.Material.ForceField then
-                pcall(function() v.Reflectance = 0 end)
-                pcall(function() v.Material = Enum.Material.Plastic end)
-                pcall(function() v.TopSurface = "Smooth" end)
-            end
-        end)
-    end
-
-    game.DescendantAdded:Connect(function(v)
-        pcall(function()
-            if v:IsA"Part" then change(v)
-            elseif v:IsA"MeshPart" then change(v)
-            elseif v:IsA"TrussPart" then change(v)
-            elseif v:IsA"UnionOperation" then change(v)
-            elseif v:IsA"CornerWedgePart" then change(v)
-            elseif v:IsA"WedgePart" then change(v) end
-        end)
-    end)
-
-    for i, v in pairs(game:GetDescendants()) do
-        pcall(function()
-            if v:IsA"Part" then change(v)
-            elseif v:IsA"MeshPart" then change(v)
-            elseif v:IsA"TrussPart" then change(v)
-            elseif v:IsA"UnionOperation" then change(v)
-            elseif v:IsA"CornerWedgePart" then change(v)
-            elseif v:IsA"WedgePart" then change(v) end
-        end)
-    end
-end
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+sethiddenproperty(l,"Technology",2)
+sethiddenproperty(t,"Decoration",false)
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = 0
+l.FogEnd = 9e9
+l.Brightness = 0
 
 function WaterRemove()
     for i,v in pairs(workspace:GetDescendants()) do
@@ -139,77 +89,37 @@ function WaterRemove()
     end
 end
 
-function ObjectRemove()
-    for i,v in pairs(workspace:GetDescendants()) do
-        if string.find(v.Name,"Tree") or string.find(v.Name,"House") then
-            v:Destroy()
-        end
-    end
-end
-
-function InvisibleObject()
-    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
-        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) and v.Transparency then
-            v.Transparency = 1
-        end
-    end
-end
-
-function UnInvisibleObject()
-    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
-        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) and v.Transparency then
-            v.Transparency = 0
-        end
-    end
-end
-
 task.spawn(function()
     if getgenv().FrameRateBoost then
-        task.wait(0.1)
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
-        task.wait(0.1)
         game:GetService("Lighting"):ClearAllChildren()
-        task.wait(0.1)
-        TextureLow()
-        task.wait(0.1)
         WaterRemove()
-        task.wait(0.1)
-        ObjectRemove()
-        task.wait(0.1)
-        InvisibleObject()
     end
 end)
 
-task.wait(0.1)
 settings().Rendering.QualityLevel = "1"
-task.wait(0.1)
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
-task.wait(0.1)
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
-task.wait(0.1)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-task.wait(0.1)
+local StopCameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
+StopCameraShake:Stop()
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
-task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
-task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
-task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
-task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
-task.wait(0.1)
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-task.wait(0.1)
 game:GetService("ReplicatedStorage").Effect.Container:Remove()
-task.wait(0.1)
 game:GetService("ReplicatedStorage").ClientWeapons:Remove()
-task.wait(0.1)
 game:GetService("ReplicatedStorage").FX:Remove()
-task.wait(0.1)
 game:GetService("ReplicatedStorage").Assets:Remove()
+game.Workspace.Enemies:Remove()
+game.Workspace.NPCs:Remove()
+game.Workspace.SeaBeasts:Remove()
+game.Workspace.SeaEvents:Remove()
+game.Workspace.Map:Remove()
+game.Workspace.Boats:Remove()
 
-task.wait(0.1)
 task.spawn(function()
 	while task.wait(1) do
 		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
@@ -217,30 +127,89 @@ task.spawn(function()
 	end
 end)
 
-task.wait(0.1)
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            task.wait(0.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-            task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
             break
         end
     end
 end)
 
-task.wait(0.1)
-if getgenv().AntiAfkExecuted and thisoneissocoldww then
-	task.wait(0.1)
-	game.CoreGui.thisoneissocoldww:Destroy()
-	task.wait(0.1)
-	getgenv().AntiAfkExecuted = false
-	task.wait(0.1)
-	getgenv().zamanbaslaticisi = false
-	task.wait(0.1)
-	UnInvisibleObject()
+function EquipDragonTalon()
+	while task.wait(0.1) do
+		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon"))
+	end
 end
+
+EquipDragonTalon()
+task.spawn(function()
+	while task.wait(10) do
+		EquipDragonTalon()
+	end
+end)
+
+local AFKDelayCheck = 600
+task.spawn(function()
+    local PlayerAbcdf = game.Players.LocalPlayer
+    local currentBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
+    print("Current Bounty:", currentBountyAbcdf)
+    while true do
+        wait(AFKDelayCheck)
+        print("Checking Bounty")
+        if PlayerAbcdf then
+            local newBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
+            if (newBountyAbcdf == currentBountyAbcdf and currentBountyAbcdf > 1) then
+                print("Bounty Is Stucked, Server Hopping...")
+                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Server Hopping...")
+            else
+                currentBountyAbcdf = newBountyAbcdf
+            end
+        end
+    end
+end)
+
+getgenv().asd = true
+spawn(function()
+    while task.wait(0.03) do
+        if getgenv().asd then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+            end)
+        end
+    end
+end)
+
+repeat
+    task.wait()
+    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        break
+    end
+    wait(1)
+until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+task.wait(1)
+task.spawn(function()
+	game:GetService("CoreGui").SGStats.ClientStats.Visible = false
+end)
+game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
+game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
 
 getgenv().AntiAfkExecuted = true
 
@@ -285,11 +254,7 @@ DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DestroyButton.TextSize = 14.000
 
 DestroyButton.MouseButton1Click:connect(function()
-    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
-        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) and v.Transparency then
-            v.Transparency = 0
-        end
-    end
+    game:GetService("RunService"):Set3dRenderingEnabled(true)
 end)
 
 uselesslabelone.Name = "uselesslabelone"
@@ -437,27 +402,6 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
-task.wait(0.1)
-local AFKDelayCheck = 600
-task.spawn(function()
-    local PlayerAbcdf = game.Players.LocalPlayer
-    local currentBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
-    print("Current Bounty:", currentBountyAbcdf)
-    while true do
-        wait(AFKDelayCheck)
-        print("Checking Bounty")
-        if PlayerAbcdf then
-            local newBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
-            if (newBountyAbcdf == currentBountyAbcdf and currentBountyAbcdf > 1) then
-                print("Bounty Is Stucked, Server Hopping...")
-                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Server Hopping...")
-            else
-                currentBountyAbcdf = newBountyAbcdf
-            end
-        end
-    end
-end)
-
 local FPSsLabel = fpslabel
 local RunService = game:GetService("RunService")
 local RenderStepped = RunService.RenderStepped
@@ -499,77 +443,3 @@ task.spawn(function()
 		timerlabel.Text = saat..":"..dakika..":"..saniye
 	end
 end)
-
-local function SelectTeam()
-    local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
-    local UIController = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("UIController", true)
-
-    if UIController and ChooseTeam then
-        for i, v in pairs(getgc()) do
-            if type(v) == "function" and getfenv(v).script == UIController then
-                local constant = getconstants(v)
-                if constant[1] == getgenv().Team and #constant == 1 then
-                    v(getgenv().Team)
-                end
-            end
-        end
-    end
-end
-
-task.wait(13)
-repeat
-    task.wait()
-    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-        break
-    end
-
-    local success, errorMessage = pcall(SelectTeam)
-    if not success then
-        warn("Error in SelectTeam function: " .. errorMessage)
-    end
-
-    wait(1)
-until game.Players.LocalPlayer.PlayerGui.ContextActionGui and game:IsLoaded()
-
-task.wait(0.1)
-task.wait(0.1)
-task.spawn(function()
-	game:GetService("CoreGui").SGStats.ClientStats.Visible = false
-end)
-game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Backpack.Enabled = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
-task.wait(0.1)
-game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
