@@ -64,19 +64,9 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
 end
 
-local function ServerHop()
-local currentJobId = game.JobId
-repeat
-    task.spawn(pcall, function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer, game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(math.random(1, 100))[math.random(1, 100)])
-    end)    
-    wait(2)
-until game.JobId ~= currentJobId
-end
-
 task.spawn(function()
   while task.wait(900) do
-    ServerHop()
+    game:GetService("TeleportService"):Teleport(game.PlaceId)
   end
 end)
 
@@ -84,19 +74,9 @@ task.spawn(function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
 end)
 
-local g = game
-local w = g.Workspace
-local l = g.Lighting
-local t = w.Terrain
-sethiddenproperty(l,"Technology",2)
-sethiddenproperty(t,"Decoration",false)
-t.WaterWaveSize = 0
-t.WaterWaveSpeed = 0
-t.WaterReflectance = 0
-t.WaterTransparency = 0
-l.GlobalShadows = 0
-l.FogEnd = 9e9
-l.Brightness = 0
+task.spawn(function()
+	game.Players.LocalPlayer.PlayerScripts.WaterCFrame:Remove()
+end)
 
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
@@ -122,7 +102,7 @@ game.Workspace.Map:Remove()
 game.Workspace.Boats:Remove()
 
 task.spawn(function()
-	while task.wait(0.2) do
+	while task.wait(0.5) do
 		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
 		game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
 	end
