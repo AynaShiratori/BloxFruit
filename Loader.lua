@@ -1,4 +1,5 @@
-getgenv().FrameRateBoost = false
+task.wait(3)
+getgenv().AutoClick = true
 getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
@@ -40,10 +41,16 @@ getgenv().TweenSpeed = 340
     }
 
 game:GetService("RunService"):Set3dRenderingEnabled(false)
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+
 task.spawn(function()
   repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
   game:GetService("NetworkClient").ChildRemoved:Connect(function()
-  game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  game:GetService("TeleportService"):Teleport(game.PlaceId)
   end)
 end)
 
@@ -57,11 +64,21 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
 end
 
-repeat task.wait() until game:IsLoaded()
-repeat task.wait() until game.Players
-repeat task.wait() until game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+local function ServerHop()
+local currentJobId = game.JobId
+repeat
+    task.spawn(pcall, function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer, game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(math.random(1, 100))[math.random(1, 100)])
+    end)    
+    wait(2)
+until game.JobId ~= currentJobId
+end
+
+task.spawn(function()
+  while task.wait(900) do
+    ServerHop()
+  end
+end)
 
 task.spawn(function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
@@ -80,22 +97,6 @@ t.WaterTransparency = 0
 l.GlobalShadows = 0
 l.FogEnd = 9e9
 l.Brightness = 0
-
-function WaterRemove()
-    for i,v in pairs(workspace:GetDescendants()) do
-        if string.find(v.Name,"Water") then
-            v:Destroy()
-        end
-    end
-end
-
-task.spawn(function()
-    if getgenv().FrameRateBoost then
-        game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
-        game:GetService("Lighting"):ClearAllChildren()
-        WaterRemove()
-    end
-end)
 
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
@@ -121,7 +122,7 @@ game.Workspace.Map:Remove()
 game.Workspace.Boats:Remove()
 
 task.spawn(function()
-	while task.wait(1) do
+	while task.wait(0.2) do
 		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
 		game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
 	end
@@ -130,36 +131,16 @@ end)
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            break
         end
     end
 end)
 
-local AFKDelayCheck = 600
-task.spawn(function()
-    local PlayerAbcdf = game.Players.LocalPlayer
-    local currentBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
-    print("Current Bounty:", currentBountyAbcdf)
-    while true do
-        wait(AFKDelayCheck)
-        print("Checking Bounty")
-        if PlayerAbcdf then
-            local newBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
-            if (newBountyAbcdf == currentBountyAbcdf and currentBountyAbcdf > 1) then
-                print("Bounty Is Stucked, Server Hopping...")
-                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Server Hopping...")
-            else
-                currentBountyAbcdf = newBountyAbcdf
-            end
-        end
-    end
-end)
-
-getgenv().asd = true
 spawn(function()
-    while task.wait(0.03) do
-        if getgenv().asd then
+    while task.wait(0.05) do
+        if getgenv().AutoClick then
              pcall(function()
                 game:GetService'VirtualUser':CaptureController()
 			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
