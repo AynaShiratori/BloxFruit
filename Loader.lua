@@ -96,7 +96,7 @@ end)
 
 -- Auto Click Attack For Faster Hunt
 task.spawn(function()
-    while task.wait(0.05) do
+    while task.wait(0.25) do
         if getgenv().AutoClick then
              pcall(function()
                 game:GetService'VirtualUser':CaptureController()	                    game:GetService'VirtualUser':Button1Down(Vector2.new(0.5, 0.5))
