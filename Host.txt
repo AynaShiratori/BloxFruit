@@ -1,2 +1,2 @@
-193.84.88.132 keysystem.fluxteam.net
-193.84.88.132 fluxteam.net
+171.254.83.47 keysystem.fluxteam.net
+171.254.83.47 fluxteam.net
