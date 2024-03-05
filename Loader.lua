@@ -1,5 +1,4 @@
 -- Please Dont Look At My Shits, Im Too Lazy To Obfuscate It :(
-task.wait(3)
 getgenv().FrameRateBoost = true
 getgenv().AutoClick = true
 getgenv().SpamSkill = false
@@ -9,7 +8,7 @@ getgenv().SpamSkillOnRaceV4 = false
 getgenv().Invisible = false
 getgenv().InCombatNoReset = false
 getgenv().Team = "Pirates"
-getgenv().TweenSpeed = 350
+getgenv().TweenSpeed = 340
  getgenv().Setting = {
         ["Melee"] = {["Enable"] = true, ["Delay"] = 99,
           ["Skills"] = {
@@ -42,14 +41,15 @@ getgenv().TweenSpeed = 350
         }
     }
 
-game:GetService("RunService"):Set3dRenderingEnabled(false)
-
 -- Wait Until Game Is Loaded
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+task.wait(3)
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+
 
 -- Auto-Bounty
 task.spawn(function()
@@ -99,8 +99,8 @@ task.spawn(function()
     while task.wait(0.05) do
         if getgenv().AutoClick then
              pcall(function()
-                game:GetService'VirtualUser':CaptureController()
-			    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                game:GetService'VirtualUser':CaptureController()	                    game:GetService'VirtualUser':Button1Down(Vector2.new(0.5, 0.5))
+                mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
             end)
         end
     end
