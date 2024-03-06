@@ -1,16 +1,15 @@
 -- Please Dont Look At My Shits, Im Too Lazy To Obfuscate It :(
 getgenv().FrameRateBoost = true
-getgenv().AutoClick = true
 getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
 getgenv().SpamSkillOnRaceV4 = false
 getgenv().Invisible = false
-getgenv().InCombatNoReset = true
+getgenv().InCombatNoReset = false
 getgenv().Team = "Pirates"
 getgenv().TweenSpeed = 340
  getgenv().Setting = {
-        ["Melee"] = {["Enable"] = true, ["Delay"] = 99,
+        ["Melee"] = {["Enable"] = true, ["Delay"] = 3,
           ["Skills"] = {
             ["Z"] = {["Enable"] = true,["HoldTime"] = 0.1, ["TimeToNextSkill"] = 0,},
             [ "X"] = {["Enable"] = true,["HoldTime"] = 0.2, ["TimeToNextSkill"] = 0,},
@@ -47,7 +46,7 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait(3)
+task.wait()
 
 -- Auto-Bounty
 task.spawn(function()
@@ -81,22 +80,21 @@ task.spawn(function()
     end
 end)
 
--- Auto Click Attack For Faster Hunt
+
+function Click()
+    game:GetService'VirtualUser':CaptureController()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+end
+
 task.spawn(function()
-    while task.wait(0.2) do
-        if getgenv().AutoClick then
-             pcall(function()
-                game:GetService'VirtualUser':CaptureController()	                    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1)) 
-            end)
-        end
-    end
+	while task.wait(0.4) do
+		Click()
+	end
 end)
 
 -- Point Mouse At The Center Of The Screen
 task.spawn(function()
-    while task.wait(1) do
-        mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
-    end
+    mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
 end)
 
 -- Loop Equip Dragon Talon
@@ -135,29 +133,31 @@ task.spawn(function()
     game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
 end)
 task.spawn(function()
-    game.Players.LocalPlayer.PlayerScripts.EnhancementsVisual.Disabled = true
+    game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
 end)
 
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
+CameraShake:Stop()
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
+game.Workspace.Map:Remove()
+game.Workspace.Enemies:Remove()
+game.Workspace.SeaBeasts:Remove()
+game.Workspace.SeaEvents:Remove()
+game.Workspace.Boats:Remove()
+game.Workspace.Leaderboards:Remove()
 game:GetService("ReplicatedStorage").Effect.Container:Remove()
 game:GetService("ReplicatedStorage").FX:Remove()
 game:GetService("ReplicatedStorage").Assets:Remove()
 game:GetService("ReplicatedStorage").ClientWeapons:Remove()
-game.Workspace.Enemies:Remove()
-game.Workspace.SeaBeasts:Remove()
-game.Workspace.SeaEvents:Remove()
-game.Workspace.Map:Remove()
-game.Workspace.Boats:Remove()
-game.Workspace.Leaderboards:Remove()
 
 -- Check If Auto-Bounty Is Loaded
 repeat
@@ -186,13 +186,11 @@ end)
 -- Better Vision
 
 task.spawn(function()
-  repeat task.wait(1) until game.Workspace.Characters:FindFirstChild(game.Players.LocalPlayer.Name)
-  wait(0.5)
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,"H",false,game)
-  wait(0.5)
-  for i = 1,3 do
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,"O",false,game)
-  end
+	game:GetService("VirtualInputManager"):SendKeyEvent(true,"H",false,game)
+	task.wait(0.2)
+	for i = 1,10 do
+		game:GetService("VirtualInputManager"):SendKeyEvent(true,"O",false,game)
+	end
 end)
 
 task.spawn(function()
@@ -342,9 +340,9 @@ function comma_value(amount)
 end
 
 task.spawn(function()
-  while task.wait() do
-    pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
-  end
+	while task.wait() do
+		pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+	end
 end)
 
 pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
