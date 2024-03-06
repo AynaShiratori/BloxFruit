@@ -8,7 +8,7 @@ getgenv().SpamSkillOnRaceV4 = false
 getgenv().Invisible = false
 getgenv().InCombatNoReset = false
 getgenv().Team = "Pirates"
-getgenv().TweenSpeed = 340
+getgenv().TweenSpeed = 300
  getgenv().Setting = {
         ["Melee"] = {["Enable"] = true, ["Delay"] = 99,
           ["Skills"] = {
