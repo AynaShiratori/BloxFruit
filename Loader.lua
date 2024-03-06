@@ -48,8 +48,6 @@ repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 task.wait(3)
-game:GetService("RunService"):Set3dRenderingEnabled(false)
-
 
 -- Auto-Bounty
 task.spawn(function()
