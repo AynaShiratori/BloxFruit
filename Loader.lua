@@ -8,7 +8,7 @@ getgenv().SpamSkillOnRaceV4 = false
 getgenv().Invisible = false
 getgenv().InCombatNoReset = false
 getgenv().Team = "Pirates"
-getgenv().TweenSpeed = 300
+getgenv().TweenSpeed = 340
  getgenv().Setting = {
         ["Melee"] = {["Enable"] = true, ["Delay"] = 99,
           ["Skills"] = {
@@ -64,17 +64,6 @@ task.spawn(function()
     end)
 end)
 
--- Anti AFK 1
-game:service'Players'.LocalPlayer.Idled:connect(function()
-    game:service'VirtualUser':CaptureController()
-    game:service'VirtualUser':ClickButton2(Vector2.new())
-end)
-
--- Anti AFK 2
-for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-    v:Disable()
-end
-
 -- Rejoin After 15 Minutes
 task.spawn(function()
     while task.wait(900) do
@@ -96,13 +85,19 @@ end)
 
 -- Auto Click Attack For Faster Hunt
 task.spawn(function()
-    while task.wait(0.05) do
+    while task.wait(0.1) do
         if getgenv().AutoClick then
              pcall(function()
-                game:GetService'VirtualUser':CaptureController()	                    game:GetService'VirtualUser':Button1Down(Vector2.new(0.5, 0.5))
-                mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
+                game:GetService'VirtualUser':CaptureController()	                    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1)) 
             end)
         end
+    end
+end)
+
+-- Point Mouse At The Center Of The Screen
+task.spawn(function()
+    while task.wait(0.1) do
+        mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
     end
 end)
 
@@ -137,12 +132,6 @@ game.Workspace:WaitForChild"Terrain".WaterReflectance = 0
 game.Workspace:WaitForChild"Terrain".WaterTransparency = 1
 game:GetService"Lighting".GlobalShadows = false
 game:GetService("Lighting"):ClearAllChildren()
-
-for i,v in pairs(workspace:GetDescendants()) do
-    if string.find(v.Name,"Water") then
-        v:Remove()
-    end
-end
 
 task.spawn(function()
     game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
