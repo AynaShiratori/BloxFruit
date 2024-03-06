@@ -5,7 +5,7 @@ getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
 getgenv().SpamSkillOnRaceV4 = false
-getgenv().Invisible = true
+getgenv().Invisible = false
 getgenv().InCombatNoReset = true
 getgenv().Team = "Pirates"
 getgenv().TweenSpeed = 340
@@ -94,7 +94,7 @@ end)
 
 -- Point Mouse At The Center Of The Screen
 task.spawn(function()
-    while task.wait(0.1) do
+    while task.wait(1) do
         mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
     end
 end)
@@ -142,8 +142,6 @@ settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
-CameraShake:Stop()
 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
 game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
