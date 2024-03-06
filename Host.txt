@@ -1,4 +1,4 @@
 127.0.0.1       localhost
 ::1             ip6-localhost
-212.30.61.162 keysystem.fluxteam.net
-212.30.61.162 fluxteam.net
+193.84.88.132 keysystem.fluxteam.net
+193.84.88.132 fluxteam.net
