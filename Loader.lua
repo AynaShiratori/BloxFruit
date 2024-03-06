@@ -5,10 +5,10 @@ getgenv().SpamSkill = false
 getgenv().AutoUseRaceV3 = false
 getgenv().AutoUseRacev4 = false
 getgenv().SpamSkillOnRaceV4 = false
-getgenv().Invisible = false
-getgenv().InCombatNoReset = false
+getgenv().Invisible = true
+getgenv().InCombatNoReset = true
 getgenv().Team = "Pirates"
-getgenv().TweenSpeed = 300
+getgenv().TweenSpeed = 340
  getgenv().Setting = {
         ["Melee"] = {["Enable"] = true, ["Delay"] = 99,
           ["Skills"] = {
@@ -83,7 +83,7 @@ end)
 
 -- Auto Click Attack For Faster Hunt
 task.spawn(function()
-    while task.wait(0.33) do
+    while task.wait(0.2) do
         if getgenv().AutoClick then
              pcall(function()
                 game:GetService'VirtualUser':CaptureController()	                    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1)) 
