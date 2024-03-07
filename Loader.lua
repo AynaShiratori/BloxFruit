@@ -1,44 +1,110 @@
--- Please Dont Look At My Shits, Im Too Lazy To Obfuscate It :(
-getgenv().FrameRateBoost = true
-getgenv().SpamSkill = false
-getgenv().AutoUseRaceV3 = false
-getgenv().AutoUseRacev4 = false
-getgenv().SpamSkillOnRaceV4 = false
-getgenv().Invisible = false
-getgenv().InCombatNoReset = false
-getgenv().Team = "Pirates"
-getgenv().TweenSpeed = 340
- getgenv().Setting = {
-        ["Melee"] = {["Enable"] = true, ["Delay"] = 3,
-          ["Skills"] = {
-            ["Z"] = {["Enable"] = true,["HoldTime"] = 0.1, ["TimeToNextSkill"] = 0,},
-            [ "X"] = {["Enable"] = true,["HoldTime"] = 0.2, ["TimeToNextSkill"] = 0,},
-            ["C"] = {["Enable"] = true,["HoldTime"] = 1, ["TimeToNextSkill"] = 0,},
-            },
-        },
-        ["Blox Fruit"] = {["Enable"] = false, ["Delay"] = 2,
+getgenv().Key = ''
+getgenv().Setting = {
+    ["Team"] = "Pirates",
+    ["Webhook"] = {
+        ["Enabled"] = false,
+        ["Url Webhook"] = "",
+    },
+    ["Misc"] = {
+        ["AutoBuyRandomandStoreFruit"] = true,
+        ["AutoBuySurprise"] = false,
+    },
+    ["Click"] = {
+        ["Enable"] = true,
+        ["Click Gun"] = false,
+        ["OnLowHealthDisable"] = false,
+        ["LowHealth"] = 0,
+    },
+    ["SafeZone"] = {
+        ["Enable"] = true,
+        ["LowHealth"] = 5500,
+        ["MaxHealth"] = 6000,
+        ["Teleport Y"] = 3000
+    },
+    ["Race V4"] = {
+        ["Enable"] = false,
+    },
+    ["Invisible"] = false,
+    ["White Screen"] = false,
+    ["GunMethod"] = false,
+    ["SpamSkill"] = false,
+    ["Weapons"] = {
+        ["Melee"] = {
+            ["Enable"] = true,
+            ["Delay"] = 3,
             ["Skills"] = {
-                ["Z"] = {["Enable"] = true, ["HoldTime"] = 1, ["TimeToNextSkill"] = 0,},
-                ["X"] = { ["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-                ["C"] = { ["Enable"] = true, ["HoldTime"] = 0,["TimeToNextSkill"] = 0, },
-                ["V"] = { ["Enable"] = false, ["HoldTime"] = 0,["TimeToNextSkill"] = 0,},
-                ["F"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-            },
-        },
-        ["Sword"] = { ["Enable"] = false, ["Delay"] = 1.5,
-            ["Skills"] = {
-                ["Z"] = {["Enable"] = true,  ["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
-                ["X"] = {["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-            },
-        },
-        ["Gun"] = {["Enable"] = false, ["Delay"] = 2,
-            ["Skills"] = {
-                ["Z"] = {["Enable"] = true,["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
-                ["X"] = {["Enable"] = true,["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.1,
+                },
+               [ "X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.2,
+                },
+
+                ["C"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 1,
                 },
             },
-        }
+        },
+        ["Blox Fruit"] = {
+            ["Enable"] = false,
+            ["Delay"] = 1,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.12,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 2,
+                },
+
+                ["C"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.14,
+                },
+                ["V"] = {
+                    ["Enable"] = false,
+                    ["HoldTime"] = 0,
+                },
+                ["F"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.07,
+                },
+            },
+        },
+        ["Gun"] = {
+            ["Enable"] = false,
+            ["Delay"] = 2,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.15,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.13,
+                },
+            },
+        },
+        ["Sword"] = {
+            ["Enable"] = false,
+            ["Delay"] = 1,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.11,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.17,
+                },
+            },
+        },
     }
+}
 
 -- Wait Until Game Is Loaded
 repeat task.wait() until game:IsLoaded()
@@ -50,7 +116,7 @@ task.wait()
 
 -- Auto-Bounty
 task.spawn(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BountyShit.lua"))()
 end)
 
 -- Auto-Reconnect
@@ -94,7 +160,9 @@ end)
 
 -- Point Mouse At The Center Of The Screen
 task.spawn(function()
-    mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
+    while task.wait() do
+        mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
+    end
 end)
 
 -- Loop Equip Dragon Talon
@@ -148,7 +216,7 @@ game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
-game.Workspace.Map:Remove()
+-- game.Workspace.Map:Remove()
 game.Workspace.Enemies:Remove()
 game.Workspace.SeaBeasts:Remove()
 game.Workspace.SeaEvents:Remove()
@@ -167,31 +235,11 @@ repeat
     end
     wait(1)
 until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
-task.wait(1)
 
 -- Teleport To Sea3
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
 
--- Remove W-azure CoreGui
-task.spawn(function()
-	game:GetService("CoreGui").SGStats.ClientStats.Visible = false
-end)
-task.spawn(function()
-	game.Players.LocalPlayer.PlayerGui.ScreenGui.ToggleLevelFarmButton:Destroy()
-end)
-task.spawn(function()
-game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel:Destroy()
-end)
-
 -- Better Vision
-
-task.spawn(function()
-	game:GetService("VirtualInputManager"):SendKeyEvent(true,"H",false,game)
-	task.wait(0.2)
-	for i = 1,10 do
-		game:GetService("VirtualInputManager"):SendKeyEvent(true,"O",false,game)
-	end
-end)
 
 task.spawn(function()
 	while task.wait(0.5) do
