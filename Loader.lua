@@ -146,18 +146,6 @@ task.spawn(function()
     end
 end)
 
-
-function Click()
-    game:GetService'VirtualUser':CaptureController()
-    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-end
-
-task.spawn(function()
-	while task.wait(0.4) do
-		Click()
-	end
-end)
-
 -- Point Mouse At The Center Of The Screen
 task.spawn(function()
     while task.wait() do
@@ -202,6 +190,18 @@ task.spawn(function()
 end)
 task.spawn(function()
     game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
+end)
+
+function ObjectRemove()
+    for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) then
+            v:Remove()
+        end
+    end
+end
+
+task.spawn(function()
+    ObjectRemove()
 end)
 
 settings().Rendering.QualityLevel = "1"
