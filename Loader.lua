@@ -265,9 +265,9 @@ end)
 task.spawn(function()
 	if IsAutoBounty() then
 		print("Loading Banana Auto Bounty")
-		loadstringFPSBoost()
-		task.wait(1)
 		loadstringBananaAutoBounty()
+		task.wait(1)
+		loadstringFPSBoost()
 	end
 end)
 
