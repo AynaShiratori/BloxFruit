@@ -208,7 +208,7 @@ task.spawn(function()
         LoadWazureAutoGetBuddySwordConfig()
         task.wait(1)
         loadstringWazure()
-        task.wait(120)
+        task.wait(90)
         ServerHop()
     end
 end)
