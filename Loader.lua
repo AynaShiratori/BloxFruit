@@ -3,7 +3,66 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait(5)
+task.wait(3)
+
+-- Better Performance
+
+settings().Rendering.QualityLevel = "1"
+UserSettings():GetService("UserGameSettings").MasterVolume = 0
+game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
+CameraShake:Stop()
+game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
+game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
+game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
+game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
+-- game:GetService("ReplicatedStorage").Ope-Ope:Remove()
+
+local LocalPlayerAsd = game.Players.LocalPlayer
+if LocalPlayerAsd then
+    if not isfile(".flux_settings") then
+        writefile(".flux_settings")
+    end
+
+    if not isfile(".fluxus_auth_store") then
+        writefile(".fluxus_auth_store")
+    end
+
+    local FluxusSettingsData = '{"SaveTabs":true,"ConsoleOutput":false,"CenterMinimize":false,"FPSUnlocker":false,"ConsoleError":false,"NoAnims":true,"SaveSettings":true,"ConsoleWarning":false,"FastAnims":false}'
+    writefile(".flux_settings", FluxusSettingsData)
+else
+    game.Players.LocalPlayer:Kick("Failed To Auto Load Fluxus Settings")
+end
+
+game.Workspace:WaitForChild"Terrain".WaterWaveSize = 0
+game.Workspace:WaitForChild"Terrain".WaterWaveSpeed = 0
+game.Workspace:WaitForChild"Terrain".WaterReflectance = 0
+game.Workspace:WaitForChild"Terrain".WaterTransparency = 1
+game:GetService"Lighting".GlobalShadows = false
+game:GetService("Lighting"):ClearAllChildren()
+
+task.spawn(function()
+    game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
+end)
+task.spawn(function()
+    game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
+end)
+
+function ObjectRemove()
+    for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) then
+            v:Remove()
+        end
+    end
+end
+
+task.spawn(function()
+    ObjectRemove()
+end)
+
+task.wait(2)
 
 getgenv().Team = "Pirates"
 getgenv().FixCrash = true
@@ -141,7 +200,7 @@ function loadstringWazure()
 end
 
 function loadstringBananaAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/42af814f24ce8d86bb05c7f80a106c1a/raw/63eb5b0cc8f60aaad3194738c28ea4d5a2b514ab/BananaDragonTalonBuddy"))()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/42af814f24ce8d86bb05c7f80a106c1a/raw/be2708e1137b574682bbd2d112f9b4e93c24ea9f/BananaDragonTalonBuddy"))()
 end
 
 function loadstringFPSBoost()
@@ -266,8 +325,6 @@ task.spawn(function()
 	if IsAutoBounty() then
 		print("Loading Banana Auto Bounty")
 		loadstringBananaAutoBounty()
-		task.wait(1)
-		loadstringFPSBoost()
 	end
 end)
 
@@ -396,6 +453,8 @@ end
 if IsAutoBounty() then
     CurrentStatus = "Doing Auto Bounty"
 end
+
+task.wait(1)
 
 -- UI
 local thisoneissocoldww = Instance.new("ScreenGui")
