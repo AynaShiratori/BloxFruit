@@ -401,20 +401,40 @@ end)
 
 task.spawn(function()
     while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman() then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
             break
         end
     end
 end)
 
-repeat task.wait(1) until 
+task.spawn(function()
+    while task.wait(1) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman()then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+            break
+        end
+    end
+end) 
 
 -- Loop Equip Buddy Sword Also For Check If Got Buddy Sword Or Not
 
 task.spawn(function()
     while task.wait() do
         if not HasBuddySword() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
+            break
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+        if HasBuddySword() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
             break
         end
