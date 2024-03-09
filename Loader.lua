@@ -198,7 +198,7 @@ function loadstringBananaAutoBounty()
 end
 
 function loadstringFPSBoost()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/bd88220165f367e52665284d27a2a8e2/raw/9a3ef7f5ce1a6e8dea6db2ef5bd761b2cd37af4c/FPSBoost"))()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/bd88220165f367e52665284d27a2a8e2/raw/62a6c92a3236a6a00578951f919149310ce4cafa/FPSBoost"))()
 end
 
 function loadstringFPSBoost2()
