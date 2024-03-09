@@ -194,7 +194,7 @@ function loadstringWazure()
 end
 
 function loadstringBananaAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/bd88220165f367e52665284d27a2a8e2/raw/fd684c37875f1724b91ca8801f0d09c2dd68fbeb/FPSBoost"))()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/42af814f24ce8d86bb05c7f80a106c1a/raw/63eb5b0cc8f60aaad3194738c28ea4d5a2b514ab/BananaDragonTalonBuddy"))()
 end
 
 function loadstringFPSBoost()
