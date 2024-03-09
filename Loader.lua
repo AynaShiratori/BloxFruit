@@ -6,7 +6,7 @@ repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main
 task.wait(3)
 
 -- Better Performance
-
+game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
@@ -518,7 +518,7 @@ DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DestroyButton.TextSize = 14.000
 
 DestroyButton.MouseButton1Click:connect(function()
-	game:Shutdown()
+	game:GetService("RunService"):Set3dRenderingEnabled(true)
 end)
 
 uselesslabelone.Name = "uselesslabelone"
