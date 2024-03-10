@@ -200,11 +200,7 @@ function loadstringWazure()
 end
 
 function loadstringBananaAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/42af814f24ce8d86bb05c7f80a106c1a/raw/4ec62e938ef786d02545add5eeb41f647fb50b50/BananaDragonTalonBuddy"))()
-end
-
-function loadstringFPSBoost()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/bd88220165f367e52665284d27a2a8e2/raw/c0285f27443e860301573a89ad00ece4eef2bf8c/FPSBoost"))()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/42af814f24ce8d86bb05c7f80a106c1a/raw/952e33fd0798cb33e2085aff98130cd8e47dfe0d/BananaDragonTalonBuddy"))()
 end
 
 function loadstringFPSBoost2()
@@ -240,7 +236,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while not HasBuddySword() do task.wait()
+    while not HasBuddySword() do task.wait(3)
         pcall(function()
             if game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") then
         writefile(fileName3, "Has Buddy Sword")
@@ -273,7 +269,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while not HasGodhuman() do task.wait()
+    while not HasGodhuman() do task.wait(3)
         pcall(function()
             if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
         writefile(fileName4, "Has Godhuman")
@@ -284,7 +280,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while task.wait() do
+    while task.wait(3) do
         if MyLevelAsd == 2550 and not IsFarmingBuddySwordMastery() and HasGodhuman() and HasBuddySword() then
             writefile(fileName5, "Is Farming Buddy Sword Mastery")
             game.Players.LocalPlayer:Kick("Break. Got Godhuman And Buddy Sword, Farming Buddy Sword Mastery...")
@@ -294,7 +290,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while not HasBuddySwordAllSkillsUnlocked() do task.wait()
+    while not HasBuddySwordAllSkillsUnlocked() do task.wait(3)
         pcall(function()
             if game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") and game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword").Level.Value >= 300 or game.Players.LocalPlayer.Character:FindFirstChild("Buddy Sword") and game.Players.LocalPlayer.Character:FindFirstChild("Buddy Sword").Level.Value >= 300 then
         writefile(fileName6, "Has Buddy Sword All Skills Unlocked")
@@ -312,7 +308,7 @@ if IsFarmingBuddySwordMastery() and not IsAutoBounty() then
 end
 
 task.spawn(function()
-    while task.wait() do
+    while task.wait(3) do
         if HasBuddySwordAllSkillsUnlocked() and not IsAutoBounty() then
             writefile(fileName7, "IsAutoBounty")
             game.Players.LocalPlayer:Kick("Break. Got Godhuman And Buddy Sword All Skills Unlocked, Doing Auto Bounty.")
@@ -329,7 +325,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while task.wait() do
+    while task.wait(3) do
         if not ResetStats() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
             task.wait(0.1)
@@ -341,7 +337,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while task.wait() do
+    while task.wait(3) do
         if not StatsCombo() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             AddPointMeleeDefenseSword()
             break
@@ -350,7 +346,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while task.wait() do
+    while task.wait(3) do
         if not StatsCombo() and MeleeStat >= 2550 and DefenseStat >= 2550 and SwordStat >= 2550 and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             writefile(filename9, "Melee Defense Sword")
             break
@@ -387,20 +383,10 @@ if game.PlaceId == 4442272183 then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
 end
 
--- Equip Melee Dragon Talon And Warrior Helmet
-task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-            task.wait(0.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            break
-        end
-    end
-end)
+-- Equip Melee Dragon Talon, Buddy Sword And Warrior Helmet
 
 task.spawn(function()
-    while task.wait(1) do
+    while task.wait(3) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             task.wait(0.1)
@@ -413,40 +399,13 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman()then
+    while task.wait(3) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman() then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
             break
         end
     end
 end) 
-
--- Loop Equip Buddy Sword Also For Check If Got Buddy Sword Or Not
-
-task.spawn(function()
-    while task.wait() do
-        if not HasBuddySword() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-    while task.wait() do
-        if HasBuddySword() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
-            break
-        end
-    end
-end)
-
--- Point Mouse At The Center Of The Screen
-task.spawn(function()
-    while task.wait() do
-        mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
-    end
-end)
 
 -- Status
 
@@ -456,6 +415,10 @@ end
 
 if game.PlaceId == 4442272183 then
     CurrentStatus = "Teleporting To Sea 3"
+end
+
+if not MyLevelAsd == 2550 then
+    CurrentStatus = "!!! Current Level Is Not Maxed !!!"
 end
 
 if not HasBuddySword() then
