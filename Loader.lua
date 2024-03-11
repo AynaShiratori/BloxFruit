@@ -18,7 +18,6 @@ game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
--- game:GetService("ReplicatedStorage").Ope-Ope:Remove()
 
 local LocalPlayerAsd = game.Players.LocalPlayer
 if LocalPlayerAsd then
@@ -59,7 +58,9 @@ function ObjectRemove()
 end
 
 task.spawn(function()
-    ObjectRemove()
+    if not IsAutoBounty() then
+        ObjectRemove()
+    end
 end)
 
 task.wait(2)
@@ -199,8 +200,8 @@ function loadstringWazure()
 	end)
 end
 
-function loadstringBananaAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/42af814f24ce8d86bb05c7f80a106c1a/raw/5ab4b9701c15fe036bd7a0b202e35e151cc8da1c/BananaDragonTalonBuddy"))()
+function loadstringSynergyAutoBounty()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/7d99aaa65fad94103efdaaa25718e583/raw/802b164d5c830e062ea581db333aa683d431428d/SynergyTalonBuddy"))()
 end
 
 function loadstringFPSBoost2()
@@ -236,7 +237,57 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while not HasBuddySword() do task.wait(3)
+    while task.wait(1) do
+        if not ResetStats() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")         
+            writefile(fileName8, "Reset Stats")
+            break
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait(1) do
+        if not StatsCombo() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            AddPointMeleeDefenseSword()
+            break
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait(1) do
+        if not StatsCombo() and MeleeStat >= 2550 and DefenseStat >= 2550 and SwordStat >= 2550 and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            writefile(filename9, "Melee Defense Sword")
+            break
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait(1) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman() then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+            break
+        end
+    end
+end)
+
+task.spawn(function()
+    while not HasGodhuman() do task.wait(1)
+        pcall(function()
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
+        writefile(fileName4, "Has Godhuman")
+        game.Players.LocalPlayer:Kick("Break. Got Godhuman, Rejoining...")
+            end
+        end)
+    end
+end)
+
+task.spawn(function()
+    while not HasBuddySword() do task.wait(1)
         pcall(function()
             if game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") then
         writefile(fileName3, "Has Buddy Sword")
@@ -269,18 +320,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while not HasGodhuman() do task.wait(3)
-        pcall(function()
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-        writefile(fileName4, "Has Godhuman")
-        game.Players.LocalPlayer:Kick("Break. Got Godhuman, Rejoining...")
-            end
-        end)
-    end
-end)
-
-task.spawn(function()
-    while task.wait(3) do
+    while task.wait(1) do
         if MyLevelAsd == 2550 and not IsFarmingBuddySwordMastery() and HasGodhuman() and HasBuddySword() then
             writefile(fileName5, "Is Farming Buddy Sword Mastery")
             game.Players.LocalPlayer:Kick("Break. Got Godhuman And Buddy Sword, Farming Buddy Sword Mastery...")
@@ -290,7 +330,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-    while not HasBuddySwordAllSkillsUnlocked() do task.wait(3)
+    while not HasBuddySwordAllSkillsUnlocked() do task.wait(1)
         pcall(function()
             if game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") and game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword").Level.Value >= 300 or game.Players.LocalPlayer.Character:FindFirstChild("Buddy Sword") and game.Players.LocalPlayer.Character:FindFirstChild("Buddy Sword").Level.Value >= 300 then
         writefile(fileName6, "Has Buddy Sword All Skills Unlocked")
@@ -308,7 +348,7 @@ if IsFarmingBuddySwordMastery() and not IsAutoBounty() then
 end
 
 task.spawn(function()
-    while task.wait(3) do
+    while task.wait(1) do
         if HasBuddySwordAllSkillsUnlocked() and not IsAutoBounty() then
             writefile(fileName7, "IsAutoBounty")
             game.Players.LocalPlayer:Kick("Break. Got Godhuman And Buddy Sword All Skills Unlocked, Doing Auto Bounty.")
@@ -319,39 +359,9 @@ end)
 
 task.spawn(function()
 	if IsAutoBounty() then
-		print("Loading Banana Auto Bounty")
-		loadstringBananaAutoBounty()
+		print("Loading Synergy Auto Bounty")
+		loadstringSynergyAutoBounty()
 	end
-end)
-
-task.spawn(function()
-    while task.wait(3) do
-        if not ResetStats() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
-            task.wait(0.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")         
-            writefile(fileName8, "Reset Stats")
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-    while task.wait(3) do
-        if not StatsCombo() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            AddPointMeleeDefenseSword()
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-    while task.wait(3) do
-        if not StatsCombo() and MeleeStat >= 2550 and DefenseStat >= 2550 and SwordStat >= 2550 and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            writefile(filename9, "Melee Defense Sword")
-            break
-        end
-    end
 end)
 
 -- Auto-Reconnect
@@ -386,7 +396,7 @@ end
 -- Equip Melee Dragon Talon, Buddy Sword And Warrior Helmet
 
 task.spawn(function()
-    while task.wait(3) do
+    while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
             task.wait(0.1)
@@ -397,15 +407,6 @@ task.spawn(function()
         end
     end
 end)
-
-task.spawn(function()
-    while task.wait(3) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman() then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-            break
-        end
-    end
-end) 
 
 -- Status
 
@@ -436,8 +437,6 @@ end
 if IsAutoBounty() then
     CurrentStatus = "Doing Auto Bounty"
 end
-
-task.wait(1)
 
 -- UI
 local thisoneissocoldww = Instance.new("ScreenGui")
