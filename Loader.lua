@@ -4,6 +4,14 @@ repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 task.wait(3)
+getgenv().Hermanos_Settings = {
+    ['key'] = '916a4e87-e8e2-450b-bdd1-cdb01f19f4c0',
+
+    ['PC'] = 'PC-1',
+    ['Sword'] = {''},
+    ['Fruit'] = {'Kitsune', 'Leopard', 'Dragon',  'Spirit', 'Control', 'Venom', 'Shadow', 'Dough','Mammoth', 'T-Rex'},
+}
+task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
 
 -- Better Performance
 game:GetService("RunService"):Set3dRenderingEnabled(false)
