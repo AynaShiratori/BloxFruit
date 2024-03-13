@@ -106,6 +106,15 @@ task.spawn(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PhamBaAnh08/LuaU/main/Blox%20Fruits/AutoBounty/Loader.lua"))()
 end)
 
+getgenv().Hermanos_Settings = {
+    ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
+
+    ['PC'] = 'PC-1',
+    ['Sword'] = {''},
+    ['Fruit'] = {'Kitsune'},
+}
+task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
+
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
