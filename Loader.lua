@@ -219,7 +219,7 @@ function loadstringWazure()
 end
 
 function loadstringSynergyAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/7d99aaa65fad94103efdaaa25718e583/raw/5f00fdb2308c2255fb2fe25539adbb6b3e43a4ff/SynergyTalonBuddy"))()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/7d99aaa65fad94103efdaaa25718e583/raw/96bc9ef4a4323593d5fd87abc7b1ed88fc77c3a9/SynergyTalonBuddy"))()
 end
 
 function loadstringFPSBoost2()
