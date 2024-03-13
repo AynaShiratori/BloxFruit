@@ -3,7 +3,7 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait(3)
+task.wait(5)
 
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
@@ -176,6 +176,19 @@ repeat
     wait(1)
 until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
 task.wait(1)
+
+task.spawn(function()
+    while task.wait(1) do
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
+            break
+        end
+    end
+end)
 
 -- Teleport To Sea3
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
