@@ -5,22 +5,107 @@ repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 task.wait(3)
 
+task.spawn(function()    
+    game:GetService("GuiService").ErrorMessageChanged:Connect(function()
+        wait (0.1) game:GetService("TeleportService"):Teleport(game.PlaceId)
+            end);
+        end)
+
 task.spawn(function()
     while task.wait(1800) do
         game:Shutdown()
     end
 end)
 
-getgenv().Hermanos_Settings = {
-    ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
+getgenv().config = {
+    ["Team"] = "Pirates",
+    ["FPS Boost"] = true,
+    ["LocalPlayer"] = {
+        ["Ken Haki"] = true,
+        ["Invisible"] = false,
+        ["Click Delay"] = 0.01,
+        ["Panic Mode"] = {
+            ["Skip Player"] = true,
+            ["Run"] = 4500,
+            ["Max"] = 5000,
+        }
+    },
+    ["settings"] = {
+        ["White Screen"] = true,
+        ["Region_Hop"] = {
+            ["Enabled"] = true,
+            ["Value"] = "Singapore"
+        },
+        ["Webhook"] = {
+            ["Enabled"] = true,
+            ["URL"] = {
+                ["Discord"] = "https://discord.com/api/webhooks/1198957951172476968/9C1Wklj3x7WthwBmx7K88V3rheltSDfl7Xswj8JUME5rD8VlWQoyg35pBPujLvkbsaDq",
+                ["Thumbnail"] = "https://www.nautiljon.com/images/light_novels_volumes/00/42/kutabire_salaryman_na_ore_7-nen_buri_ni_saikai_shita_bishoujo_jk_to_dousei_wo_hajimeru_2_14524.webp?0"
+            }
+        },
+        ["Chatkill"] = {
+            ["Enabled"] = false,
+            ["Text"] = {
+                ""
+            }
+        },
+        ["FPS Locker"] = {
+            ["Enabled"] = false,
+            ["Value"] = 120
+        },
+        ["Bounty Lock"] = {
+            ["Enabled"] = false,
+            ["Value"] = 30000000
+        },
+        ["Ignore"] = {
+            ["Buddha Users"] = false,
+            ["Portal Users"] = true,
+            ['Some Annoying V4'] = true,
+        },
+        ["Stats"] = {
+            ["Auto Reset Stat If Doesnt Match"] = false,
+            ["Points"] = "Sword"
+        },
+    },
+    ["Skills"] = {
+        ["Melee"] = {
+            ["Time"] = 3,
+            ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.6},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 2}
+        },
+        ["Fruit"] = {
+            ["Time"] = 1,
+            ["Enabled"] = false,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
+            ["V"] = {["Disable"] = true, ["HoldTime"] = 0},
+            ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
+        },
+        ["Sword"] = {
+            ["Time"] = 3,
+            ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+        },
+        ["Gun"] = {
+            ["Time"] = 2,
+            ["Enabled"] = false,
+            ["GunMode"] = false,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
+        }
+    }
+};
 
-    ['PC'] = 'PC-1',
-    ['Sword'] = {''},
-    ['Fruit'] = {'Kitsune'},
-}
-task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
+-- Auto-Bounty
+task.spawn(function()
+    task.wait(1)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PhamBaAnh08/LuaU/main/Blox%20Fruits/AutoBounty/Loader.lua"))()
+end)
 
--- Better Performance
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
@@ -33,22 +118,6 @@ game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
 game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
-
-local LocalPlayerAsd = game.Players.LocalPlayer
-if LocalPlayerAsd then
-    if not isfile(".flux_settings") then
-        writefile(".flux_settings")
-    end
-
-    if not isfile(".fluxus_auth_store") then
-        writefile(".fluxus_auth_store")
-    end
-
-    local FluxusSettingsData = '{"SaveTabs":true,"ConsoleOutput":false,"CenterMinimize":false,"FPSUnlocker":false,"ConsoleError":false,"NoAnims":true,"SaveSettings":true,"ConsoleWarning":false,"FastAnims":false}'
-    writefile(".flux_settings", FluxusSettingsData)
-else
-    game.Players.LocalPlayer:Kick("Failed To Auto Load Fluxus Settings")
-end
 
 game.Workspace:WaitForChild"Terrain".WaterWaveSize = 0
 game.Workspace:WaitForChild"Terrain".WaterWaveSpeed = 0
@@ -64,418 +133,83 @@ task.spawn(function()
     game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
 end)
 
-function ObjectRemove()
-    for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
-        if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) then
-            v:Remove()
-        end
-    end
-end
+game.Workspace.Map:Remove()
+game.Workspace.Enemies:Remove()
+game.Workspace.SeaBeasts:Remove()
+game.Workspace.SeaEvents:Remove()
+game.Workspace.Boats:Remove()
+game.Workspace.Leaderboards:Remove()
+game:GetService("ReplicatedStorage").Effect.Container:Remove()
+-- game:GetService("ReplicatedStorage").FX:Remove()
+game:GetService("ReplicatedStorage").Assets:Remove()
+game:GetService("ReplicatedStorage").ClientWeapons:Remove()
+
+-- Remove Effects
 
 task.spawn(function()
-    if not IsAutoBounty() then
-        ObjectRemove()
-    end
-end)
-
-task.wait(2)
-
-getgenv().Team = "Pirates"
-getgenv().FixCrash = true
-getgenv().FixCrash2 = true
-getgenv().ForceUseSilentAim = false
-
-CurrentStatus = "Loading..."
-CurrentSea = ""
-
-if game.PlaceId == 2753915549 then
-	CurrentSea = "Sea 1"
-elseif game.PlaceId == 4442272183 then
-	CurrentSea = "Sea 2"
-elseif game.PlaceId == 7449423635 then
-	CurrentSea = "Sea 3"
-end
-
-local fileName1 = "Main/IsSea1/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName2 = "Main/IsSea3/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName3 = "Main/HasBuddySword/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName4 = "Main/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName5 = "Main/IsFarmingBuddySwordMastery/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName6 = "Main/HasBuddySwordAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName7 = "Main/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName8 = "Main/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName9 = "Main/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName10 = "Main/IsGettingBuddySword/" .. game.Players.LocalPlayer.Name .. ".txt"
-local fileName11 = "Main/HasChopFruit/" .. game.Players.LocalPlayer.Name .. ".txt"
-
-local MyLevelAsd = game.Players.LocalPlayer.Data.Level.Value
-local MeleeStat = game.Players.localPlayer.Data.Stats.Melee.Level.Value
-local DefenseStat = game.Players.localPlayer.Data.Stats.Defense.Level.Value
-local SwordStat = game.Players.localPlayer.Data.Stats.Sword.Level.Value
-
-local LocalPlayerAsd = game.Players.LocalPlayer
-if LocalPlayerAsd then
-    if not isfolder("Main") then
-        makefolder("Main")
-    end
-    if not isfolder("Main/HasBuddySword") then
-        makefolder("Main/HasBuddySword")
-	end
-    if not isfolder("Main/HasGodhuman") then
-        makefolder("Main/HasGodhuman")
-	end
-    if not isfolder("Main/IsFarmingBuddySwordMastery") then
-        makefolder("Main/IsFarmingBuddySwordMastery")
-	end
-    if not isfolder("Main/HasBuddySwordAllSkillsUnlocked") then
-        makefolder("Main/HasBuddySwordAllSkillsUnlocked")
-	end
-    if not isfolder("Main/IsAutoBounty") then
-        makefolder("Main/IsAutoBounty")
-	end
-    if not isfolder("Main/ResetStats") then
-        makefolder("Main/ResetStats")
-	end
-    if not isfolder("Main/StatsCombo") then
-        makefolder("Main/StatsCombo")
-	end
-    if not isfolder("Main/IsGettingBuddySword") then
-        makefolder("Main/IsGettingBuddySword")
-	end
-    if not isfolder("Main/HasChopFruit") then
-        makefolder("Main/HasChopFruit")
-	end
-else
-    print("Failed To Make Main Folders")
-end
-
-local function IsSea1()
-    local success, fileContent = pcall(readfile, fileName1)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function IsSea3()
-    local success, fileContent = pcall(readfile, fileName2)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function HasBuddySword()
-    local success, fileContent = pcall(readfile, fileName3)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function HasGodhuman()
-    local success, fileContent = pcall(readfile, fileName4)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function IsFarmingBuddySwordMastery()
-    local success, fileContent = pcall(readfile, fileName5)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function HasBuddySwordAllSkillsUnlocked()
-    local success, fileContent = pcall(readfile, fileName6)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function IsAutoBounty()
-    local success, fileContent = pcall(readfile, fileName7)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function ResetStats()
-    local success, fileContent = pcall(readfile, fileName8)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function StatsCombo()
-    local success, fileContent = pcall(readfile, fileName9)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function IsGettingBuddySword()
-    local success, fileContent = pcall(readfile, fileName10)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-local function HasChopFruit()
-    local success, fileContent = pcall(readfile, fileName11)  -- Read the file content
-    return success and fileContent ~= nil
-end
-
-function LoadWazureBuddySwordMasteryConfig()
-  loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/d43f5f4b7e4925a354e9635e5920abd1/raw/64acfa3b2f66480e1d5224ba6df3a27b5e3d0eab/LoadWazureBuddySwordMasteryConfig"))()
-end
-
-function LoadWazureAutoGetBuddySwordConfig()
-    loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/9bf7c2bfbafcd9b863de21122e9db8e1/raw/5496493b4c543eac9a7bde7d279130303360b8ed/LoadWazureAutoGetBuddySwordConfig"))()
-end
-
-function loadstringWazure()
-	task.spawn(function()
-		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
-	end)
-end
-
-function loadstringSynergyAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/7d99aaa65fad94103efdaaa25718e583/raw/96bc9ef4a4323593d5fd87abc7b1ed88fc77c3a9/SynergyTalonBuddy"))()
-end
-
-function loadstringFPSBoost2()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/fe649e8f976b85985d317d050af1eeb9/raw/be8e2488214000367aeab01da2387dffc3b46b16/FPSBoost2"))()
-end
-
-function ChooseTeam()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/1753c889c3be4c41853a847c81f15c8e/raw/b3c71ff6b1fad5a2820dbba699e6cee45ee89fdc/ChooseTeam"))()
-end
-
-function AddPointMeleeDefenseSword()
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",2550)
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",2550)
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Sword",2550)
-end
-
-function ServerHop()
-	loadstring(game:HttpGet("https://gist.github.com/AynaShiratori/b812f351a6e6d5db3924f25e3d208ca3/raw/ff07e9c53951ad73496a57b6f1d08b188031bc5f/ServerHop"))()
-end
-
-local RefundStatCode = {	
-	"SUB2GAMERROBOT_RESET1",
-	"KITT_RESET",
-	"Sub2UncleKizaru"
-}
-function RedeemCode(value)
-	(game:GetService("ReplicatedStorage")).Remotes.Redeem:InvokeServer(value)
-end
-task.spawn(function()
-	for i, v in pairs(RefundStatCode) do
-		RedeemCode(v)
-	end
-end)
-
-task.spawn(function()
-        pcall(function()
-            while task.wait(1) do
-                if not HasChopFruit() then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","Chop-Chop",false)
-                end 
-            end
-        end)
-    end)
-
-task.spawn(function()
-    while not HasChopFruit() do task.wait(1)
-        pcall(function()
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Chop-Chop") then
-        writefile(fileName11, "Has Chop Fruit")
-            end
-        end)
-    end
-end)
-
-task.spawn(function()
-    while task.wait(1) do
-        if not ResetStats() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
-            task.wait(0.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")         
-            writefile(fileName8, "Reset Stats")
-            break
+    while task.wait() do
+        for i, v in pairs(game:GetService("Workspace")["_WorldOrigin"]:GetChildren()) do
+            pcall(function()
+                if v.Name == ("CurvedRing") or v.Name == ("SlashHit") or v.Name == ("SwordSlash") or v.Name == ("SlashTail") then --or v.Name == ("Sounds")
+                    v:Remove()
+                end
+            end)
         end
     end
 end)
 
-task.spawn(function()
-    while task.wait(1) do
-        if not StatsCombo() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            AddPointMeleeDefenseSword()
-            break
-        end
+-- Check If Auto-Bounty Is Loaded
+repeat
+    task.wait()
+    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        break
     end
-end)
+    wait(1)
+until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+task.wait(1)
+
+-- Teleport To Sea3
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+
+-- Better Vision
 
 task.spawn(function()
-    while task.wait(1) do
-        if not StatsCombo() and MeleeStat >= 2550 and DefenseStat >= 2550 and SwordStat >= 2550 and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            writefile(filename9, "Melee Defense Sword")
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and not HasGodhuman() then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-    while not HasGodhuman() do task.wait(1)
-        pcall(function()
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-        writefile(fileName4, "Has Godhuman")
-        game.Players.LocalPlayer:Kick("Break. Got Godhuman, Rejoining...")
-            end
-        end)
-    end
-end)
-
-task.spawn(function()
-    while not HasBuddySword() do task.wait(1)
-        pcall(function()
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") then
-        writefile(fileName3, "Has Buddy Sword")
-            end
-        end)
-    end
-end)
-
-task.spawn(function()
-    while not HasBuddySword() and not IsGettingBuddySword() do task.wait(10)
-        pcall(function()
-            if not game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") then
-        writefile(fileName10, "Is Getting Buddy Sword")
-        game.Players.LocalPlayer:Kick("Break. Missing Buddy Sword, Server Hopping To Find Boss For Buddy Sword")
-            end
-        end)
-    end
-end)
-
-task.spawn(function()
-    if IsGettingBuddySword() and not HasBuddySword() then
-        loadstringFPSBoost2()
-        task.wait(1)
-        LoadWazureAutoGetBuddySwordConfig()
-        task.wait(1)
-        loadstringWazure()
-        task.wait(90)
-        ServerHop()
-    end
-end)
-
-task.spawn(function()
-    while task.wait(1) do
-        if MyLevelAsd == 2550 and not IsFarmingBuddySwordMastery() and HasGodhuman() and HasBuddySword() then
-            writefile(fileName5, "Is Farming Buddy Sword Mastery")
-            game.Players.LocalPlayer:Kick("Break. Got Godhuman And Buddy Sword, Farming Buddy Sword Mastery...")
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-    while not HasBuddySwordAllSkillsUnlocked() do task.wait(1)
-        pcall(function()
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword") and game.Players.LocalPlayer.Backpack:FindFirstChild("Buddy Sword").Level.Value >= 300 or game.Players.LocalPlayer.Character:FindFirstChild("Buddy Sword") and game.Players.LocalPlayer.Character:FindFirstChild("Buddy Sword").Level.Value >= 300 then
-        writefile(fileName6, "Has Buddy Sword All Skills Unlocked")
-            end
-        end)
-    end
-end)
-
-if IsFarmingBuddySwordMastery() and not IsAutoBounty() then
-  loadstringFPSBoost2()
-  task.wait(1)
-  LoadWazureBuddySwordMasteryConfig()
-  task.wait(1)
-  loadstringWazure()
-end
-
-task.spawn(function()
-    while task.wait(1) do
-        if HasBuddySwordAllSkillsUnlocked() and not IsAutoBounty() then
-            writefile(fileName7, "IsAutoBounty")
-            game.Players.LocalPlayer:Kick("Break. Got Godhuman And Buddy Sword All Skills Unlocked, Doing Auto Bounty.")
-            break
-        end
-    end
-end)
-
-task.spawn(function()
-	if IsAutoBounty() then
-		print("Loading Synergy Auto Bounty")
-		loadstringSynergyAutoBounty()
+	while task.wait(0.5) do
+		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
+		game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
 	end
 end)
-
--- Auto-Reconnect
+game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
+game.Workspace.NPCs:Remove()
 task.spawn(function()
-    repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
-    game:GetService("NetworkClient").ChildRemoved:Connect(function()
-    game:GetService("TeleportService"):Teleport(game.PlaceId)
-    end)
+    game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
 end)
 
--- Rejoin After 15 Minutes
-task.spawn(function()
-    while task.wait(900) do
-        game:GetService("TeleportService"):Teleport(game.PlaceId)
+delay(20, function()
+    if getgenv().ScriptExecuted then
+        return;
     end
+
+    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId)
 end)
 
--- If Current Sea Is Sea 1 Then Teleport To Sea2
-
-if game.PlaceId == 2753915549 then
-    ChooseTeam()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
-end
-
--- If Current Sea Is Sea 2 Then Teleport To Sea3
-
-if game.PlaceId == 4442272183 then
-    ChooseTeam()
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-end
-
--- Equip Melee Dragon Talon, Buddy Sword And Warrior Helmet
-
-task.spawn(function()
-    while task.wait(1) do
-        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-            task.wait(0.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
-            task.wait(0.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Buddy Sword")
-            break
-        end
-    end
-end)
-
--- Status
-
-if game.PlaceId == 2753915549 then
-    CurrentStatus = "Teleporting To Sea 2"
-end
-
-if game.PlaceId == 4442272183 then
-    CurrentStatus = "Teleporting To Sea 3"
-end
-
-if not MyLevelAsd == 2550 then
-    CurrentStatus = "!!! Current Level Is Not Maxed !!!"
-end
-
-if not HasBuddySword() then
-    CurrentStatus = "Getting Buddy Sword"
-end
-
-if not HasGodhuman() then
-    CurrentStatus = "!!! Missing Godhuman !!!"
-end
-
-if IsFarmingBuddySwordMastery() and not IsAutoBounty() then
-    CurrentStatus = "Farming Buddy Sword To 300 Mastery"
-end
-
-if IsAutoBounty() then
-    CurrentStatus = "Doing Auto Bounty"
-end
+local CurrentStatus = "Heavily Modified By Ayna Shiratori"
 
 -- UI
 local thisoneissocoldww = Instance.new("ScreenGui")
@@ -624,7 +358,7 @@ uselesslabelfour.BackgroundTransparency = 1.000
 uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
 uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
 uselesslabelfour.Font = Enum.Font.SourceSans
-uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. CurrentSea
+uselesslabelfour.Text = game.Players.LocalPlayer.Name
 
 uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
 uselesslabelfour.TextSize = 14.000
