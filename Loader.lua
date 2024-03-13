@@ -5,6 +5,11 @@ repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 task.wait(3)
 
+task.spawn(function()
+    while task.wait(1800) do
+        game:Shutdown()
+    end
+end)
 
 getgenv().Hermanos_Settings = {
     ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
@@ -101,6 +106,7 @@ local fileName7 = "Main/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt
 local fileName8 = "Main/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt"
 local fileName9 = "Main/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt"
 local fileName10 = "Main/IsGettingBuddySword/" .. game.Players.LocalPlayer.Name .. ".txt"
+local fileName11 = "Main/HasChopFruit/" .. game.Players.LocalPlayer.Name .. ".txt"
 
 local MyLevelAsd = game.Players.LocalPlayer.Data.Level.Value
 local MeleeStat = game.Players.localPlayer.Data.Stats.Melee.Level.Value
@@ -111,12 +117,6 @@ local LocalPlayerAsd = game.Players.LocalPlayer
 if LocalPlayerAsd then
     if not isfolder("Main") then
         makefolder("Main")
-    end
-    if not isfolder("Main/IsSea1") then
-        makefolder("Main/IsFindingFruit")
-    end
-    if not isfolder("Main/IsSea3") then
-        makefolder("Main/IsSea3")
     end
     if not isfolder("Main/HasBuddySword") then
         makefolder("Main/HasBuddySword")
@@ -141,6 +141,9 @@ if LocalPlayerAsd then
 	end
     if not isfolder("Main/IsGettingBuddySword") then
         makefolder("Main/IsGettingBuddySword")
+	end
+    if not isfolder("Main/HasChopFruit") then
+        makefolder("Main/HasChopFruit")
 	end
 else
     print("Failed To Make Main Folders")
@@ -196,6 +199,11 @@ local function IsGettingBuddySword()
     return success and fileContent ~= nil
 end
 
+local function HasChopFruit()
+    local success, fileContent = pcall(readfile, fileName11)  -- Read the file content
+    return success and fileContent ~= nil
+end
+
 function LoadWazureBuddySwordMasteryConfig()
   loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/d43f5f4b7e4925a354e9635e5920abd1/raw/64acfa3b2f66480e1d5224ba6df3a27b5e3d0eab/LoadWazureBuddySwordMasteryConfig"))()
 end
@@ -211,7 +219,7 @@ function loadstringWazure()
 end
 
 function loadstringSynergyAutoBounty()
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/7d99aaa65fad94103efdaaa25718e583/raw/2b69b6a89dedf11a4198bc9c8568fa9ff7c8552a/SynergyTalonBuddy"))()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/AynaShiratori/7d99aaa65fad94103efdaaa25718e583/raw/5f00fdb2308c2255fb2fe25539adbb6b3e43a4ff/SynergyTalonBuddy"))()
 end
 
 function loadstringFPSBoost2()
@@ -244,6 +252,27 @@ task.spawn(function()
 	for i, v in pairs(RefundStatCode) do
 		RedeemCode(v)
 	end
+end)
+
+task.spawn(function()
+        pcall(function()
+            while task.wait(1) do
+                if not HasChopFruit() then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","Chop-Chop",false)
+                end 
+            end
+        end)
+    end)
+
+task.spawn(function()
+    while not HasChopFruit() do task.wait(1)
+        pcall(function()
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Chop-Chop") then
+        writefile(fileName11, "Has Chop Fruit")
+            end
+        end)
+    end
 end)
 
 task.spawn(function()
