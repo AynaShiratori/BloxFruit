@@ -3,7 +3,7 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait(5)
+task.wait(3)
 
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
@@ -102,18 +102,8 @@ getgenv().config = {
 
 -- Auto-Bounty
 task.spawn(function()
-    task.wait(1)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PhamBaAnh08/LuaU/main/Blox%20Fruits/AutoBounty/Loader.lua"))()
 end)
-
-getgenv().Hermanos_Settings = {
-    ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
-
-    ['PC'] = 'PC-1',
-    ['Sword'] = {''},
-    ['Fruit'] = {'Kitsune'},
-}
-task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
 
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = "1"
@@ -167,16 +157,6 @@ task.spawn(function()
     end
 end)
 
--- Check If Auto-Bounty Is Loaded
-repeat
-    task.wait()
-    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-        break
-    end
-    wait(1)
-until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
-task.wait(1)
-
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
@@ -189,6 +169,16 @@ task.spawn(function()
         end
     end
 end)
+
+-- Check If Auto-Bounty Is Loaded
+repeat
+    task.wait()
+    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        break
+    end
+    wait(1)
+until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+task.wait(1)
 
 -- Teleport To Sea3
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
