@@ -50,8 +50,8 @@ getgenv().config = {
             }
         },
         ["FPS Locker"] = {
-            ["Enabled"] = false,
-            ["Value"] = 120
+            ["Enabled"] = true,
+            ["Value"] = 20
         },
         ["Bounty Lock"] = {
             ["Enabled"] = false,
