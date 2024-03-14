@@ -1,10 +1,3 @@
-repeat task.wait() until game:IsLoaded()
-repeat task.wait() until game.Players
-repeat task.wait() until game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait()
-
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
         wait (0.1) game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -23,6 +16,15 @@ task.spawn(function()
     end
 end)
 
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+task.wait()
+
 getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = true,
@@ -32,8 +34,8 @@ getgenv().config = {
         ["Click Delay"] = 0.05,
         ["Panic Mode"] = {
             ["Skip Player"] = true,
-            ["Run"] = 4500,
-            ["Max"] = 5000,
+            ["Run"] = 6000,
+            ["Max"] = 6500,
         }
     },
     ["settings"] = {
@@ -111,7 +113,6 @@ task.spawn(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PhamBaAnh08/LuaU/main/Blox%20Fruits/AutoBounty/Loader.lua"))()
 end)
 
-game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = "1"
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
