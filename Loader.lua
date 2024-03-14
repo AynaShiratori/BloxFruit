@@ -3,7 +3,7 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait(3)
+task.wait()
 
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
@@ -17,13 +17,19 @@ task.spawn(function()
     end
 end)
 
+task.spawn(function()
+    while task.wait(900) do
+        game:GetService("TeleportService"):Teleport(game.PlaceId)
+    end
+end)
+
 getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = true,
     ["LocalPlayer"] = {
         ["Ken Haki"] = true,
         ["Invisible"] = false,
-        ["Click Delay"] = 0.01,
+        ["Click Delay"] = 0.05,
         ["Panic Mode"] = {
             ["Skip Player"] = true,
             ["Run"] = 4500,
@@ -40,7 +46,7 @@ getgenv().config = {
             ["Enabled"] = true,
             ["URL"] = {
                 ["Discord"] = "https://discord.com/api/webhooks/1198957951172476968/9C1Wklj3x7WthwBmx7K88V3rheltSDfl7Xswj8JUME5rD8VlWQoyg35pBPujLvkbsaDq",
-                ["Thumbnail"] = "https://www.nautiljon.com/images/light_novels_volumes/00/42/kutabire_salaryman_na_ore_7-nen_buri_ni_saikai_shita_bishoujo_jk_to_dousei_wo_hajimeru_2_14524.webp?0"
+                ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"
             }
         },
         ["Chatkill"] = {
@@ -51,7 +57,7 @@ getgenv().config = {
         },
         ["FPS Locker"] = {
             ["Enabled"] = true,
-            ["Value"] = 20
+            ["Value"] = 60
         },
         ["Bounty Lock"] = {
             ["Enabled"] = false,
@@ -139,7 +145,9 @@ game.Workspace.SeaEvents:Remove()
 game.Workspace.Boats:Remove()
 game.Workspace.Leaderboards:Remove()
 game:GetService("ReplicatedStorage").Effect.Container:Remove()
--- game:GetService("ReplicatedStorage").FX:Remove()
+task.spawn(function()
+    game:GetService("ReplicatedStorage").FX:Remove()
+end)
 game:GetService("ReplicatedStorage").Assets:Remove()
 game:GetService("ReplicatedStorage").ClientWeapons:Remove()
 
@@ -179,6 +187,17 @@ repeat
     wait(1)
 until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
 task.wait(1)
+
+-- Track Stat
+
+getgenv().Hermanos_Settings = {
+    ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
+
+    ['PC'] = '1',
+    ['Sword'] = {'',},
+    ['Fruit'] = {'Kitsune'},
+}
+task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
 
 -- Teleport To Sea3
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
