@@ -25,7 +25,7 @@ task.wait()
 
 getgenv().config = {
     ["Team"] = "Pirates",
-    ["FPS Boost"] = false,
+    ["FPS Boost"] = true,
     ["LocalPlayer"] = {
         ["Ken Haki"] = true,
         ["Invisible"] = true,
@@ -57,7 +57,7 @@ getgenv().config = {
         },
         ["FPS Locker"] = {
             ["Enabled"] = true,
-            ["Value"] = 30
+            ["Value"] = 60
         },
         ["Bounty Lock"] = {
             ["Enabled"] = false,
