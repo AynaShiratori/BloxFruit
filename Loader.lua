@@ -38,7 +38,7 @@ getgenv().config = {
     },
 
     ["settings"] = {
-        ["White Screen"] = false,
+        ["White Screen"] = true,
         ["Region_Hop"] = {
             ["Enabled"] = true,
             ["Value"] = "Singapore"
