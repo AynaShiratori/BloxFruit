@@ -1,5 +1,3 @@
-game:GetService("RunService"):Set3dRenderingEnabled(false)
-
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
         wait (0.1) game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -435,24 +433,4 @@ task.spawn(function()
 		end
 		timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
 	end
-end)
-
-for i, v in next, workspace:GetDescendants() do
-	pcall(function()
-		v.Transparency = 1
-	end)
-end
-for i, v in next, getnilinstances() do
-	pcall(function()
-		v.Transparency = 1
-		for i1, v1 in next, v:GetDescendants() do
-			v1.Transparency = 1
-		end
-	end)
-end
-awp = workspace
-awp.DescendantAdded:Connect(function(v)
-	pcall(function()
-		v.Transparency = 1
-	end)
 end)
