@@ -1,3 +1,5 @@
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
         wait (0.1) game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -16,8 +18,6 @@ task.spawn(function()
     end
 end)
 
-game:GetService("RunService"):Set3dRenderingEnabled(false)
-
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
@@ -27,22 +27,22 @@ task.wait()
 
 getgenv().config = {
     ["Team"] = "Pirates",
-    ["FPS Boost"] = true,
+    ["FPS Boost"] = false,
     ["LocalPlayer"] = {
         ["Ken Haki"] = true,
-        ["Invisible"] = false,
-        ["Click Delay"] = 0.05,
+        ["Invisible"] = true,
+        ["Click Delay"] = 0.35,
         ["Panic Mode"] = {
             ["Skip Player"] = true,
-            ["Run"] = 6000,
-            ["Max"] = 6500,
+            ["Run"] = 4500,
+            ["Max"] = 5000,
         }
     },
     ["settings"] = {
         ["White Screen"] = true,
         ["Region_Hop"] = {
             ["Enabled"] = true,
-            ["Value"] = "Singapore"
+            ["Value"] = "United States"
         },
         ["Webhook"] = {
             ["Enabled"] = true,
@@ -58,8 +58,8 @@ getgenv().config = {
             }
         },
         ["FPS Locker"] = {
-            ["Enabled"] = true,
-            ["Value"] = 60
+            ["Enabled"] = false,
+            ["Value"] = 12
         },
         ["Bounty Lock"] = {
             ["Enabled"] = false,
@@ -77,33 +77,33 @@ getgenv().config = {
     },
     ["Skills"] = {
         ["Melee"] = {
-            ["Time"] = 3,
+            ["Time"] = 1.85,
             ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.6},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 2}
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.75},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0}
         },
         ["Fruit"] = {
             ["Time"] = 1,
             ["Enabled"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["V"] = {["Disable"] = true, ["HoldTime"] = 0},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1.75},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["V"] = {["Enabled"] = true, ["HoldTime"] = 0},
             ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
         },
         ["Sword"] = {
-            ["Time"] = 3,
+            ["Time"] = 0.5,
             ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
         },
         ["Gun"] = {
-            ["Time"] = 2,
+            ["Time"] = 1.112,
             ["Enabled"] = false,
-            ["GunMode"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
+            ["GunMode"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
         }
     }
 };
@@ -169,7 +169,7 @@ end)
 task.spawn(function()
     while task.wait(1) do
         if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
             task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
             task.wait(0.1)
@@ -435,4 +435,24 @@ task.spawn(function()
 		end
 		timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
 	end
+end)
+
+for i, v in next, workspace:GetDescendants() do
+	pcall(function()
+		v.Transparency = 1
+	end)
+end
+for i, v in next, getnilinstances() do
+	pcall(function()
+		v.Transparency = 1
+		for i1, v1 in next, v:GetDescendants() do
+			v1.Transparency = 1
+		end
+	end)
+end
+awp = workspace
+awp.DescendantAdded:Connect(function(v)
+	pcall(function()
+		v.Transparency = 1
+	end)
 end)
