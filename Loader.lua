@@ -1,3 +1,4 @@
+task.wait(5)
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
         wait (0.1) game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -21,7 +22,6 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait()
 
 getgenv().config = {
     ["Team"] = "Pirates",
