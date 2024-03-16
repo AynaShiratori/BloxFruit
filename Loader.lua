@@ -27,13 +27,13 @@ getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = true,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = true,
-        ["Invisible"] = true,
-        ["Click Delay"] = 0.35,
+        ["Ken Haki"] = false,
+        ["Invisible"] = false,
+        ["Click Delay"] = 0.01,
         ["Panic Mode"] = {
             ["Skip Player"] = true,
-            ["Run"] = 3500,
-            ["Max"] = 5000,
+            ["Run"] = 6000,
+            ["Max"] = 7000,
         }
     },
 
@@ -79,9 +79,9 @@ getgenv().config = {
         ["Melee"] = {
             ["Time"] = 3,
             ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.6},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 2}
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 1}
         },
         ["Fruit"] = {
             ["Time"] = 1,
@@ -93,9 +93,9 @@ getgenv().config = {
             ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
         },
         ["Sword"] = {
-            ["Time"] = 3,
+            ["Time"] = 2,
             ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
             ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
         },
         ["Gun"] = {
