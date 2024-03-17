@@ -1,5 +1,5 @@
+task.wait(3)
 setfpscap(30)
-task.wait(10)
 getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = true,
