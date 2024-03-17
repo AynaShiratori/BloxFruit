@@ -1,3 +1,4 @@
+task.wait(10)
 getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = true,
@@ -33,7 +34,7 @@ getgenv().config = {
         },
         ["FPS Locker"] = {
             ["Enabled"] = true,
-            ["Value"] = 30
+            ["Value"] = 25
         },
         ["Bounty Lock"] = {
             ["Enabled"] = false,
@@ -82,7 +83,6 @@ getgenv().config = {
     }
 }
 
-task.wait(5)
 task.spawn(function()    
     game:GetService("GuiService").ErrorMessageChanged:Connect(function()
         wait (0.1) game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -104,7 +104,7 @@ repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main
 
 -- Auto Bounty
 task.spawn(function()
-    task.wait(1)
+    task.wait(3)
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua")))()
 end)
 
