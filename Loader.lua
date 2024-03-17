@@ -44,10 +44,10 @@ getgenv().config = {
             ["Value"] = "Singapore"
         },
         ["Webhook"] = {
-            ["Enabled"] = false,
+            ["Enabled"] = true,
             ["URL"] = {
-                ["Discord"] = "",
-                ["Thumbnail"] = "default"
+                ["Discord"] = "https://discord.com/api/webhooks/1198957951172476968/9C1Wklj3x7WthwBmx7K88V3rheltSDfl7Xswj8JUME5rD8VlWQoyg35pBPujLvkbsaDq",
+                ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"
             }
         },
         ["Chatkill"] = {
