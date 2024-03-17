@@ -109,7 +109,7 @@ getgenv().config = {
 
 -- Auto-Bounty
 task.spawn(function()
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua")))()
+    loadstring(game:HttpGet("loadstring(game:HttpGet(("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua")))()"))()
 end)
 
 settings().Rendering.QualityLevel = "1"
