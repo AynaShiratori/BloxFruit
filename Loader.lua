@@ -27,27 +27,27 @@ getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = true,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = false,
+        ["Ken Haki"] = true,
         ["Invisible"] = false,
-        ["Click Delay"] = 0.01,
+        ["Click Delay"] = 0.1,
         ["Panic Mode"] = {
-            ["Skip Player"] = true,
-            ["Run"] = 6000,
-            ["Max"] = 7000,
+            ["Skip Player"] = false,
+            ["Run"] = 4500,
+            ["Max"] = 5000,
         }
     },
-
     ["settings"] = {
-        ["White Screen"] = true,
+	["Cam Farm"] = true,
+        ["White Screen"] = false,
         ["Region_Hop"] = {
             ["Enabled"] = true,
             ["Value"] = "Singapore"
         },
         ["Webhook"] = {
-            ["Enabled"] = true,
+            ["Enabled"] = false,
             ["URL"] = {
-                ["Discord"] = "https://discord.com/api/webhooks/1198957951172476968/9C1Wklj3x7WthwBmx7K88V3rheltSDfl7Xswj8JUME5rD8VlWQoyg35pBPujLvkbsaDq",
-                ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"
+                ["Discord"] = "",
+                ["Thumbnail"] = "default"
             }
         },
         ["Chatkill"] = {
@@ -66,15 +66,14 @@ getgenv().config = {
         },
         ["Ignore"] = {
             ["Buddha Users"] = false,
-            ["Portal Users"] = true,
+            ["Portal Users"] = false,
             ['Some Annoying V4'] = true,
         },
         ["Stats"] = {
-            ["Auto Reset Stat If Doesnt Match"] = true,
+            ["Auto Reset Stat If Doesnt Match"] = false,
             ["Points"] = "Sword"
         },
     },
-
     ["Skills"] = {
         ["Melee"] = {
             ["Time"] = 3,
@@ -84,13 +83,13 @@ getgenv().config = {
             ["C"] = {["Enabled"] = true, ["HoldTime"] = 1}
         },
         ["Fruit"] = {
-            ["Time"] = 1,
+            ["Time"] = 0,
             ["Enabled"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["V"] = {["Disable"] = true, ["HoldTime"] = 0},
-            ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
+            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["V"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["F"] = {["Enabled"] = false, ["HoldTime"] = 0}
         },
         ["Sword"] = {
             ["Time"] = 2,
@@ -99,18 +98,18 @@ getgenv().config = {
             ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
         },
         ["Gun"] = {
-            ["Time"] = 2,
+            ["Time"] = 0,
             ["Enabled"] = false,
             ["GunMode"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.5},
+            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
         }
     }
-};
+}
 
 -- Auto-Bounty
 task.spawn(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/PhamBaAnh08/LuaU/main/Blox%20Fruits/AutoBounty/Loader.lua"))()
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua")))()
 end)
 
 settings().Rendering.QualityLevel = "1"
