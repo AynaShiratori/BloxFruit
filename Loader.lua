@@ -8,8 +8,8 @@ getgenv().config = {
         ["Invisible"] = true,
         ["Click Delay"] = 0.025,
         ["Panic Mode"] = {
-            ["Skip Player"] = false,
-            ["Run"] = 4500,
+            ["Skip Player"] = true,
+            ["Run"] = 3500,
             ["Max"] = 5000,
         }
     },
