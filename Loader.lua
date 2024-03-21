@@ -245,6 +245,16 @@ repeat
 until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
 task.wait(1)
 
+-- Track Stat
+getgenv().Hermanos_Settings = {
+    ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
+
+    ['PC'] = 'PC-1',
+    ['Sword'] = {'Cursed Dual Katana', 'Tushita', 'Yama', 'Dark Dagger', 'Hallow Scythe', 'Shark Anchor'},
+    ['Fruit'] = {'Kitsune', 'Leopard', 'Dragon',  'Spirit', 'Control', 'Venom', 'Shadow', 'Dough','Mammoth', 'T-Rex'},
+}
+task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
+
 -- Teleport To Sea3
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
 
