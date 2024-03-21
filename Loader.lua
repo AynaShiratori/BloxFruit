@@ -2,84 +2,36 @@ task.wait(3)
 getgenv().Team = "Pirates"
 getgenv().config = {
     ["Team"] = "Pirates",
-    ["FPS Boost"] = false,
-    ["LocalPlayer"] = {
-        ["Ken Haki"] = true,
-        ["Invisible"] = true,
-        ["Click Delay"] = 0.025,
-        ["Panic Mode"] = {
-            ["Skip Player"] = true,
-            ["Run"] = 3500,
-            ["Max"] = 5000,
-        }
+    ["FPS Boost"] = true,
+    ["LocalPlayer"] = {["Ken Haki"] = true, ["Invisible"] = true, ["Click Delay"] = 0,
+        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3500, ["Max"] = 5000,}
     },
     ["settings"] = {
-        ["Cam Farm"] = true,
-        ["White Screen"] = true,
-        ["Region_Hop"] = {
-            ["Enabled"] = true,
-            ["Value"] = "Singapore"
-        },
-        ["Webhook"] = {
-            ["Enabled"] = true,
-            ["URL"] = {
-                ["Discord"] = "https://discord.com/api/webhooks/1219654507131306065/OUoF012Jdkj_rMtl1-1q4so-hnEhud6pP8fnY1GJk_OVts4XgknlXt6ebqUkUUbl8BJs",
-                ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"
-            }
-        },
-        ["Chatkill"] = {
-            ["Enabled"] = true,
-            ["Text"] = {
-                "gg btw why did u run lol"
-            }
-        },
-        ["FPS Locker"] = {
-            ["Enabled"] = false,
-            ["Value"] = 120
-        },
-        ["Bounty Lock"] = {
-            ["Enabled"] = false,
-            ["Value"] = 30000000
-        },
-        ["Ignore"] = {
-            ["Buddha Users"] = false,
-            ["Portal Users"] = true,
-            ['Some Annoying V4'] = true,
-        },
-        ["Stats"] = {
-            ["Auto Reset Stat If Doesnt Match"] = false,
-            ["Points"] = "Sword"
-        },
+	    ["Cam Farm"] = true,
+        ["White Screen"] = false,
+        ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "Singapore"},
+        ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1219654507131306065/OUoF012Jdkj_rMtl1-1q4so-hnEhud6pP8fnY1GJk_OVts4XgknlXt6ebqUkUUbl8BJs", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
+        ["Chatkill"] = {["Enabled"] = false, ["Text"] = {""}},
+        ["FPS Locker"] = {["Enabled"] = false, ["Value"] = 12},
+        ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
+        ["Ignore"] = {["Buddha Users"] = false, ["Portal Users"] = true, ['Some Annoying V4'] = true,},
+        ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
     },
     ["Skills"] = {
-        ["Melee"] = {
-            ["Time"] = 3,
-            ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 9.5},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.5}
+        ["Melee"] = {["Time"] = 2.25, ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1}, ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.1}
         },
-        ["Fruit"] = {
-            ["Time"] = 1.75,
-            ["Enabled"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["V"] = {["Enabled"] = true, ["HoldTime"] = 0},
+        ["Fruit"] = {["Time"] = 1.75, ["Enabled"] = false,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1}, ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0}, ["V"] = {["Enabled"] = true, ["HoldTime"] = 0},
             ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
         },
-        ["Sword"] = {
-            ["Time"] = 0.75,
-            ["Enabled"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.25},
-            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0.5},
+        ["Sword"] = {["Time"] = 0, ["Enabled"] = false,
+            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0}, ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
         },
-        ["Gun"] = {
-            ["Time"] = 0.75,
-            ["Enabled"] = false,
-            ["GunMode"] = false,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+        ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
+            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0}, ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
         }
     }
 }
@@ -378,11 +330,11 @@ else
     game.Players.LocalPlayer:Kick("Failed To Auto Load Fluxus Settings")
 end
 
--- Equip Dragon Talon And Warrior Helmet
+-- Equip Electric Claw And Warrior Helmet
 task.spawn(function()
     while task.wait(1) do
         if IsAutoBounty() and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
             task.wait(0.1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
             break
