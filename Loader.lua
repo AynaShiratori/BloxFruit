@@ -362,6 +362,16 @@ task.spawn(function()
         pcall(function()
             if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 30000000 then
                 writefile(fileName5, "Reached 30M Bounty")
+            end
+        end)
+    end
+end)
+
+-- If Current Bounty Is 30M Then Kick MySelf
+task.spawn(function()
+    while IsEverythingDone() do task.wait(1)
+        pcall(function()
+            if not game.Players.LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam") then
                 task.wait(5)
                 game.Players.LocalPlayer:Kick(game.Players.LocalPlayer.Name .. "!!! Reached 30M Bounty !!!")
             end
@@ -381,6 +391,17 @@ task.spawn(function()
     end
 end)
 
+-- If Everything Is Done ( 30M Bounty ) Then Purchase Godhuman To Hide Dragon Talon
+task.spawn(function()
+    while IsEverythingDone() do task.wait(1)
+        pcall(function()
+            if IsEverythingDone() then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+            end
+        end)
+    end
+end)
+
 -- Check If Bounty Is Not Changed
 local AFKDelayCheck = 450
 task.spawn(function()
@@ -393,8 +414,8 @@ task.spawn(function()
         if PlayerAbcdf then
             local newBountyAbcdf = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
             if (newBountyAbcdf == currentBountyAbcdf and currentBountyAbcdf > 1) and game.Players.LocalPlayer.PlayerGui.InCombat.Visible == false then
-                print("Bounty Is Stucked, Server Hopping...")
-                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Server Hopping...")
+                print("Bounty Is Stucked, Rejoining...")
+                game.Players.LocalPlayer:Kick("Detected Not Killing/AFK, Rejoining...")
             else
                 currentBountyAbcdf = newBountyAbcdf
             end
