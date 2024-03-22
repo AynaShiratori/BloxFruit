@@ -425,7 +425,7 @@ end)
 
 -- Check If Auto-Bounty Is Not Loaded Then Rejoin
 task.spawn(function()
-    while task.wait(30) do
+    while task.wait(60) do
         if IsAutoBounty() and game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             game:GetService("TeleportService"):Teleport(game.PlaceId)
         end
