@@ -1,3 +1,4 @@
+task.wait(3)
 getgenv().Team = "Pirates"
 getgenv().config = {
     ["Team"] = "Pirates",
