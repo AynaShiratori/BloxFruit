@@ -1,5 +1,6 @@
 task.wait(3)
 game:GetService("RunService"):Set3dRenderingEnabled(false)
+setfpscap(30)
 getgenv().Team = "Pirates"
 getgenv().config = {
     ["Team"] = "Pirates",
