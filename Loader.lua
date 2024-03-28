@@ -38,11 +38,18 @@ getgenv().config = {
     }
 }
 
+-- Auto Reconnect
 task.spawn(function()
-  repeat task.wait() until game.PlaceId ~= nil and game.JobId ~= nil
-  game:GetService("NetworkClient").ChildRemoved:Connect(function()
-  game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-  end)
+    repeat task.wait(1) until game.CoreGui:FindFirstChild('RobloxPromptGui')
+    local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
+    po.ChildAdded:connect(function(a)
+        if a.Name == 'ErrorPrompt' then
+            repeat
+                ts:Teleport(game.PlaceId)
+                task.wait(2)
+            until false
+        end
+    end)
 end)
 
 -- Rejoin After 15 Minutes
@@ -116,6 +123,22 @@ task.spawn(function()
     end
 end)
 
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua")))()
+
+-- Check If Auto-Bounty Is Loaded
+repeat
+    task.wait()
+    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        break
+    end
+    wait(1)
+until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+task.wait(1)
+
+-- Teleport To Sea3
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+
+-- Better Vision
 -- Remove Godx Auto Bounty Ui
 task.spawn(function()
     while task.wait() do
@@ -125,8 +148,33 @@ task.spawn(function()
         end
     end
 end)
-
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua")))()
+task.spawn(function()
+	while task.wait(0.5) do
+		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
+		game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
+	end
+end)
+game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
+game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
+game.Workspace.NPCs:Remove()
+task.spawn(function()
+    game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
+end)
 
 CurrentStatus = "Heavily Modifed By Ayna Shiratori"
 -- UI
