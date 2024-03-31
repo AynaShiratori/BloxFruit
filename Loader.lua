@@ -1,4 +1,4 @@
-task.wait(3)
+task.wait(10)
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 getgenv().Team = "Pirates"
 getgenv().config = {
@@ -11,7 +11,7 @@ getgenv().config = {
 	    ["Cam Farm"] = true,
         ["White Screen"] = true,
         ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "Singapore"},
-        ["Webhook"] = {["Enabled"] = false, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1219654507131306065/OUoF012Jdkj_rMtl1-1q4so-hnEhud6pP8fnY1GJk_OVts4XgknlXt6ebqUkUUbl8BJs", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
+        ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1219654507131306065/OUoF012Jdkj_rMtl1-1q4so-hnEhud6pP8fnY1GJk_OVts4XgknlXt6ebqUkUUbl8BJs", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
         ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run lol"}},
         ["FPS Locker"] = {["Enabled"] = false, ["Value"] = 12},
         ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
