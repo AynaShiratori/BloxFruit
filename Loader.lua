@@ -1,4 +1,4 @@
-task.wait(20)
+task.wait(3)
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 getgenv().Team = "Pirates"
 getgenv().config = {
