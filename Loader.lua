@@ -147,6 +147,18 @@ task.spawn(function()
         end
     end
 end)
+
+getgenv().Hermanos_Settings = {
+    ['key'] = '4a97a4c2-cac7-46ff-8009-332ccf4caef6',
+
+    ['PC'] = 'PC-1',
+    ['Sword'] = {''},
+	['Gun'] = {''},
+	['Accessories'] = {''},
+	['Fruit'] = {'Kitsune', 'Dragon'},
+	}
+task.spawn(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/hermanos-dev/hermanos-script/main/script.lua'))() end)
+
 task.spawn(function()
 	while task.wait(0.5) do
 		game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
