@@ -1,5 +1,5 @@
 task.wait(3)
-setfpscap(30)
+setfpscap(20)
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 getgenv().Team = "Pirates"
 getgenv().config = {
