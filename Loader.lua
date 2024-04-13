@@ -1076,6 +1076,7 @@ if isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.Loca
     LoadWazureHubCursedDualKatanaMasteryFarmConfig()
     ChooseTeam()
     LoadWazureHub()
+    FullyFPSBooster()
 end
 
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
