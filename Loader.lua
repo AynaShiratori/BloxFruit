@@ -1,25 +1,3 @@
--- AynaShiratori Settings
-getgenv().AynaShiratori = {
-    ["Device Name"] = "Pc 1",
-    ["Misc"] = {
-        ["Webhooks Logs"] = true,
-        ["Status UI"] = true,
-        ["Yummy Track Stats"] =  true,
-        ["Select Team"] = "Pirates",
-        ["Auto Random And Store Fruits"] = true,
-    },
-    ["Performance"] = {
-        ["FPS Lock"] = 30,
-        ["Time Wait To Rejoin"] = 1800,
-        ["White Screen"] = true,
-        ["Fully FPS Booster"] = true,
-        ["Fully Remove Player Gui"] = true,
-    },
-    ["Lock Bounty"] = {
-        ["Enabled"] = true,
-        ["Value"] = 30000000,
-    },
-}
 local DeviceName = AynaShiratori["Device Name"]
 local Misc = AynaShiratori["Misc"]
 local WebhooksLogs = Misc["Webhooks Logs"]
@@ -83,7 +61,7 @@ getgenv().config = {
 _G.Config = {
     UserID = "ca09d152-b7da-4218-950a-bed3c622fb2d",
     discord_id = 986156689285861376,
-    Note = DeviceName,
+    Note = getgenv().AynaShiratori["Device Name"],
 }
 
 -- Wazure Hub Settings
@@ -221,7 +199,7 @@ end
 -- UI
 if StatusUIEnabled then
     task.spawn(function()
-        task.wait(3)
+        task.wait(1)
         local thisoneissocoldww = Instance.new("ScreenGui")
         local madebybloodofbatus = Instance.new("Frame")
         local UICornerw = Instance.new("UICorner")
@@ -485,40 +463,12 @@ end
 
 function LoadWazureHub()
     task.spawn(function()
-        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
     end)
 end
 
 function LoadWazureHubCursedDualKatanaMasteryFarmConfig()
-    if not isfolder("True W-azure V2_Beta") then
-        makefolder("True W-azure V2_Beta")
-    end
-
-    if not isfolder("True W-azure V2_Beta/ConfigMain") then
-        makefolder("True W-azure V2_Beta/ConfigMain")
-    end
-    
-    if not isfolder("True W-azure V2_Beta/Cache") then
-        makefolder("True W-azure V2_Beta/Cache")
-    end
-
-    if not isfolder("True W-azure V2_Beta/Main") then
-        makefolder("True W-azure V2_Beta/Main")
-    end
-
-    if not isfolder("True W-azure V2_Beta/SameAcc") then
-        makefolder("True W-azure V2_Beta/SameAcc")
-    end
-    
-    if not isfolder("True W-azure V2_Beta/Theme") then
-        makefolder("True W-azure V2_Beta/Theme")
-    end
-    
-    if not isfile("True W-azure V2_Beta/Main/" .. game.Players.LocalPlayer.Name .. ".json") then
-        writefile("True W-azure V2_Beta/Main/" .. game.Players.LocalPlayer.Name .. ".txt", "True W-azure V2_Beta/ConfigMain/"  .. game.Players.LocalPlayer.Name  .. ".json")
-    end
-
-    writefile("True W-azure V2_Beta/ConfigMain/" .. game.Players.LocalPlayer.Name .. ".json", '{"Setting":{"Fully Cyborg":{"Enable":false},"Soul Reaper":{"Enable":false},"ESP":{"Chest":false,"Boss":false,"Fruit":false,"Player":false,"Island":false},"SeaEvents":{"SeaBeast":false,"AutoEscapeRoughSea":false,"IgnoreSeaBeast":false,"SelectShip":"PirateSloop","ShipSpeedModifier":false,"ShipSpeed":300,"DistanceNearMob":300,"TerrorShark":false,"AzureEmberLimit":25,"Piranha":false,"SafeMode":false,"AutoStartKitsune":false,"Ship":false,"AutoFindLeviathan":false,"StartSeaEvents":false,"AutoTradeKitsune":false,"AutoCollectKitsune":false,"Shark":false,"AutoFindKitsune":false,"IgnoreShip":false,"MultiSegmentAttack":false,"Leviathan":false,"FlyShipFarm":false,"DistanceNearSeaBeast":300,"SpinDistance":200},"Open Pad":{"Enable":false},"Webhook":{"Url":""},"Full Dough King":{"Enable":false},"Rip Indra":{"Enable":false},"SwordSwitcher":{"Enable":false,"MaxMastery":false},"Black Beard":{"Enable":false},"AcceptQuest_Bone_Katakuri":{"Enable":false},"SubFarming":[],"OneClick":{"TripleQuest":false,"UnlimitGetQuest":false,"Sea2KeyHop":false,"Enable":false,"DisableMeleeSwitcher":false,"Melee600Mastery":false,"AutoAddStats":false},"Tushita Hop__1":{"Enable":false},"Trial":{"AutoKill":false,"ChooseGear":false,"LookAtMoon":false,"WeaponSkills":[],"UseWeapon":false,"AutoReset":false,"Enable":false},"Shop":{"HakiColor":false,"AutoBuyBribe":false,"LegendaryHakiColor":false,"AutoRandomFruit":false,"AutoRandomBone":false,"AutoLegendarySword":false},"Spawn Rip Indra":{"Enable":false},"Material":{"Enable":false},"LocalPlayer":{"AutoBuso":true,"DoDashRange":false,"NoClip":false,"InfGeppo":false,"DashRange":200,"NoClipShip":false,"SpeedHack":false,"SoruNoCD":false,"AutoUseV3":false,"AutoUseV4":false,"DashModify":false,"Speed":90,"DashNoCD":false,"WaterWalker":true,"AutoEnableObservation":false},"CDK":{"Enable":false},"FullyAutoTrial":{"Enable":false},"FullyRaceV4_Entrance":{"Enable":false},"GetFruit":{"Enable":false},"Mastery":{"Sword/Low":false,"Fruit/Gun":false,"Enable":false,"Sword":true,"Y":30,"Camera":false,"Health":20,"Z":0,"X":0},"YoruV3":{"Enable":false,"Upgrade":false},"Law":{"Enable":false},"Pvp":{"DisableSilentAim":false,"SilentAimSelected":false,"Method":"Nearest","SilentAimNear":false,"AutoShootGun":false,"GunDistanceCheck":false,"AutoKillNear":false},"Citizen Quest":{"Enable":false,"Hop":false},"__PoleHop":{"Enable":false},"Elite":{"Enable":false},"SkillsSettingRemake":{"ClickFruit":false,"Melee":["Z","X","C"],"Gun":["Z","X"],"Sword":["Z","X"],"Blox Fruit":["X","C","Z","F","V"]},"Bone":{"Enable":false},"Blacksmith":{"Enable":false,"WeaponType":false},"Fully Ghoul":{"Enable":false},"Factory":{"Enable":false},"Get Ghoul":{"Enable":false},"SkillsSet2":{"Blox Fruit":true,"Gun":true,"Melee":true,"Sword":true},"Rainbow Haki":{"Enable":false,"Hop":false},"TweenToPlayer":false,"Fruit":{"FruitsToSnipe":[],"EnableSnipeFruit":false,"AutoStore":false},"Kill Aura":{"Enable":false,"AnchorTPBack":true,"DistanceFromAnchor":4000},"Panel":{"Enable":false},"Tween":{"Speed":350,"TimePause":0.2,"Pause":false,"TimeNeedPause":2},"RaceV4":{"CheckStatus":false},"Winter Event":{"Enable":false},"BossSniper":{"Enable":false,"Hop":false,"SelectedBoss":[]},"Raid Fruit Hop":{"Enable":false},"Cake Prince":{"Enable":false},"Unlock Electric Claw":{"Enable":false},"Katakuri":{"Enable":true},"Evolve Observation":{"Enable":false,"Hop":false},"Spawn Soul Reaper":{"Enable":false},"Mirage Snipe Fruit":{"Enable":false},"Black Beard Hop":{"Enable":false},"Level Observation":{"Enable":false,"Hop":false},"Pirate Raid":{"Enable":false},"__SaberHop":{"Enable":false},"AutoTrainTrial":{"Enable":false,"TrainPlace":"Bone"},"FastAttack":{"TimeToAttack":3,"OldFastAttack":false,"Enable":true,"TimeFastAttack":100,"OnPlayer":true,"OnMob":true,"SupremeAttack":false,"FastAttackIfBoss":false,"StopClick":false},"Collect Chest":{"InstaTP":false,"Hop":false,"Enable":false,"IgnoreItem":false,"LimitChest":70},"FruitSkillsHold":{"X":0,"C":0,"Z":0,"F":0,"V":0},"BringMob":{"Enable":true,"Radius":500},"Soul Guitar":{"Enable":false},"Hybrid Fruit Hop":{"Enable":false},"Tushita":{"Enable":false},"TrialTeam":{"Enable":false},"Bartilo":{"Enable":false},"Spawn Black Beard":{"Enable":false},"Haki Pad":{"Enable":false},"Misc":{"__RemoveDMGCounter":false,"__RemoveEffects":false,"DisableRender3D":false,"__NoFog":false,"__RemoveNotification":false,"__PreJoin":false},"Material Soul Guitar":{"Enable":false},"Race Evolve":{"Enable":false,"Hop":false},"Raid":{"Enable":false,"GetFruitUnder1M":false,"NoDelay":false,"Awaken":false},"Dough King":{"Enable":false}}}')
+    writefile("redz Hub | Blox Fruits.lua", '{"Sea/AzureAmount":20,"SeaSkill/Aimbot":true,"Misc/UIScale":"Small","Misc/AutoClickDelay":0.18,"Farm/HallowBoss":false,"SeaSkill/F":false,"Farm/PiratesSea":false,"Sea/X":true,"Misc/AutoHaki":true,"Notify/Fruit":false,"Misc/IncreaseAttackDistance":true,"Misc/RemoveDamage":false,"Sea/Piranha":true,"Misc/BringMobsDistance":200,"Sea/F":false,"Misc/TweenSpeed":250,"Sea/SeaLevel":"6","Sea/PirateBrigade":true,"Farm/TradeBone":false,"Misc/RemoveNotifications":false,"Sea/Terrorshark":true,"Sea/BoatSpeed":250,"Sea/V":true,"SeaSkill/X":true,"SeaSkill/C":true,"Sea/PirateGrandBrigade":true,"Misc/AutoClick":true,"Sea/C":true,"Sea/FishCrewMember":true,"Farm/CakePrince":false,"Misc/BringMobs":true,"Misc/WalkSpeedSelect":145,"Misc/WalkOnWater":true,"Farm/Nearest":false,"Fruits/AutoStore":false,"Misc/FarmDistance":20,"Farm/EliteHunter":false,"Sea/Shark":true,"Fruits/Teleport":false,"AutoMastery/FightStyle":false,"Notify/Time":15,"Sea/SeaBeasts":true,"SeaSkill/V":true,"Farm/Bone":true,"Farm/EliteHunterHop":false,"Sea/FishBoat":true,"Main/FarmTool":"Sword","Farm/BossSelected":false,"Farm/BossQuest":true,"Misc/AntiAFK":true,"ESP/Fruits":false,"Misc/FastAttack":true,"Sea/Z":true,"Buy/HakiColor":false,"AutoMastery/Swords":false,"SeaSkill/Z":true,"Farm/MasteryHealth":25,"Sea/Aimbot":true,"Farm/DoughKing":false,"Misc/ChangeWS":false,"Farm/Level":false,"Fruits/AutoRandom":false,"FMastery/Selected":600,"Farm/AllBosses":false}')
 end
 
 -- Choose Team Pirate
@@ -930,18 +880,13 @@ game:service'Players'.LocalPlayer.Idled:connect(function()
     game:service'VirtualUser':ClickButton2(Vector2.new())
 end)
 
--- Anti AFK 2
-for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-    v:Disable()
-end
-
 -- Wait Until Game Is Loaded
-task.wait(5)
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+task.wait(3)
 
 -- Do Redeem Refund Stat Code To Reset Stat To Add Point Stats Combo
 function RedeemCode(value)
@@ -1129,15 +1074,14 @@ end
 -- Do Wazure Cursed Dual Katana Auto Farm Mastery
 if isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
     LoadWazureHubCursedDualKatanaMasteryFarmConfig()
+    ChooseTeam()
     LoadWazureHub()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,"RightControl",false,game)
 end
 
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
 task.spawn(function()
     if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
         FullyFPSBooster()
-        task.wait(2)
         LoadGodxAutoBounty()
         repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
         task.wait(0.1)
@@ -1205,8 +1149,7 @@ until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
 task.wait(1)
 
 if YummyTrackStatEnabled then
-    task.sapawn(function()
-        task.wait(1)
+    task.spawn(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/trackstatblox"))()
     end)
 end
