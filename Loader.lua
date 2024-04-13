@@ -1076,6 +1076,7 @@ if isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.Loca
     LoadWazureHubCursedDualKatanaMasteryFarmConfig()
     ChooseTeam()
     LoadWazureHub()
+    task.wait(10)
     FullyFPSBooster()
 end
 
