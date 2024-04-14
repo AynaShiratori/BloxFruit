@@ -20,7 +20,7 @@ getgenv().config = {
     ["FPS Boost"] = true,
     ["LocalPlayer"] = {
         ["Ken Haki"] = true, ["Invisible"] = true, ["Click Delay"] = 0.15,
-        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 2500, ["Max"] = 4000}
+        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 4000, ["Max"] = 5000}
     },
     ["settings"] = {
         ["Cam Farm"] = true,
