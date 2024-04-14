@@ -17,10 +17,10 @@ local AmountBountyToKick = LockBounty["Value"]
 -- Godx Auto Bounty Settings
 getgenv().config = {
     ["Team"] = "Pirates",
-    ["FPS Boost"] = false,
+    ["FPS Boost"] = true,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = true, ["Invisible"] = true, ["Click Delay"] = 0.1,
-        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3500, ["Max"] = 5000}
+        ["Ken Haki"] = true, ["Invisible"] = true, ["Click Delay"] = 0.15,
+        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 2500, ["Max"] = 4000}
     },
     ["settings"] = {
         ["Cam Farm"] = true,
@@ -34,8 +34,8 @@ getgenv().config = {
         ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
     },
     ["Skills"] = {
-        ["Melee"] = {["Time"] = 1.2, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.8}, 
+        ["Melee"] = {["Time"] = 1, ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.6}, 
             ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
             ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
         },
@@ -48,7 +48,7 @@ getgenv().config = {
         },
         ["Sword"] = {["Time"] = 1, ["Enabled"] = true,
             ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.4},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.3},
         },
         ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
@@ -63,13 +63,6 @@ _G.Config = {
     discord_id = 986156689285861376,
     Note = getgenv().AynaShiratori["Device Name"],
 }
-
--- Wazure Hub Settings
-getgenv().Team = "Pirates"
-getgenv().AutoLoad = false
-getgenv().SlowLoadUi  = false
-getgenv().ForceUseSilentAimDashModifier = false
-getgenv().ForceUseWalkSpeedModifier = false
 
 -- Create Main Folders To Store Stuffs
 if not isfolder("AynaShiratori") then
@@ -199,7 +192,6 @@ end
 -- UI
 if StatusUIEnabled then
     task.spawn(function()
-        task.wait(1)
         local thisoneissocoldww = Instance.new("ScreenGui")
         local madebybloodofbatus = Instance.new("Frame")
         local UICornerw = Instance.new("UICorner")
@@ -324,7 +316,7 @@ if StatusUIEnabled then
         end
 
         task.spawn(function()
-            while task.wait() do
+            while task.wait(1) do
                 pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
             end
         end)
@@ -461,13 +453,13 @@ function LoadGodxAutoBounty()
     end)
 end
 
-function LoadWazureHub()
+function LoadRedzHub()
     task.spawn(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
     end)
 end
 
-function LoadWazureHubCursedDualKatanaMasteryFarmConfig()
+function LoadRedzHubCursedDualKatanaMasteryFarmConfig()
     writefile("redz Hub | Blox Fruits.lua", '{"Sea/AzureAmount":20,"SeaSkill/Aimbot":true,"Misc/UIScale":"Small","Misc/AutoClickDelay":0.18,"Farm/HallowBoss":false,"SeaSkill/F":false,"Farm/PiratesSea":false,"Sea/X":true,"Misc/AutoHaki":true,"Notify/Fruit":false,"Misc/IncreaseAttackDistance":true,"Misc/RemoveDamage":false,"Sea/Piranha":true,"Misc/BringMobsDistance":200,"Sea/F":false,"Misc/TweenSpeed":250,"Sea/SeaLevel":"6","Sea/PirateBrigade":true,"Farm/TradeBone":false,"Misc/RemoveNotifications":false,"Sea/Terrorshark":true,"Sea/BoatSpeed":250,"Sea/V":true,"SeaSkill/X":true,"SeaSkill/C":true,"Sea/PirateGrandBrigade":true,"Misc/AutoClick":true,"Sea/C":true,"Sea/FishCrewMember":true,"Farm/CakePrince":false,"Misc/BringMobs":true,"Misc/WalkSpeedSelect":145,"Misc/WalkOnWater":true,"Farm/Nearest":false,"Fruits/AutoStore":false,"Misc/FarmDistance":20,"Farm/EliteHunter":false,"Sea/Shark":true,"Fruits/Teleport":false,"AutoMastery/FightStyle":false,"Notify/Time":15,"Sea/SeaBeasts":true,"SeaSkill/V":true,"Farm/Bone":true,"Farm/EliteHunterHop":false,"Sea/FishBoat":true,"Main/FarmTool":"Sword","Farm/BossSelected":false,"Farm/BossQuest":true,"Misc/AntiAFK":true,"ESP/Fruits":false,"Misc/FastAttack":true,"Sea/Z":true,"Buy/HakiColor":false,"AutoMastery/Swords":false,"SeaSkill/Z":true,"Farm/MasteryHealth":25,"Sea/Aimbot":true,"Farm/DoughKing":false,"Misc/ChangeWS":false,"Farm/Level":false,"Fruits/AutoRandom":false,"FMastery/Selected":600,"Farm/AllBosses":false}')
 end
 
@@ -847,21 +839,12 @@ task.spawn(function()
             if getgenv().SentAutoReconnectInfo then return end
             getgenv().SentAutoReconnectInfo = true
             SendAutoReconnectInfo()
-            task.wait(2)
             repeat
                 ts:Teleport(game.PlaceId)
                 task.wait(2)
             until false
         end
     end)
-end)
-
-task.spawn(function()
-    while task.wait() do
-        if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Loading").Visible == true then
-            game:GetService('TeleportService'):Teleport(game.PlaceId)
-        end
-    end
 end)
 
 -- Rejoin After Spectify Minute In Setting
@@ -906,36 +889,29 @@ task.spawn(function()
         if isfile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        pcall(function()
-            if not isfile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
-                task.wait(0.1)
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
-                task.wait(0.1)
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
-                task.wait(0.1)
-                writefile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-            end
-        end)
+        if not isfile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
+            task.wait(0.1)
+            writefile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+        end
     end
 end)
 
 -- If Stats Combo Is Not Matched ( Melee, Defesne And Sword Value Is Higher Than 2550 ) Then Tries To Add Point
 task.spawn(function()
-    if not isfile("AynaShiratori/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt") then
-        repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
-        if game.Players.LocalPlayer.Data.Stats.Melee.Level.Value <= 2549 then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",2549)
-        end
-        if game.Players.LocalPlayer.Data.Stats.Defense.Level.Value <= 2549 then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",2549)
-        end
-        if game.Players.LocalPlayer.Data.Stats.Sword.Level.Value <= 2549 then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Sword",2549)
-        end
-        if game.Players.localPlayer.Data.Stats.Melee.Level.Value >= 2549 and game.Players.localPlayer.Data.Stats.Defense.Level.Value >= 2549 and game.Players.localPlayer.Data.Stats.Sword.Level.Value >= 2549 then
-            writefile("AynaShiratori/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-        end
+    repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+    if game.Players.LocalPlayer.Data.Stats.Melee.Level.Value <= 2549 then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",2549)
+    end
+    if game.Players.LocalPlayer.Data.Stats.Defense.Level.Value <= 2549 then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",2549)
+    end
+    if game.Players.LocalPlayer.Data.Stats.Sword.Level.Value <= 2549 then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Sword",2549)
     end
 end)
 
@@ -945,31 +921,28 @@ task.spawn(function()
         if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        pcall(function()
-            if not isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") or not isfile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt") or not isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Cursed Dual Katana")
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-                    if getgenv().SendHasGodhumanInfo then return end
-                    getgenv().SendHasGodhumanInfo = true
-                    SendHasGodhumanInfo()
-                    writefile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cursed Dual Katana") then
-                    if getgenv().SendHasCursedDualKatana then return end
-                    getgenv().SendHasCursedDualKatana = true
-                    SendHasCursedDualKatanaInfo()
-                    writefile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cursed Dual Katana").Level.Value >= 375 or game.Players.LocalPlayer.Chacracter:FindFirstChild("Cursed Dual Katana").Level.Value >= 375 then
-                    if getgenv().SendHasCursedDualKatanaAllSkillsUnlockedInfo then return end
-                    getgenv().SendHasCursedDualKatanaAllSkillsUnlockedInfo = true
-                    SendHasCursedDualKatanaAllSkillsUnlockedInfo()
-                    writefile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-                end
+        if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Cursed Dual Katana")
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
+                if getgenv().SendHasGodhumanInfo then return end
+                getgenv().SendHasGodhumanInfo = true
+                SendHasGodhumanInfo()
+                writefile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
             end
-        end)
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Cursed Dual Katana") then
+                if getgenv().SendHasCursedDualKatana then return end
+                getgenv().SendHasCursedDualKatana = true
+                SendHasCursedDualKatanaInfo()
+                writefile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            end
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Cursed Dual Katana") and game.Players.LocalPlayer.Backpack:FindFirstChild("Cursed Dual Katana").Level.Value >= 375 or game.Players.LocalPlayer.Character:FindFirstChild("Cursed Dual Katana") and game.Players.LocalPlayer.Character:FindFirstChild("Cursed Dual Katana").Level.Value >= 375 then
+                if getgenv().SendHasCursedDualKatanaAllSkillsUnlockedInfo then return end
+                getgenv().SendHasCursedDualKatanaAllSkillsUnlockedInfo = true
+                SendHasCursedDualKatanaAllSkillsUnlockedInfo()
+                writefile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            end
+        end
     end
 end)
 
@@ -979,15 +952,13 @@ task.spawn(function()
         if isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        pcall(function()
-            if not isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                if getgenv().IsFarmingCursedDualKatanaMastery then return end
-                getgenv().IsFarmingCursedDualKatanaMastery = true
-                SendIsFarmingCursedDualKatanaMasteryInfo()
-                writefile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-                game.Players.LocalPlayer:Kick("Found Gothuman And Cursed Dual Katana. Starting Auto Farm Mastery For Cursed Dual Katana All Skills")
-            end
-        end)
+        if not isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            if getgenv().IsFarmingCursedDualKatanaMastery then return end
+            getgenv().IsFarmingCursedDualKatanaMastery = true
+            SendIsFarmingCursedDualKatanaMasteryInfo()
+            writefile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            game.Players.LocalPlayer:Kick("Found Gothuman And Cursed Dual Katana. Starting Auto Farm Mastery For Cursed Dual Katana All Skills")
+        end
     end
 end)
 
@@ -997,16 +968,14 @@ task.spawn(function()
         if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        pcall(function()
-            if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                if getgenv().SendIsAutoBountyInfo then return end
-                getgenv().SendIsAutoBountyInfo = true
-                SendIsAutoBountyInfo()
-                writefile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-                task.wait(0.1)
-                game.Players.LocalPlayer:Kick("Found GodHuman And Cursed Dual Katana All Skills Unlocked. Starting Auto Bounty")
-            end
-        end)
+        if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatana/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            if getgenv().SendIsAutoBountyInfo then return end
+            getgenv().SendIsAutoBountyInfo = true
+            SendIsAutoBountyInfo()
+            writefile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            task.wait(0.1)
+            game.Players.LocalPlayer:Kick("Found GodHuman And Cursed Dual Katana All Skills Unlocked. Starting Auto Bounty")
+        end
     end
 end)
 
@@ -1033,14 +1002,12 @@ task.spawn(function()
         if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        pcall(function()
-            if LockBountyEnabled and isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value == AmountBountyToKick then
-                if getgenv().SendIsEverythingDone then return end
-                getgenv().SendiSEverythingDone = true
-                SendIsEverythingDone()
-                writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt", AmountBountyToKick .. " " .. OsDateResult)
-            end
-        end)
+        if LockBountyEnabled and isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value == AmountBountyToKick then
+            if getgenv().SendIsEverythingDone then return end
+            getgenv().SendiSEverythingDone = true
+            SendIsEverythingDone()
+            writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt", AmountBountyToKick .. " " .. OsDateResult)
+        end
     end
 end)
 
@@ -1073,9 +1040,9 @@ end
 
 -- Do Wazure Cursed Dual Katana Auto Farm Mastery
 if isfile("AynaShiratori/IsFarmingCursedDualKatanaMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasCursedDualKatanaAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
-    LoadWazureHubCursedDualKatanaMasteryFarmConfig()
+    LoadRedzHubCursedDualKatanaMasteryFarmConfig()
     ChooseTeam()
-    LoadWazureHub()
+    LoadRedzHub()
 end
 
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
@@ -1127,14 +1094,12 @@ task.spawn(function()
         if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
             break
         end
-        pcall(function()
-            if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                if getgenv().SendScriptsNotLoadedInfo() then return end
-                getgenv().SendScriptsNotLoadedInfo = true
-                SendScriptsNotLoadedInfo()
-                game.Players.LocalPlayer:Kick("Detected Auto Bounty Not Loaded. Rejoining")
-            end
-        end)
+        if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            if getgenv().SendScriptsNotLoadedInfo() then return end
+            getgenv().SendScriptsNotLoadedInfo = true
+            SendScriptsNotLoadedInfo()
+            game.Players.LocalPlayer:Kick("Detected Auto Bounty Not Loaded. Rejoining")
+        end
     end
 end)
 
@@ -1153,9 +1118,6 @@ if YummyTrackStatEnabled then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/trackstatblox"))()
     end)
 end
-
--- Teleport To Sea3
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
 
 -- Automatically Random And Store Fruits
 task.spawn(function()
