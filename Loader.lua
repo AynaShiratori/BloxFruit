@@ -401,7 +401,7 @@ if StatusUIEnabled then
 end
 
 -- Better Vision
-if FullyRemovePlayerGui then
+if not FullyRemovePlayerGui then
     task.spawn(function()
         -- Remove Godx Auto Bounty Ui
         task.spawn(function()
@@ -533,7 +533,7 @@ function FullyFPSBooster()
         game.ReplicatedStorage["Wrapper"]:Remove()
         game.ReplicatedStorage["DamageCounter"]:Remove()
         game.ReplicatedStorage["Raids"]:Remove()
-        game.ReplicatedStorage["Shop"]:Remove()
+        -- game.ReplicatedStorage["Shop"]:Remove()
         game.ReplicatedStorage["Pool"]:Remove()
         game.ReplicatedStorage["CustomCollisions"]:Remove()
         game.ReplicatedStorage["SkyMovement"]:Remove()
