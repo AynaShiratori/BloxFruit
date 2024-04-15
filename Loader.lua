@@ -1,4 +1,3 @@
-task.wait(3)
 local DeviceName = AynaShiratori["Device Name"]
 local Misc = AynaShiratori["Misc"]
 local WebhooksLogs = Misc["Webhooks Logs"]
@@ -19,9 +18,9 @@ local AmountBountyToKick = LockBounty["Value"]
 -- Godx Auto Bounty Settings
 getgenv().config = {
     ["Team"] = "Pirates",
-    ["FPS Boost"] = true,
+    ["FPS Boost"] = false,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = true, ["Invisible"] = true, ["Click Delay"] = 0.15,
+        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0,
         ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 4000, ["Max"] = 5000}
     },
     ["settings"] = {
@@ -32,14 +31,14 @@ getgenv().config = {
         ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run"}},
         ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 9999},
         ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
-        ["Ignore"] = {["Buddha Users"] = false, ["Portal Users"] = true, ['Some Annoying V4'] = false},
+        ["Ignore"] = {["Buddha Users"] = true, ["Portal Users"] = true, ['Some Annoying V4'] = true},
         ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
     },
     ["Skills"] = {
-        ["Melee"] = {["Time"] = 1, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.6}, 
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+        ["Melee"] = {["Time"] = 1.5, ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0}, 
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0},
         },
         ["Fruit"] = {["Time"] = 1.75, ["Enabled"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 1}, 
@@ -49,8 +48,8 @@ getgenv().config = {
             ["F"] = {["Enabled"] = false, ["HoldTime"] = 0}
         },
         ["Sword"] = {["Time"] = 1, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.4},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.3},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
         },
         ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
@@ -870,7 +869,6 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-task.wait(3)
 
 -- Do Redeem Refund Stat Code To Reset Stat To Add Point Stats Combo
 function RedeemCode(value)
@@ -1055,7 +1053,7 @@ task.spawn(function()
         task.wait(0.1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
         task.wait(0.1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
         task.wait(0.1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Cursed Dual Katana")
         task.wait(0.1)
