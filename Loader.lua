@@ -59,13 +59,6 @@ getgenv().config = {
     }
 }
 
--- Yummy Track Stats Settings
-_G.Config = {
-    UserID = "ca09d152-b7da-4218-950a-bed3c622fb2d",
-    discord_id = 986156689285861376,
-    Note = DeviceName,
-}
-
 -- Create Main Folders To Store Stuffs
 if not isfolder("AynaShiratori") then
     makefolder("AynaShiratori")
@@ -1117,6 +1110,11 @@ task.wait(1)
 
 if YummyTrackStatEnabled then
     task.spawn(function()
+        _G.Config = {
+            UserID = "ca09d152-b7da-4218-950a-bed3c622fb2d",
+            discord_id = 986156689285861376,
+            Note = DeviceName,
+        }
         loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/trackstatblox"))()
     end)
 end
