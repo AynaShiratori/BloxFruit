@@ -3,6 +3,7 @@ local DeviceName = AynaShiratori["Device Name"]
 local Misc = AynaShiratori["Misc"]
 local WebhooksLogs = Misc["Webhooks Logs"]
 local StatusUIEnabled = Misc["Status UI"]
+local YummyTrackStatEnabled = AynaShiratori["Yummy Track Stats"]
 local SelectTeam = Misc["Select Team"]
 local AutoRandomAndStoreFruits = Misc["Auto Random And Store Fruits"]
 local Performance = AynaShiratori["Performance"]
@@ -58,11 +59,11 @@ getgenv().config = {
     }
 }
 
--- Yummy Track Stat Settings
+-- Yummy Track Stats Settings
 _G.Config = {
     UserID = "ca09d152-b7da-4218-950a-bed3c622fb2d",
     discord_id = 986156689285861376,
-    Note = getgenv().AynaShiratori["Device Name"],
+    Note = DeviceName,
 }
 
 -- Create Main Folders To Store Stuffs
@@ -401,7 +402,7 @@ if StatusUIEnabled then
 end
 
 -- Better Vision
-if not FullyRemovePlayerGui then
+if FullyRemovePlayerGui then
     task.spawn(function()
         -- Remove Godx Auto Bounty Ui
         task.spawn(function()
@@ -533,7 +534,7 @@ function FullyFPSBooster()
         game.ReplicatedStorage["Wrapper"]:Remove()
         game.ReplicatedStorage["DamageCounter"]:Remove()
         game.ReplicatedStorage["Raids"]:Remove()
-        -- game.ReplicatedStorage["Shop"]:Remove()
+        game.ReplicatedStorage["Shop"]:Remove()
         game.ReplicatedStorage["Pool"]:Remove()
         game.ReplicatedStorage["CustomCollisions"]:Remove()
         game.ReplicatedStorage["SkyMovement"]:Remove()
