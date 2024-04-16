@@ -20,7 +20,7 @@ getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = false,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.01,
+        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.15,
         ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3000, ["Max"] = 5000}
     },
     ["settings"] = {
