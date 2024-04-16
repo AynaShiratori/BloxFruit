@@ -21,7 +21,7 @@ getgenv().config = {
     ["FPS Boost"] = false,
     ["LocalPlayer"] = {
         ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0,
-        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 4000, ["Max"] = 5000}
+        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 2500, ["Max"] = 5000}
     },
     ["settings"] = {
         ["Cam Farm"] = true,
@@ -31,7 +31,7 @@ getgenv().config = {
         ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run"}},
         ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 9999},
         ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
-        ["Ignore"] = {["Buddha Users"] = true, ["Portal Users"] = true, ['Some Annoying V4'] = true},
+        ["Ignore"] = {["Buddha Users"] = false, ["Portal Users"] = true, ['Some Annoying V4'] = false},
         ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
     },
     ["Skills"] = {
