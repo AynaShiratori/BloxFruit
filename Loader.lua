@@ -4,13 +4,13 @@ local WebhooksLogs = Misc["Webhooks Logs"]
 local StatusUIEnabled = Misc["Status UI"]
 local YummyTrackStatEnabled = Misc["Yummy Track Stats"]
 local SelectTeam = Misc["Select Team"]
-local AutoRandomAndStoreFruits = Misc["Auto Random And Store Fruits"]
+local AutoRandomAndStoreFruitsEnabled = Misc["Auto Random And Store Fruits"]
 local Performance = AynaShiratori["Performance"]
-local FPSLock = AynaShiratori["FPS Lock"]
+local FPSLock = (tonumber(Performance["FPS Lock"]))
 local TimeWaitToRejoin = Performance["Time Wait To Rejoin"]
-local WhiteScreen = Performance["White Screen"]
-local FullyFPSBooster = Performance["Fully FPS Booster"]
-local FullyRemovePlayerGui = Performance["Fully Remove Player Gui"]
+local WhiteScreenEnabled = Performance["White Screen"]
+local FullyFPSBoosterEnabled = Performance["Fully FPS Booster"]
+local FullyRemovePlayerGuiEnabled = Performance["Fully Remove Player Gui"]
 local LockBounty = AynaShiratori["Lock Bounty"]
 local LockBountyEnabled = LockBounty["Enabled"]
 local AmountBountyToKick = LockBounty["Value"]
@@ -20,8 +20,8 @@ getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = false,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0,
-        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 2500, ["Max"] = 5000}
+        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.01,
+        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3000, ["Max"] = 5000}
     },
     ["settings"] = {
         ["Cam Farm"] = true,
@@ -29,16 +29,16 @@ getgenv().config = {
         ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "Singapore"},
         ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
         ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run"}},
-        ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 9999},
+        ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 30},
         ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
         ["Ignore"] = {["Buddha Users"] = false, ["Portal Users"] = true, ['Some Annoying V4'] = false},
         ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
     },
     ["Skills"] = {
-        ["Melee"] = {["Time"] = 1.5, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0}, 
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0},
+        ["Melee"] = {["Time"] = 1, ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.6}, 
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
         },
         ["Fruit"] = {["Time"] = 1.75, ["Enabled"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 1}, 
@@ -48,8 +48,8 @@ getgenv().config = {
             ["F"] = {["Enabled"] = false, ["HoldTime"] = 0}
         },
         ["Sword"] = {["Time"] = 1, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.4},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.3},
         },
         ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
@@ -190,260 +190,252 @@ if StatusUIEnabled then
 end
 
 -- UI
-if StatusUIEnabled then
-    task.spawn(function()
-        local thisoneissocoldww = Instance.new("ScreenGui")
-        local madebybloodofbatus = Instance.new("Frame")
-        local UICornerw = Instance.new("UICorner")
-        local DestroyButton = Instance.new("TextButton")
-        local uselesslabelone = Instance.new("TextLabel")
-        local timerlabel = Instance.new("TextLabel")
-        local uselesslabeltwo = Instance.new("TextLabel")
-        local fpslabel = Instance.new("TextLabel")
-        local uselesslabelthree = Instance.new("TextLabel")
-        local pinglabel = Instance.new("TextLabel")
-        local uselessframeone = Instance.new("Frame")
-        local UICornerww = Instance.new("UICorner")
-        local uselesslabelfour = Instance.new("TextLabel")
+task.spawn(function()
+    while task.wait(1) do
+        if getgenv().FullyRemovePlayerGui == true and StatusUIEnabled then
+            local thisoneissocoldww = Instance.new("ScreenGui")
+            local madebybloodofbatus = Instance.new("Frame")
+            local UICornerw = Instance.new("UICorner")
+            local DestroyButton = Instance.new("TextButton")
+            local uselesslabelone = Instance.new("TextLabel")
+            local timerlabel = Instance.new("TextLabel")
+            local uselesslabeltwo = Instance.new("TextLabel")
+            local fpslabel = Instance.new("TextLabel")
+            local uselesslabelthree = Instance.new("TextLabel")
+            local pinglabel = Instance.new("TextLabel")
+            local uselessframeone = Instance.new("Frame")
+            local UICornerww = Instance.new("UICorner")
+            local uselesslabelfour = Instance.new("TextLabel")
 
-        thisoneissocoldww.IgnoreGuiInset = true
+            thisoneissocoldww.IgnoreGuiInset = true
 
-        thisoneissocoldww.Name = "thisoneissocoldww"
-        thisoneissocoldww.Parent = game.CoreGui
-        thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            thisoneissocoldww.Name = "thisoneissocoldww"
+            thisoneissocoldww.Parent = game.CoreGui
+            thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-        madebybloodofbatus.Name = "madebybloodofbatus"
-        madebybloodofbatus.Parent = thisoneissocoldww
-        madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        madebybloodofbatus.Position = UDim2.new(0, 0, 0.13128835, 0)
-        madebybloodofbatus.Size = UDim2.new(0, 225, 0, 96)
+            madebybloodofbatus.Name = "madebybloodofbatus"
+            madebybloodofbatus.Parent = thisoneissocoldww
+            madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+            madebybloodofbatus.Position = UDim2.new(0, 0, 0.13128835, 0)
+            madebybloodofbatus.Size = UDim2.new(0, 225, 0, 96)
 
-        UICornerw.Name = "UICornerw"
-        UICornerw.Parent = madebybloodofbatus
+            UICornerw.Name = "UICornerw"
+            UICornerw.Parent = madebybloodofbatus
 
-        DestroyButton.Name = "DestroyButton"
-        DestroyButton.Parent = madebybloodofbatus
-        DestroyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        DestroyButton.BackgroundTransparency = 1.000
-        DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
-        DestroyButton.Size = UDim2.new(0, 27, 0, 15)
-        DestroyButton.Font = Enum.Font.SourceSans
-        DestroyButton.Text = "X"
-        DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        DestroyButton.TextSize = 14.000
+            DestroyButton.Name = "DestroyButton"
+            DestroyButton.Parent = madebybloodofbatus
+            DestroyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            DestroyButton.BackgroundTransparency = 1.000
+            DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
+            DestroyButton.Size = UDim2.new(0, 27, 0, 15)
+            DestroyButton.Font = Enum.Font.SourceSans
+            DestroyButton.Text = "X"
+            DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            DestroyButton.TextSize = 14.000
 
-        DestroyButton.MouseButton1Click:connect(function()
-            game:GetService("RunService"):Set3dRenderingEnabled(true)
-        end)
+            DestroyButton.MouseButton1Click:connect(function()
+                game:GetService("RunService"):Set3dRenderingEnabled(true)
+            end)
 
-        uselesslabelone.Name = "uselesslabelone"
-        uselesslabelone.Parent = madebybloodofbatus
-        uselesslabelone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabelone.BackgroundTransparency = 1.000
-        uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
-        uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
-        uselesslabelone.Font = Enum.Font.SourceSans
-        task.spawn(function()
-            while task.wait() do
-                uselesslabelone.Text = CurrentStatus
-            end
-        end)
-        uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabelone.TextSize = 14.000
-
-        timerlabel.Name = "timerlabel"
-        timerlabel.Parent = madebybloodofbatus
-        timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        timerlabel.BackgroundTransparency = 1.000
-        timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
-        timerlabel.Size = UDim2.new(0, 60, 0, 24)
-        timerlabel.Font = Enum.Font.SourceSans
-        timerlabel.Text = "0:0:0"
-        timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        timerlabel.TextSize = 14.000
-
-        uselesslabeltwo.Name = "uselesslabeltwo"
-        uselesslabeltwo.Parent = madebybloodofbatus
-        uselesslabeltwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabeltwo.BackgroundTransparency = 1.000
-        uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
-        uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
-        uselesslabeltwo.Font = Enum.Font.SourceSans
-        uselesslabeltwo.Text = "Bounty: "
-        uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabeltwo.TextSize = 14.000
-
-        fpslabel.Name = "fpslabel"
-        fpslabel.Parent = madebybloodofbatus
-        fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        fpslabel.BackgroundTransparency = 1.000
-        fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
-        fpslabel.Size = UDim2.new(0, 55, 0, 24)
-        fpslabel.Font = Enum.Font.SourceSans
-        fpslabel.Text = ""
-        fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        fpslabel.TextSize = 14.000
-
-        uselesslabelthree.Name = "uselesslabelthree"
-        uselesslabelthree.Parent = madebybloodofbatus
-        uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabelthree.BackgroundTransparency = 1.000
-        uselesslabelthree.Position = UDim2.new(0.675, 0, 0.352585167, 0)
-        uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
-        uselesslabelthree.Font = Enum.Font.SourceSans
-        uselesslabelthree.Text = "Fps: "
-        uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabelthree.TextSize = 14.000
-
-        pinglabel.Name = "pinglabel"
-        pinglabel.Parent = madebybloodofbatus
-        pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        pinglabel.BackgroundTransparency = 1.000
-        pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
-        pinglabel.Size = UDim2.new(0, 55, 0, 24)
-        pinglabel.Font = Enum.Font.SourceSans
-        pinglabel.Text = ""
-
-        function comma_value(amount)
-            local formatted = amount
-            while task.wait() do
-                formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)","%1,%2")
-                if (k==0) then
-                    break
+            uselesslabelone.Name = "uselesslabelone"
+            uselesslabelone.Parent = madebybloodofbatus
+            uselesslabelone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelone.BackgroundTransparency = 1.000
+            uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
+            uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
+            uselesslabelone.Font = Enum.Font.SourceSans
+            task.spawn(function()
+                while task.wait() do
+                    uselesslabelone.Text = CurrentStatus
                 end
+            end)
+            uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelone.TextSize = 14.000
+
+            timerlabel.Name = "timerlabel"
+            timerlabel.Parent = madebybloodofbatus
+            timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            timerlabel.BackgroundTransparency = 1.000
+            timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
+            timerlabel.Size = UDim2.new(0, 60, 0, 24)
+            timerlabel.Font = Enum.Font.SourceSans
+            timerlabel.Text = "0:0:0"
+            timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            timerlabel.TextSize = 14.000
+
+            uselesslabeltwo.Name = "uselesslabeltwo"
+            uselesslabeltwo.Parent = madebybloodofbatus
+            uselesslabeltwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabeltwo.BackgroundTransparency = 1.000
+            uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
+            uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
+            uselesslabeltwo.Font = Enum.Font.SourceSans
+            uselesslabeltwo.Text = "Bounty: "
+            uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabeltwo.TextSize = 14.000
+
+            fpslabel.Name = "fpslabel"
+            fpslabel.Parent = madebybloodofbatus
+            fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            fpslabel.BackgroundTransparency = 1.000
+            fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
+            fpslabel.Size = UDim2.new(0, 55, 0, 24)
+            fpslabel.Font = Enum.Font.SourceSans
+            fpslabel.Text = ""
+            fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            fpslabel.TextSize = 14.000
+
+            uselesslabelthree.Name = "uselesslabelthree"
+            uselesslabelthree.Parent = madebybloodofbatus
+            uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelthree.BackgroundTransparency = 1.000
+            uselesslabelthree.Position = UDim2.new(0.675, 0, 0.352585167, 0)
+            uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
+            uselesslabelthree.Font = Enum.Font.SourceSans
+            uselesslabelthree.Text = "Fps: "
+            uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelthree.TextSize = 14.000
+
+            pinglabel.Name = "pinglabel"
+            pinglabel.Parent = madebybloodofbatus
+            pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            pinglabel.BackgroundTransparency = 1.000
+            pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
+            pinglabel.Size = UDim2.new(0, 55, 0, 24)
+            pinglabel.Font = Enum.Font.SourceSans
+            pinglabel.Text = ""
+
+            function comma_value(amount)
+                local formatted = amount
+                while task.wait() do
+                    formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)","%1,%2")
+                    if (k==0) then
+                        break
+                    end
+                end
+                return formatted
             end
-            return formatted
+
+            task.spawn(function()
+                while task.wait(1) do
+                    pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+                end
+            end)
+
+            pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            pinglabel.TextSize = 14.000
+            pinglabel.TextWrapped = true
+
+            uselessframeone.Name = "uselessframeone"
+            uselessframeone.Parent = madebybloodofbatus
+            uselessframeone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselessframeone.Position = UDim2.new(0.00444444455, 0, 0.243312627, 0)
+            uselessframeone.Size = UDim2.new(0, 224, 0, 5)
+
+            UICornerww.CornerRadius = UDim.new(0, 50)
+            UICornerww.Name = "UICornerww"
+            UICornerww.Parent = uselessframeone
+
+            uselesslabelfour.Name = "uselesslabelfour"
+            uselesslabelfour.Parent = madebybloodofbatus
+            uselesslabelfour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelfour.BackgroundTransparency = 1.000
+            uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
+            uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
+            uselesslabelfour.Font = Enum.Font.SourceSans
+            uselesslabelfour.Text = "Loading..."
+
+            uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelfour.TextSize = 14.000
+
+            -- FPS
+            local FPSsLabel = fpslabel
+            local RunService = game:GetService("RunService")
+            local RenderStepped = RunService.RenderStepped
+            local sec = nil
+            local FPS = {}
+
+            local function fre()
+                local fr = tick()
+                for index = #FPS,1,-1 do
+                    FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+                end
+                FPS[1] = fr
+                local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+                fps = math.floor(fps)
+                fpslabel.Text = fps
+            end
+
+            sec = tick()
+            RenderStepped:Connect(fre)
+
+            -- TimerTracker
+            local DisplayedHours = 0
+            local DisplayedMinutes = 0
+            local DisplayedSeconds = 0
+            task.spawn(function()
+                while task.wait(1) do
+                    DisplayedSeconds = DisplayedSeconds + 1
+                    if DisplayedSeconds >= 60 then
+                        DisplayedSeconds = 0
+                        DisplayedMinutes = DisplayedMinutes + 1
+                    end
+                    if DisplayedMinutes >= 60 then
+                        DisplayedMinutes = 0
+                        DisplayedHours = DisplayedHours + 1
+                    end
+                    timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
+                end
+            end)
+
+            -- Ping
+            task.spawn(function()
+                repeat
+                    task.wait(1)
+                    local ping = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
+                    ping = math.floor(ping)
+                    uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. ping
+                until pinglabel == nil
+            end)
+            break
         end
-
-        task.spawn(function()
-            while task.wait(1) do
-                pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
-            end
-        end)
-
-        pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        pinglabel.TextSize = 14.000
-        pinglabel.TextWrapped = true
-
-        uselessframeone.Name = "uselessframeone"
-        uselessframeone.Parent = madebybloodofbatus
-        uselessframeone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        uselessframeone.Position = UDim2.new(0.00444444455, 0, 0.243312627, 0)
-        uselessframeone.Size = UDim2.new(0, 224, 0, 5)
-
-        UICornerww.CornerRadius = UDim.new(0, 50)
-        UICornerww.Name = "UICornerww"
-        UICornerww.Parent = uselessframeone
-
-        uselesslabelfour.Name = "uselesslabelfour"
-        uselesslabelfour.Parent = madebybloodofbatus
-        uselesslabelfour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabelfour.BackgroundTransparency = 1.000
-        uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
-        uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
-        uselesslabelfour.Font = Enum.Font.SourceSans
-        uselesslabelfour.Text = "Loading..."
-
-        uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
-        uselesslabelfour.TextSize = 14.000
-
-        -- FPS
-        local FPSsLabel = fpslabel
-        local RunService = game:GetService("RunService")
-        local RenderStepped = RunService.RenderStepped
-        local sec = nil
-        local FPS = {}
-
-        local function fre()
-            local fr = tick()
-            for index = #FPS,1,-1 do
-                FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
-            end
-            FPS[1] = fr
-            local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
-            fps = math.floor(fps)
-            fpslabel.Text = fps
-        end
-
-        sec = tick()
-        RenderStepped:Connect(fre)
-
-        -- TimerTracker
-        local DisplayedHours = 0
-        local DisplayedMinutes = 0
-        local DisplayedSeconds = 0
-        task.spawn(function()
-            while task.wait(1) do
-                DisplayedSeconds = DisplayedSeconds + 1
-                if DisplayedSeconds >= 60 then
-                    DisplayedSeconds = 0
-                    DisplayedMinutes = DisplayedMinutes + 1
-                end
-                if DisplayedMinutes >= 60 then
-                    DisplayedMinutes = 0
-                    DisplayedHours = DisplayedHours + 1
-                end
-                timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
-            end
-        end)
-
-        -- Ping
-        task.spawn(function()
-            repeat
-                task.wait(1)
-                local ping = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
-                ping = math.floor(ping)
-                uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. ping
-            until pinglabel == nil
-        end)
-    end)
-end
+    end
+end)
 
 -- Better Vision
-if FullyRemovePlayerGui then
+if FullyRemovePlayerGuiEnabled then
     task.spawn(function()
         -- Remove Godx Auto Bounty Ui
         task.spawn(function()
             while task.wait() do
                 if game.Players.LocalPlayer.PlayerGui:FindFirstChild("BountyTracker") then
-                    game.Players.LocalPlayer.PlayerGui.BountyTracker:Destroy()
+                    game.Players.LocalPlayer.PlayerGui.BountyTracker.Enabled = false
                     break
                 end
             end
         end)
-
-        repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
-
-        game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Compass.Changed:Connect(function()
-            if game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible == true then
-                game.Players.LocalPlayer.PlayerGui.Main.Compass.Visible = false
+        for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+            if v:IsA("ScreenGui") then
+                v.Enabled = false
             end
-        end)
-        game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Changed:Connect(function()
-            if game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible == true then
-                game.Players.LocalPlayer.PlayerGui.Main.CrewButton.Visible = false
+        end
+        for i, v in pairs(game:GetService("StarterGui"):GetChildren()) do
+            if v:IsA("ScreenGui") then
+                v.Enabled = false
             end
-        end)
-        game.Players.LocalPlayer.PlayerGui.Main.ShopButton.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Shop.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Settings.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Mute.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.HomeButton.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.AlliesButton.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Code.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.InventoryContainer.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Stats.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Allies.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Beli.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Fragments.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Level.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.Energy.Visible = false
-        game.Players.LocalPlayer.PlayerGui.Main.InCombat.TextTransparency = 1
-        game.Players.LocalPlayer.PlayerGui.Main.InCombat.Bottom.TextTransparency = 1
-        game.Players.LocalPlayer.PlayerGui.ContextActionGui.Enabled = false
+        end
+        for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
+            if v:IsA("ScreenGui") then
+                v.Enabled = false
+            end
+        end
+        while task.wait() do
+            if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ContextActionGui") then
+                game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
+                break
+            end
+        end
+        getgenv().FullyRemovePlayerGui = true
     end)
 end
 
@@ -490,77 +482,128 @@ end
 
 -- Better Performance While Auto Bounty Or Auto Farm Mastery
 function FullyFPSBooster()
-    if FullyFPSBooster then
-        game.Workspace:WaitForChild"Terrain".WaterWaveSize = 0
-        game.Workspace:WaitForChild"Terrain".WaterWaveSpeed = 0
-        game.Workspace:WaitForChild"Terrain".WaterReflectance = 0
-        game.Workspace:WaitForChild"Terrain".WaterTransparency = 1
-        game:GetService"Lighting".GlobalShadows = false
-        game:GetService("Lighting"):ClearAllChildren()
-
+    if FullyFPSBoosterEnabled then
         task.spawn(function()
-            game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
-        end)
-        task.spawn(function()
-            game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
-        end)
-        for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
-            if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) then
-                v:Remove()
+            task.spawn(function()
+                game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
+            end)
+            task.spawn(function()
+                game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
+            end)
+            for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+                if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) then
+                    v:Remove()
+                end
             end
-        end
-        task.spawn(function()
-            if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                game.Workspace.Enemies:Remove()
-            end
-        end)
-        game.Workspace.SeaBeasts:Remove()
-        game.Workspace.SeaEvents:Remove()
-        game.Workspace.Boats:Remove()
-        game.Workspace.Leaderboards:Remove()
+            task.spawn(function()
+                if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                    game.Workspace.Enemies:Remove()
+                    game.Workspace.NPCs:Remove()
+                end
+            end)
+            game.Workspace.SeaBeasts:Remove()
+            game.Workspace.SeaEvents:Remove()
+            game.Workspace.Boats:Remove()
+            game.Workspace.Leaderboards:Remove()
 
-        game.ReplicatedStorage["Effect"].Container:Remove()
-        game.ReplicatedStorage["FXCreator"]:Remove()
-        game.ReplicatedStorage["ObjectHighlighter"]:Remove()
-        game.ReplicatedStorage["ObservationManager"]:Remove()
-        game.ReplicatedStorage["Quests"]:Remove()
-        game.ReplicatedStorage["Queue"]:Remove()
-        game.ReplicatedStorage["DialoguesList"]:Remove()
-        game.ReplicatedStorage["PvPBoosts"]:Remove()
-        game.ReplicatedStorage["Worlds"]:Remove()
-        game.ReplicatedStorage["Icon"]:Remove()
-        game.ReplicatedStorage["Wrapper"]:Remove()
-        game.ReplicatedStorage["DamageCounter"]:Remove()
-        game.ReplicatedStorage["Raids"]:Remove()
-        game.ReplicatedStorage["Shop"]:Remove()
-        game.ReplicatedStorage["Pool"]:Remove()
-        game.ReplicatedStorage["CustomCollisions"]:Remove()
-        game.ReplicatedStorage["SkyMovement"]:Remove()
-        game.ReplicatedStorage["CharacterTransparency"]:Remove()
-        game.ReplicatedStorage["Harpoon"]:Remove()
-        game.ReplicatedStorage["SmartBone"]:Remove()
-        game.ReplicatedStorage["IsPointInsideShipBounds"]:Remove()
-        game.ReplicatedStorage["RaidTest_"]:Remove()
-        game.ReplicatedStorage["Mochi-Mochi"]:Remove()
-        game.ReplicatedStorage["Dragon"]:Remove()
-        game.ReplicatedStorage["RumbleV2"]:Remove()
-        game.ReplicatedStorage["FX"]:Remove()
-        game.ReplicatedStorage["Cache2"]:Remove()
-        game.ReplicatedStorage["BeastHealthScaler"]:Remove()
-        game.ReplicatedStorage["ClientComponents"]:Remove()
-        game.ReplicatedStorage["Controllers"]:Remove()
-        game.ReplicatedStorage["Modules"]:Remove()
-        game.ReplicatedStorage["Types"]:Remove()
-        game.ReplicatedStorage["BusoTemplate"]:Remove()
-        game.ReplicatedStorage["Assets"]:Remove()
-        game.ReplicatedStorage["BeastCooldownScaler"]:Remove()
-        game.ReplicatedStorage["Common"]:Remove()
-        game.ReplicatedStorage["PlayerDodged"]:Remove()
-        game.ReplicatedStorage["PlayerSkyJumped"]:Remove()
-        game.ReplicatedStorage["Ope-Ope"]:Remove()
-        game.ReplicatedStorage["PlayerJumpAttempted"]:Remove()
-        game.ReplicatedStorage["Cache"]:Remove()
-        game.ReplicatedStorage["TopbarPlusReference"]:Remove()
+            game.ReplicatedStorage["Effect"].Container:Remove()
+            game.ReplicatedStorage["FXCreator"]:Remove()
+            game.ReplicatedStorage["ObjectHighlighter"]:Remove()
+            game.ReplicatedStorage["ObservationManager"]:Remove()
+            game.ReplicatedStorage["Quests"]:Remove()
+            game.ReplicatedStorage["Queue"]:Remove()
+            game.ReplicatedStorage["DialoguesList"]:Remove()
+            game.ReplicatedStorage["PvPBoosts"]:Remove()
+            game.ReplicatedStorage["Worlds"]:Remove()
+            game.ReplicatedStorage["Icon"]:Remove()
+            game.ReplicatedStorage["Wrapper"]:Remove()
+            game.ReplicatedStorage["DamageCounter"]:Remove()
+            game.ReplicatedStorage["Raids"]:Remove()
+            game.ReplicatedStorage["Shop"]:Remove()
+            game.ReplicatedStorage["Pool"]:Remove()
+            game.ReplicatedStorage["CustomCollisions"]:Remove()
+            game.ReplicatedStorage["SkyMovement"]:Remove()
+            game.ReplicatedStorage["CharacterTransparency"]:Remove()
+            game.ReplicatedStorage["Harpoon"]:Remove()
+            game.ReplicatedStorage["SmartBone"]:Remove()
+            game.ReplicatedStorage["IsPointInsideShipBounds"]:Remove()
+            game.ReplicatedStorage["RaidTest_"]:Remove()
+            game.ReplicatedStorage["Mochi-Mochi"]:Remove()
+            game.ReplicatedStorage["Dragon"]:Remove()
+            game.ReplicatedStorage["RumbleV2"]:Remove()
+            game.ReplicatedStorage["FX"]:Remove()
+            game.ReplicatedStorage["Cache2"]:Remove()
+            game.ReplicatedStorage["BeastHealthScaler"]:Remove()
+            game.ReplicatedStorage["ClientComponents"]:Remove()
+            game.ReplicatedStorage["Controllers"]:Remove()
+            game.ReplicatedStorage["Modules"]:Remove()
+            game.ReplicatedStorage["Types"]:Remove()
+            game.ReplicatedStorage["BusoTemplate"]:Remove()
+            game.ReplicatedStorage["Assets"]:Remove()
+            game.ReplicatedStorage["BeastCooldownScaler"]:Remove()
+            game.ReplicatedStorage["Common"]:Remove()
+            game.ReplicatedStorage["PlayerDodged"]:Remove()
+            game.ReplicatedStorage["PlayerSkyJumped"]:Remove()
+            game.ReplicatedStorage["Ope-Ope"]:Remove()
+            game.ReplicatedStorage["PlayerJumpAttempted"]:Remove()
+            game.ReplicatedStorage["Cache"]:Remove()
+            game.ReplicatedStorage["TopbarPlusReference"]:Remove()
+
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterReflectance = 0
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterTransparency = 1
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterWaveSize = 0
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterWaveSpeed = 0
+        
+            game:GetService("Lighting").Brightness = 0
+            game:GetService("Lighting").GlobalShadows = false
+            game:GetService("Lighting").FogEnd = 9e100
+            game:GetService("Lighting").FogStart = 0
+        
+            sethiddenproperty(game:GetService("Lighting"), "Technology", 2)
+            sethiddenproperty(game:GetService("Workspace"):WaitForChild("Terrain"), "Decoration", false)
+        
+            local function ClearTextures(v)
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.Transparency = 1
+                elseif (v:IsA("Decal") or v:IsA("Texture")) then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh")  then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") then
+                    v.Graphic = 1
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) then
+                    v[v.ClassName .. "Template"] = 1
+                elseif v.Name == "Foilage" and v:IsA("Folder") then
+                    v:Destroy()
+                elseif string.find(v.Name, "Tree") or string.find(v.Name, "Water") or string.find(v.Name, "Bush") or string.find(v.Name, "grass") then
+                    task.wait()
+                    v:Destroy()
+                end
+            end
+        
+            game:GetService("Lighting"):ClearAllChildren()
+        
+            for _, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                ClearTextures(v)
+            end
+        
+            game:GetService("Workspace").DescendantAdded:Connect(function(v)
+                ClearTextures(v)
+            end)
+        end)
     end
 end
 
@@ -827,7 +870,8 @@ function SendIsEverythingDone()
     print("Sent Is EVerything Done To Discord On Webhook")
 end
 
-if WhiteScreen then
+-- Do White Screen
+if WhiteScreenEnabled then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
 end
 
@@ -864,11 +908,9 @@ game:service'Players'.LocalPlayer.Idled:connect(function()
 end)
 
 -- Wait Until Game Is Loaded
-repeat task.wait() until game:IsLoaded()
-repeat task.wait() until game.Players
-repeat task.wait() until game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+repeat task.wait(1) until game.PlaceId ~= nil
+repeat task.wait(1) until game.Players and game.Players.LocalPlayer
+repeat task.wait(1) until game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main")
 
 -- Do Redeem Refund Stat Code To Reset Stat To Add Point Stats Combo
 function RedeemCode(value)
@@ -1017,9 +1059,6 @@ game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CameraShake:Stop()
-game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
-game.Players.LocalPlayer.PlayerGui.TopbarPlus.Enabled = false
-game.Players.LocalPlayer.PlayerGui.Main.DynamicTopBar:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
 game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
 
@@ -1053,7 +1092,7 @@ task.spawn(function()
         task.wait(0.1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
         task.wait(0.1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
         task.wait(0.1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Cursed Dual Katana")
         task.wait(0.1)
