@@ -20,13 +20,13 @@ getgenv().config = {
     ["Team"] = "Pirates",
     ["FPS Boost"] = false,
     ["LocalPlayer"] = {
-        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.15,
+        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.1,
         ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3000, ["Max"] = 5000}
     },
     ["settings"] = {
         ["Cam Farm"] = true,
         ["White Screen"] = true,
-        ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "Germany"},
+        ["Region_Hop"] = {["Enabled"] = false, ["Value"] = "Germany"},
         ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
         ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run"}},
         ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 9999},
@@ -36,9 +36,9 @@ getgenv().config = {
     },
     ["Skills"] = {
         ["Melee"] = {["Time"] = 1, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.6}, 
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.2},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1.5}, 
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0},
         },
         ["Fruit"] = {["Time"] = 1.75, ["Enabled"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 1}, 
@@ -48,8 +48,8 @@ getgenv().config = {
             ["F"] = {["Enabled"] = false, ["HoldTime"] = 0}
         },
         ["Sword"] = {["Time"] = 1, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.4},
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.3},
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1.5},
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 2},
         },
         ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
             ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
