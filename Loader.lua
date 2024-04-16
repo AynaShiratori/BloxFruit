@@ -26,7 +26,7 @@ getgenv().config = {
     ["settings"] = {
         ["Cam Farm"] = true,
         ["White Screen"] = true,
-        ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "Singapore"},
+        ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "United States"},
         ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
         ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run"}},
         ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 30},
