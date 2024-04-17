@@ -36,6 +36,7 @@ getgenv().config = {
     },
     ["Skills"] = {
         ["Melee"] = {["Time"] = 1, ["Enabled"] = true,
+	    ["SwitchNextWeaponIfCooldown"] = true,
             ["Z"] = {["Enabled"] = true, ["HoldTime"] = 1.5}, 
             ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
             ["C"] = {["Enabled"] = true, ["HoldTime"] = 0},
