@@ -420,6 +420,16 @@ task.spawn(function()
 end)
 
 task.wait(0.5)
+
+settings().Rendering.QualityLevel = "1"
+UserSettings():GetService("UserGameSettings").MasterVolume = 0
+game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
+CameraShake:Stop()
+game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+game:GetService("Players").LocalPlayer.PlayerGui.MobileMouselock:Destroy()
+
 task.spawn(function()
     task.spawn(function()
         game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
