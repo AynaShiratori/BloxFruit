@@ -1,3 +1,4 @@
+task.wait(3)
 local DeviceName = AynaShiratori["Device Name"]
 local Misc = AynaShiratori["Misc"]
 local WebhooksLogs = Misc["Webhooks Logs"]
