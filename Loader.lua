@@ -30,7 +30,7 @@ getgenv().config = {
         ["Click Delay"] = 0.1,
         ["Panic Mode"] = {
             ["Skip Player"] = true,
-            ["Run"] = 3000,
+            ["Run"] = 3500,
             ["Max"] = 5000,
         }
     },
@@ -39,7 +39,7 @@ getgenv().config = {
         ["White Screen"] = true,
         ["Region_Hop"] = {
             ["Enabled"] = true,
-            ["Value"] = "United States"
+            ["Value"] = "Singapore"
         },
         ["Webhook"] = {
             ["Enabled"] = true,
