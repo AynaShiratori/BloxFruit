@@ -30,7 +30,7 @@ getgenv().config = {
         ["Click Delay"] = 0.1,
         ["Panic Mode"] = {
             ["Skip Player"] = true,
-            ["Run"] = 3500,
+            ["Run"] = 3000,
             ["Max"] = 5000,
         }
     },
