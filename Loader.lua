@@ -1,1 +1,886 @@
-([[This file was protected with MoonSec V3]]):gsub('.+', (function(a) _PyfzegJfrdQP = a; end)); return(function(r,...)local f;local s;local c;local t;local o;local d;local e=24915;local n=0;local l={};while n<838 do n=n+1;while n<0x342 and e%0xd96<0x6cb do n=n+1 e=(e+966)%33597 local u=n+e if(e%0x49f0)<=0x24f8 then e=(e+0x1ea)%0x520c while n<0x394 and e%0x4532<0x2299 do n=n+1 e=(e*928)%19455 local f=n+e if(e%0x426e)<0x2137 then e=(e-0x3ad)%0x7bd2 local e=82547 if not l[e]then l[e]=0x1 o={};end elseif e%2~=0 then e=(e*0xbb)%0x51eb local e=57189 if not l[e]then l[e]=0x1 c=string;end else e=(e+0x14)%0x26c8 n=n+1 local e=14977 if not l[e]then l[e]=0x1 d=function(l)local e=0x01 local function n(n)e=e+n return l:sub(e-n,e-0x01)end while true do local l=n(0x01)if(l=="\5")then break end local e=c.byte(n(0x01))local e=n(e)if l=="\2"then e=o.ruOlgsTt(e)elseif l=="\3"then e=e~="\0"elseif l=="\6"then t[e]=function(e,n)return r(8,nil,r,n,e)end elseif l=="\4"then e=t[e]elseif l=="\0"then e=t[e][n(c.byte(n(0x01)))];end local n=n(0x08)o[n]=e end end end end end elseif e%2~=0 then e=(e+0x380)%0x56a8 while n<0x1ce and e%0x1416<0xa0b do n=n+1 e=(e*388)%11151 local t=n+e if(e%0x354c)<0x1aa6 then e=(e+0x33)%0x7b66 local e=25162 if not l[e]then l[e]=0x1 f="\4\8\116\111\110\117\109\98\101\114\114\117\79\108\103\115\84\116\0\6\115\116\114\105\110\103\4\99\104\97\114\114\108\99\98\99\90\74\82\0\6\115\116\114\105\110\103\3\115\117\98\84\72\68\114\118\113\87\120\0\6\115\116\114\105\110\103\4\98\121\116\101\95\77\83\82\65\65\79\95\0\5\116\97\98\108\101\6\99\111\110\99\97\116\100\65\87\111\101\73\67\79\0\5\116\97\98\108\101\6\105\110\115\101\114\116\102\102\73\70\110\66\77\79\5";end elseif e%2~=0 then e=(e+0x19e)%0x815c local e=98196 if not l[e]then l[e]=0x1 end else e=(e+0x16b)%0x55e3 n=n+1 local e=13505 if not l[e]then l[e]=0x1 end end end else e=(e-0x2c6)%0x191 n=n+1 while n<0x14d and e%0x2808<0x1404 do n=n+1 e=(e+188)%33544 local d=n+e if(e%0x17da)>=0xbed then e=(e*0x21b)%0x57fe local e=18858 if not l[e]then l[e]=0x1 t=(not t)and _ENV or t;end elseif e%2~=0 then e=(e+0x2fe)%0x186b local e=55052 if not l[e]then l[e]=0x1 t=getfenv and getfenv();end else e=(e*0xa4)%0x3abb n=n+1 local e=18805 if not l[e]then l[e]=0x1 s=tonumber;end end end end end e=(e*486)%950 end d(f);local n={};for e=0x0,0xff do local l=o.rlcbcZJR(e);n[e]=l;n[l]=e;end local function a(e)return n[e];end local f=(function(f,d)local u,l=0x01,0x10 local n={{},{},{}}local t=-0x01 local e=0x01 local c=f while true do n[0x03][o.THDrvqWx(d,e,(function()e=u+e return e-0x01 end)())]=(function()t=t+0x01 return t end)()if t==(0x0f)then t=""l=0x000 break end end local t=#d while e<t+0x01 do n[0x02][l]=o.THDrvqWx(d,e,(function()e=u+e return e-0x01 end)())l=l+0x01 if l%0x02==0x00 then l=0x00 o.ffIFnBMO(n[0x01],(a((((n[0x03][n[0x02][0x00]]or 0x00)*0x10)+(n[0x03][n[0x02][0x01]]or 0x00)+c)%0x100)));c=f+c;end end return o.dAWoeICO(n[0x01])end);d(f(38,"*EJ+D3cuNPm9 X;jXj"));d(f(216,"E*w&fnYpQCcsPWTuwQnYTs*f&cnCQYcpYPufwWfWpQcnCPW&ucfCfCCCsepfCW&Mfsp*cfPPuCwpwPnQQpCpTCTCPCunQQswW*uTwP&&pscnCsWw*T&n&uw)fTT&_P&wn*pTCuYnun**fPY&CasfPCTfwsnspccfWYC9sPfWYCcfP4Qn*f&fnWCQsQPpmcaC&wpPcYWYWusfTfp&QWPfTnZn&Pn*QPc*PcuP*WwunWpYcCWu*ffC&uwffuPYuWw&nPpuccC&un*wfYYpQCc*Wc1wPPufQuc*W*lf*W&cYCp&s*u*TC&Pucw*Q*ssup&cnfQwQPsfWssfT8pfCpP&TP*w&*nTpuQncPuQwQwPQ<CsPQQAcWffnCQwsfWnCT&nnYQ_CCP&u&o*fCp&puspuwtQ&suf*TsnWYUo*Cf&p&p&ccuIu.wunwp8C&pfCW&6ncpCcYWfWuuffcnnC&PYT&ufPPuYQscnWfun*snfnWQuswunu?fpfuY&fQpfmnw*nPpQ&WPYuf*ufppwpccuT&TC&w&PY<sYYW"));local e=(-19603+(function()local d,l=0,1;(function(n,e,l)e(n(e,l,l),e(e,e,n),l(l,n,l)and n(e,e,n))end)(function(t,n,e)if d>193 then return n end d=d+1 l=(l*80)%46404 if(l%1190)<=595 then l=(l+431)%10799 return e else return t(t(n,e,n),n(t and e,t,n),e(n,e,n and e))end return n(e(n and t,e,n and e),t(e,e,e),n(e,t and e,e))end,function(e,n,t)if d>135 then return t end d=d+1 l=(l*946)%36289 if(l%1394)<697 then return n else return n(t(e,t,e)and t(n,e,n and e),e(e,e,n and e),e(e,e,n))end return e(n(t and t,n,e)and n(e,n,n),t(t,t,n),e(e,e,n))end,function(t,e,n)if d>246 then return e end d=d+1 l=(l+602)%35623 if(l%1720)>860 then return t else return n(e(e and t,e,n),t(t,n,t),n(e,e,e)and e(t,e,n and n))end return e(n(e,e,n),e(e,n,n),t(e and t,t,t))end)return l;end)())local z=(getfenv)or(function()return _ENV end);local h=o.CRpH_ZPK or o.QqsWgzhs;local t=3;local ee=1;local c=4;local d=2;local function j(_,...)local u=f(e,".wc_?T3:HkDG6uhZhD63DkH6:wTk_TwHZGc3_TwHZ:GwGcD?wTwuukG6kZu36uGwkhchT:_uc_ZZkuu:D?kkckT6?wcw0kuuGhGcH33Hv:?ww3o?uG:3H3HG3hTYwHfuhhHhD:3:wkZhuu6%D_hu6DGkk?w?qcuHGGkhhBG?6AkMH:TT_Dt=ZZhh6_k_:TbDY?6hGwk?6?6kD6HhT3?Gc6JGhch36:DwHk3TT?}6w hhuwGTDwT:3uTO_wD?ww3H?Gch:k3H?GcDwWGDkc:Tk}:T3c?3h_ZZh?ucDkkk3kTZ?ywToTuk6HDDk_3:T__6ukZwhW6w33TG:3?hc?ZkZwuT6wk_Hk3:?uc:uAh36H:DHh:wcT_HwhFcG_kGDHTH??TqCkwkZDuZHZ:kT?_GwDYwwT6kuDHZkhHw_Hw__kmG%?kZH?3::D3w?Tc?u:hG66G_3H?TcD_uhZ2TGTkD:6TZ:wTTphhh6Zhwk3:uHH_hc__wwkZGGcH6DcTc_:wDZDwTZDh:6GDlH336?HZ:u:)Wh:63_:ccZGuh6ww>Z36GGwD_H:3H?ccDJ3Hc3T?HcGwuZwu?G:kDHZ3q?_c3^Dh66ZGcD:HHTG_hcwFkh:6DDuDcHkT3_kw6o_hc6TDHGwHwTw_?w:l5uu6wD_HH3kT<_:wcZTuH6wkhHc3??G_cxuZdu_Gukk:uTZ?c_?BHhG6hGck?::TD?Z_:g_h36kG_HZ:cTT?DwhZhhc6?DDHD3uTAT_wHZkuuGZD_HT3k?G?;wuZ?uDGDD_HI3_?3ckcYhZu_GTkG:GTh?wc?w?hD6uGPk_:3TG_6wZwghT6HDGHZ:wTT_:wDwwh>6_D3HD36?Z_cwT");local n=0;o.qwTX_GqI(function()o.eZaCYqAl()n=n+1 end)local function e(e,l)if l then return n end;n=e+n;end local l,n,a=r(0,r,e,u,o._MSRAAO_);local function f()local l,n=o._MSRAAO_(u,e(1,3),e(5,6)+2);e(2);return(n*256)+l;end;local k=true;local k=0 local function g()local t=n();local e=n();local d=1;local t=(l(e,1,20)*(2^32))+t;local n=l(e,21,31);local e=((-1)^l(e,32));if(n==0)then if(t==k)then return e*0;else n=1;d=0;end;elseif(n==2047)then return(t==0)and(e*(1/0))or(e*(0/0));end;return o.WrIJlnvW(e,n-1023)*(d+(t/(2^52)));end;local p=n;local function b(n)local l;if(not n)then n=p();if(n==0)then return'';end;end;l=o.THDrvqWx(u,e(1,3),e(5,6)+n-1);e(n)local e=""for n=(1+k),#l do e=e..o.THDrvqWx(l,n,n)end return e;end;local k=#o.EDhpLxkp(s('\49.\48'))~=1 local e=n;local function m(...)return{...},o.U_ZuHwWC('#',...)end local function y()local r={};local s={};local e={};local h={s,r,nil,e};local e=n()local u={}for t=1,e do local l=a();local e;if(l==0)then e=(a()~=#{});elseif(l==1)then local n=g();if k and o.dQDckbdn(o.EDhpLxkp(n),'.(\48+)$')then n=o.R_kIjLHv(n);end e=n;elseif(l==2)then e=b();end;u[t]=e;end;for e=1,n()do r[e-(#{1})]=y();end;for h=1,n()do local e=a();if(l(e,1,1)==0)then local o=l(e,2,3);local r=l(e,4,6);local e={f(),f(),nil,nil};if(o==0)then e[t]=f();e[c]=f();elseif(o==#{1})then e[t]=n();elseif(o==_[2])then e[t]=n()-(2^16)elseif(o==_[3])then e[t]=n()-(2^16)e[c]=f();end;if(l(r,1,1)==1)then e[d]=u[e[d]]end if(l(r,2,2)==1)then e[t]=u[e[t]]end if(l(r,3,3)==1)then e[c]=u[e[c]]end s[h]=e;end end;h[3]=a();return h;end;local function g(l,n,e)local t=n;local t=e;return s(o.dQDckbdn(o.dQDckbdn(({o.qwTX_GqI(l)})[2],n),e))end local function ne(b,e,a)local function ne(...)local f,z,s,y,k,l,u,j,p,_,g,n;local e=0;while-1<e do if 2>=e then if 0<e then if e>=0 then for n=25,61 do if e>1 then l=-41;u=-1;break;end;s=r(6,53,3,87,b);k=m y=0;break;end;else s=r(6,53,3,87,b);k=m y=0;end else f=r(6,93,1,5,b);z=r(6,30,2,85,b);end else if 5<=e then if 3<=e then repeat if 6>e then n=r(7);break;end;e=-2;until true;else n=r(7);end else if 2~=e then repeat if 4~=e then j={};p={...};break;end;_=o.U_ZuHwWC('#',...)-1;g={};until true;else _=o.U_ZuHwWC('#',...)-1;g={};end end end e=e+1;end;for e=0,_ do if(e>=s)then j[e-s]=p[e+1];else n[e]=p[e+1];end;end;local e=_-s+1 local e;local o;local function r(...)while true do end end while true do if l<-40 then l=l+42 end e=f[l];o=e[ee];if o>=12 then if 17<o then if 20>=o then if o>=19 then if 19==o then n[e[d]]=a[e[t]];else n[e[d]]();end else for o=0,3 do if 2<=o then if o>=0 then for u=49,95 do if 3~=o then n[e[d]]=a[e[t]];l=l+1;e=f[l];break;end;if(n[e[d]]==e[c])then l=l+1;else l=e[t];end;break;end;else n[e[d]]=a[e[t]];l=l+1;e=f[l];end else if o~=0 then a[e[t]]=n[e[d]];l=l+1;e=f[l];else n[e[d]]=(e[t]~=0);l=l+1;e=f[l];end end end end else if o>=22 then if o~=21 then for f=36,98 do if o>22 then n[e[d]]=a[e[t]];break;end;if(n[e[d]]==e[c])then l=l+1;else l=e[t];end;break;end;else if(n[e[d]]==e[c])then l=l+1;else l=e[t];end;end else local e=e[d]n[e]=n[e](h(n,e+1,u))end end else if o>14 then if o<16 then do return end;else if 17~=o then n(e[d],e[t]);else l=e[t];end end else if 12<o then if o>13 then local l=e[d]local t,e=k(n[l](h(n,l+1,e[t])))u=e+l-1 local e=0;for l=l,u do e=e+1;n[l]=t[e];end;else local e=e[d]n[e]=n[e](h(n,e+1,u))end else n[e[d]]=(e[t]~=0);end end end else if o>=6 then if 8<o then if o>9 then if 7~=o then repeat if 10~=o then if(n[e[d]]==e[c])then l=l+1;else l=e[t];end;break;end;do return end;until true;else do return end;end else local l=e[d]local t,e=k(n[l](h(n,l+1,e[t])))u=e+l-1 local e=0;for l=l,u do e=e+1;n[l]=t[e];end;end else if 6<o then if o~=6 then for c=36,69 do if o~=7 then l=e[t];break;end;n[e[d]]=(e[t]~=0);break;end;else l=e[t];end else local l=e[d];local t=n[e[t]];n[l+1]=t;n[l]=t[e[c]];end end else if o<=2 then if o>=1 then if o~=-1 then for l=12,85 do if 1~=o then a[e[t]]=n[e[d]];break;end;a[e[t]]=n[e[d]];break;end;else a[e[t]]=n[e[d]];end else local o,c,r,u,f;local l=0;while l>-1 do if 3<=l then if l>4 then if l==5 then n(f,u);else l=-2;end else if 0<=l then repeat if l~=3 then f=o[c];break;end;u=o[r];until true;else f=o[c];end end else if l>0 then if 0<=l then repeat if 1<l then r=t;break;end;c=d;until true;else c=d;end else o=e;end end l=l+1 end end else if 4>o then local o,s,b,_,r;n[e[d]]=a[e[t]];l=l+1;e=f[l];o=e[d];s=n[e[t]];n[o+1]=s;n[o]=s[e[c]];l=l+1;e=f[l];n(e[d],e[t]);l=l+1;e=f[l];o=e[d]b,_=k(n[o](h(n,o+1,e[t])))u=_+o-1 r=0;for e=o,u do r=r+1;n[e]=b[r];end;l=l+1;e=f[l];o=e[d]n[o]=n[o](h(n,o+1,u))l=l+1;e=f[l];n[e[d]]();l=l+1;e=f[l];do return end;else if o>2 then repeat if o<5 then local d=e[d];local l=n[e[t]];n[d+1]=l;n[d]=l[e[c]];break;end;n[e[d]]();until true;else local l=e[d];local t=n[e[t]];n[l+1]=t;n[l]=t[e[c]];end end end end end l=1+l;end;end;return ne end;local t=0xff;local r={};local c=(1);local d='';(function(n)local l=n local f=0x00 local e=0x00 l={(function(d)if f>0x27 then return d end f=f+1 e=(e+0xdbc-d)%0x1b return(e%0x03==0x1 and(function(l)if not n[l]then e=e+0x01 n[l]=(0xb4);r[c]=z();c=c+t;end return true end)'RgalZ'and l[0x2](0x337+d))or(e%0x03==0x0 and(function(l)if not n[l]then e=e+0x01 n[l]=(0xb);end return true end)'IRTPU'and l[0x1](d+0x34c))or(e%0x03==0x2 and(function(l)if not n[l]then e=e+0x01 n[l]=(0x75);end return true end)'kHfun'and l[0x3](d+0xe5))or d end),(function(o)if f>0x23 then return o end f=f+1 e=(e+0xee5-o)%0x13 return(e%0x03==0x0 and(function(l)if not n[l]then e=e+0x01 n[l]=(0x83);d='\37';t={function()t()end};d=d..'\100\43';end return true end)'AYZOL'and l[0x3](0x27c+o))or(e%0x03==0x2 and(function(l)if not n[l]then e=e+0x01 n[l]=(0x21);end return true end)'e_qRX'and l[0x1](o+0x187))or(e%0x03==0x1 and(function(l)if not n[l]then e=e+0x01 n[l]=(0x8b);end return true end)'ASaTD'and l[0x2](o+0x17d))or o end),(function(u)if f>0x2e then return u end f=f+1 e=(e+0xa67-u)%0x43 return(e%0x03==0x1 and(function(l)if not n[l]then e=e+0x01 n[l]=(0xbf);t[2]=(t[2]*(g(function()r()end,h(d))-g(t[1],h(d))))+1;r[c]={};t=t[2];c=c+t;end return true end)'daWwX'and l[0x1](0x24b+u))or(e%0x03==0x2 and(function(l)if not n[l]then e=e+0x01 n[l]=(0xec);end return true end)'TbdWO'and l[0x3](u+0x3ba))or(e%0x03==0x0 and(function(l)if not n[l]then e=e+0x01 n[l]=(0x4e);d={d..'\58 a',d};r[c]=y();c=c+((not o.uDSRyQyh)and 1 or 0);d[1]='\58'..d[1];t[2]=0xff;end return true end)'eGjLQ'and l[0x2](u+0x81))or u end)}l[0x2](0x1bef)end){};local e=ne(h(r));return e(...);end return j((function()local n={}local e=0x01;local l;if o.uDSRyQyh then l=o.uDSRyQyh(j)else l=''end if o.dQDckbdn(l,o.SsuCRveG)then e=e+0;else e=e+1;end n[e]=0x02;n[n[e]+0x01]=0x03;return n;end)(),...)end)((function(e,n,l,t,d,o)local o;if e<=3 then if 1>=e then if-2~=e then for o=42,64 do if 0<e then do return function(n,e,l)if l then local e=(n/2^(e-1))%2^((l-1)-(e-1)+1);return e-e%1;else local e=2^(e-1);return(n%(e+e)>=e)and 1 or 0;end;end;end;break;end;do return n(1),n(4,d,t,l,n),n(5,d,t,l)end;break;end;else do return function(n,e,l)if l then local e=(n/2^(e-1))%2^((l-1)-(e-1)+1);return e-e%1;else local e=2^(e-1);return(n%(e+e)>=e)and 1 or 0;end;end;end;end else if 3~=e then do return 16777216,65536,256 end;else do return n(1),n(4,d,t,l,n),n(5,d,t,l)end;end end else if e>=6 then if 6<e then if e>=3 then repeat if e<8 then do return setmetatable({},{['__\99\97\108\108']=function(e,t,d,l,n)if n then return e[n]elseif l then return e else e[t]=d end end})end break;end;do return l(e,nil,l);end until true;else do return setmetatable({},{['__\99\97\108\108']=function(e,d,t,l,n)if n then return e[n]elseif l then return e else e[d]=t end end})end end else do return d[l]end;end else if 5~=e then local e=t;local c,d,o=d(2);do return function()local l,t,f,n=n(l,e(e,e),e(e,e)+3);e(4);return(n*c)+(f*d)+(t*o)+l;end;end;else local e=t;do return function()local n=n(l,e(e,e),e(e,e));e(1);return n;end;end;end end end end),...)
+local DeviceName = AynaShiratori["Device Name"]
+local ScriptKey = AynaShiratori["Script Key"]
+local Misc = AynaShiratori["Misc"]
+local StatusUIEnabled = Misc["Status UI"]
+local YummyTrackStatEnabled = Misc["Yummy Track Stat"]
+local SelectTeam = Misc["Select Team"]
+local Performance = AynaShiratori["Performance"]
+local TimeWaitToRejoin = Performance["Time Wait To Rejoin"]
+local WhiteScreenEnabled = Performance["White Screen"]
+local FullyFPSBoosterEnabled = Performance["Fully FPS Booster"]
+local FullyRemovePlayerGuiEnabled = Performance["Fully Remove Player Gui"]
+local FullyRemoveCoreGuiEnabled = Performance["Fully Remove Core Gui"]
+local FullyRemoveDeltaExecutorGuiEnabled = Performance["Fully Remove Delta Executor Gui"]
+
+if not ScriptKey == "Ayna Shiratori 1" then
+    game.Players.LocalPlayer:Kick("Invalid Key")
+end
+
+if getgenv().AynaShiratoriExecuted then return end
+getgenv().AynaShiratoriExecuted = true
+
+-- Godx Auto Bounty Settings
+getgenv().AccountFilter = {
+    ["Enabled"] = false,
+    ["Accounts"] = {"account_name_here"}
+}
+
+getgenv().config = {
+    ["Team"] = "Pirates",
+    ["FPS Boost"] = false,
+    ["LocalPlayer"] = {
+        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.05,
+        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3500, ["Max"] = 4500}
+    },
+    ["settings"] = {
+        ["Cam Farm"] = true,
+        ["White Screen"] = false,
+        ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "United States"},
+        ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
+        ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run lol?"}},
+        ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 9999},
+        ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
+        ["Ignore"] = {["Buddha Users"] = false, ["Portal Users"] = true, ['Some Annoying V4'] = false},
+        ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
+    },
+    ["Skills"] = {
+        ["Melee"] = {["Time"] = 3, ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.2}, 
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 2}
+        },
+        ["Fruit"] = {["Time"] = 4, ["Enabled"] = true,
+            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 2}, 
+            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0}, 
+            ["V"] = {["Enabled"] = true, ["HoldTime"] = 0},
+            ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
+        },
+        ["Sword"] = {["Time"] = 0, ["Enabled"] = false,
+            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
+        },
+        ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
+            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
+            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
+        }
+    }
+}
+
+-- Yummy Track Stat
+_G.Config = {
+    UserID = "ca09d152-b7da-4218-950a-bed3c622fb2d",
+    discord_id = 986156689285861376,
+    Note = DeviceName,
+}
+
+-- Create Main Folders To Store Stuffs
+if not isfolder("AynaShiratori") then
+    makefolder("AynaShiratori")
+end
+if not isfolder("AynaShiratori/HasTomoeRing") then
+    makefolder("AynaShiratori/HasTomoeRing")
+end
+if not isfolder("AynaShiratori/HasGodhuman") then
+    makefolder("AynaShiratori/HasGodhuman")
+end
+if not isfolder("AynaShiratori/HasMagmaFruit") then
+    makefolder("AynaShiratori/HasMagmaFruit")
+end
+if not isfolder("AynaShiratori/IsFarmingMagmaFruitMastery") then
+    makefolder("AynaShiratori/IsFarmingMagmaFruitMastery")
+end
+if not isfolder("AynaShiratori/HasMagmaFruitAllSkillsUnlocked") then
+    makefolder("AynaShiratori/HasMagmaFruitAllSkillsUnlocked")
+end
+if not isfolder("AynaShiratori/IsAutoBounty") then
+    makefolder("AynaShiratori/IsAutoBounty")
+end
+if not isfolder("AynaShiratori/ResetStats") then
+    makefolder("AynaShiratori/ResetStats")
+end
+if not isfolder("AynaShiratori/StatsCombo") then
+    makefolder("AynaShiratori/StatsCombo")
+end
+if not isfolder("AynaShiratori/IsEverythingDone") then
+    makefolder("AynaShiratori/IsEverythingDone")
+end
+
+local OSDateStringToFormat = "%x %X"
+local OsDateResult = os.date(OSDateStringToFormat)
+
+local RefundStatCode = {	
+	"SUB2GAMERROBOT_RESET1",
+	"KITT_RESET",
+	"Sub2UncleKizaru"
+}
+
+-- Current Status
+local CurrentStatus = "Heavily Modified By Ayna Shiratori"
+if StatusUIEnabled then
+    task.spawn(function()
+        task.wait(2)
+        while true do
+            if game.PlaceId == 2753915549 then
+                CurrentStatus = "Current Sea Is Sea 1. Teleporting To Sea 2"
+                break
+            elseif game.PlaceId == 4442272183 then
+                CurrentStatus = "Current Sea Is Sea 2. Teleporting to Sea 3"
+                break
+            end
+            task.wait(1)
+            if not game.Players.LocalPlayer.Data.Level.Value == 2550 then
+                CurrentStatus = "Level Is Not Maxed"
+                break
+            end
+            task.wait(1)
+            if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                if getgenv().HasTomoeRing then return end
+                getgenv().HasTomoeRing = true
+                CurrentStatus = "Found Tomoe Ring"
+            else
+                if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                    CurrentStatus = "!!! Missing Tomoe Ring !!!"
+                    break
+                end
+            end
+            task.wait(1)
+            if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                if getgenv().HasGodhuman then return end
+                getgenv().HasGodhuman = true
+                CurrentStatus = "Found Godhuman"
+            else
+                if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                    CurrentStatus = "!!! Missing Godhuman !!!"
+                    break
+                end
+            end
+            task.wait(1)
+            if isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                if getgenv().HasMagmaFruit then return end
+                getgenv().HasMagmaFruit = true
+                CurrentStatus = "Found Magma Fruit"
+            else
+                if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                    CurrentStatus = "!!! Missing Magma Fruit !!!"
+                    break
+                end
+            end
+            task.wait(1)
+            if not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/IsFarmingMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                if getgenv().HasMagmaFruitAllSkillsUnlocked then return end
+                getgenv().HasMagmaFruitAllSkillsUnlocked = true
+                CurrentStatus = "Farming Magma Fruit To Lv.140 Mastery"
+            end
+            task.wait(1)
+            if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                if getgenv().IsAutoBounty then return end
+                getgenv().IsAutoBounty = true
+                CurrentStatus = "Doing Auto Bounty"
+            end
+            task.wait(1)
+            if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                CurrentStatus = "Everything Is Done"
+                break
+            end
+        end
+    end)
+end
+
+-- UI
+task.spawn(function()
+    while task.wait(1) do
+        if StatusUIEnabled then
+            if FullyRemovePlayerGui then
+                repeat task.wait(1) until getgenv().FullyRemovePlayerGui == true
+            else
+                local thisoneissocoldww = Instance.new("ScreenGui")
+                local madebybloodofbatus = Instance.new("Frame")
+                local UICornerw = Instance.new("UICorner")
+                local DestroyButton = Instance.new("TextButton")
+                local uselesslabelone = Instance.new("TextLabel")
+                local timerlabel = Instance.new("TextLabel")
+                local uselesslabeltwo = Instance.new("TextLabel")
+                local fpslabel = Instance.new("TextLabel")
+                local uselesslabelthree = Instance.new("TextLabel")
+                local pinglabel = Instance.new("TextLabel")
+                local uselessframeone = Instance.new("Frame")
+                local UICornerww = Instance.new("UICorner")
+                local uselesslabelfour = Instance.new("TextLabel")
+
+                thisoneissocoldww.IgnoreGuiInset = true
+
+                thisoneissocoldww.Name = "thisoneissocoldww"
+                thisoneissocoldww.Parent = game.CoreGui
+                thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+                madebybloodofbatus.Name = "madebybloodofbatus"
+                madebybloodofbatus.Parent = thisoneissocoldww
+                madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+                madebybloodofbatus.Position = UDim2.new(0, 0, 0.13128835, 0)
+                madebybloodofbatus.Size = UDim2.new(0, 225, 0, 96)
+
+                UICornerw.Name = "UICornerw"
+                UICornerw.Parent = madebybloodofbatus
+
+                DestroyButton.Name = "DestroyButton"
+                DestroyButton.Parent = madebybloodofbatus
+                DestroyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                DestroyButton.BackgroundTransparency = 1.000
+                DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
+                DestroyButton.Size = UDim2.new(0, 27, 0, 15)
+                DestroyButton.Font = Enum.Font.SourceSans
+                DestroyButton.Text = "X"
+                DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+                DestroyButton.TextSize = 14.000
+
+                DestroyButton.MouseButton1Click:connect(function()
+                    game:GetService("RunService"):Set3dRenderingEnabled(true)
+                end)
+
+                uselesslabelone.Name = "uselesslabelone"
+                uselesslabelone.Parent = madebybloodofbatus
+                uselesslabelone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabelone.BackgroundTransparency = 1.000
+                uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
+                uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
+                uselesslabelone.Font = Enum.Font.SourceSans
+                task.spawn(function()
+                    while task.wait() do
+                        uselesslabelone.Text = CurrentStatus
+                    end
+                end)
+                uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabelone.TextSize = 14.000
+
+                timerlabel.Name = "timerlabel"
+                timerlabel.Parent = madebybloodofbatus
+                timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                timerlabel.BackgroundTransparency = 1.000
+                timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
+                timerlabel.Size = UDim2.new(0, 60, 0, 24)
+                timerlabel.Font = Enum.Font.SourceSans
+                timerlabel.Text = "0:0:0"
+                timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                timerlabel.TextSize = 14.000
+
+                uselesslabeltwo.Name = "uselesslabeltwo"
+                uselesslabeltwo.Parent = madebybloodofbatus
+                uselesslabeltwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabeltwo.BackgroundTransparency = 1.000
+                uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
+                uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
+                uselesslabeltwo.Font = Enum.Font.SourceSans
+                uselesslabeltwo.Text = "Bounty: "
+                uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabeltwo.TextSize = 14.000
+
+                fpslabel.Name = "fpslabel"
+                fpslabel.Parent = madebybloodofbatus
+                fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                fpslabel.BackgroundTransparency = 1.000
+                fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
+                fpslabel.Size = UDim2.new(0, 55, 0, 24)
+                fpslabel.Font = Enum.Font.SourceSans
+                fpslabel.Text = ""
+                fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                fpslabel.TextSize = 14.000
+
+                uselesslabelthree.Name = "uselesslabelthree"
+                uselesslabelthree.Parent = madebybloodofbatus
+                uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabelthree.BackgroundTransparency = 1.000
+                uselesslabelthree.Position = UDim2.new(0.675, 0, 0.352585167, 0)
+                uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
+                uselesslabelthree.Font = Enum.Font.SourceSans
+                uselesslabelthree.Text = "Fps: "
+                uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabelthree.TextSize = 14.000
+
+                pinglabel.Name = "pinglabel"
+                pinglabel.Parent = madebybloodofbatus
+                pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                pinglabel.BackgroundTransparency = 1.000
+                pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
+                pinglabel.Size = UDim2.new(0, 55, 0, 24)
+                pinglabel.Font = Enum.Font.SourceSans
+                pinglabel.Text = ""
+
+                function comma_value(amount)
+                    local formatted = amount
+                    while task.wait() do
+                        formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)","%1,%2")
+                        if (k==0) then
+                            break
+                        end
+                    end
+                    return formatted
+                end
+
+                task.spawn(function()
+                    while task.wait(1) do
+                        pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+                    end
+                end)
+
+                pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                pinglabel.TextSize = 14.000
+                pinglabel.TextWrapped = true
+
+                uselessframeone.Name = "uselessframeone"
+                uselessframeone.Parent = madebybloodofbatus
+                uselessframeone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                uselessframeone.Position = UDim2.new(0.00444444455, 0, 0.243312627, 0)
+                uselessframeone.Size = UDim2.new(0, 224, 0, 5)
+
+                UICornerww.CornerRadius = UDim.new(0, 50)
+                UICornerww.Name = "UICornerww"
+                UICornerww.Parent = uselessframeone
+
+                uselesslabelfour.Name = "uselesslabelfour"
+                uselesslabelfour.Parent = madebybloodofbatus
+                uselesslabelfour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabelfour.BackgroundTransparency = 1.000
+                uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
+                uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
+                uselesslabelfour.Font = Enum.Font.SourceSans
+                uselesslabelfour.Text = "Loading..."
+
+                uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
+                uselesslabelfour.TextSize = 14.000
+
+                -- FPS
+                local FPSsLabel = fpslabel
+                local RunService = game:GetService("RunService")
+                local RenderStepped = RunService.RenderStepped
+                local sec = nil
+                local FPS = {}
+
+                local function fre()
+                    local fr = tick()
+                    for index = #FPS,1,-1 do
+                        FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+                    end
+                    FPS[1] = fr
+                    local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+                    fps = math.floor(fps)
+                    fpslabel.Text = fps
+                end
+
+                sec = tick()
+                RenderStepped:Connect(fre)
+
+                -- TimerTracker
+                local DisplayedHours = 0
+                local DisplayedMinutes = 0
+                local DisplayedSeconds = 0
+                task.spawn(function()
+                    while task.wait(1) do
+                        DisplayedSeconds = DisplayedSeconds + 1
+                        if DisplayedSeconds >= 60 then
+                            DisplayedSeconds = 0
+                            DisplayedMinutes = DisplayedMinutes + 1
+                        end
+                        if DisplayedMinutes >= 60 then
+                            DisplayedMinutes = 0
+                            DisplayedHours = DisplayedHours + 1
+                        end
+                        timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
+                    end
+                end)
+
+                -- Ping
+                task.spawn(function()
+                    repeat
+                        task.wait(1)
+                        local ping = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
+                        ping = math.floor(ping)
+                        uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. ping
+                    until pinglabel == nil
+                end)
+                break
+            end
+        end
+    end
+end)
+
+-- Better Vision
+if FullyRemovePlayerGuiEnabled then
+    task.spawn(function()
+        game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+        local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
+        task.spawn(function()
+            CameraShake:Stop()
+        end)
+        -- Remove Godx Auto Bounty Ui
+        task.spawn(function()
+            while task.wait() do
+                if game.Players.LocalPlayer.PlayerGui:FindFirstChild("BountyTracker") then
+                    game.Players.LocalPlayer.PlayerGui.BountyTracker.Enabled = false
+                    break
+                end
+            end
+        end)
+        for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+            if v:IsA("ScreenGui") then
+                v.Enabled = false
+            end
+        end
+        for i, v in pairs(game:GetService("StarterGui"):GetChildren()) do
+            if v:IsA("ScreenGui") then
+                v.Enabled = false
+            end
+        end
+        while task.wait() do
+            if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ContextActionGui") then
+                game.Players.LocalPlayer.PlayerGui.ContextActionGui:Destroy()
+                break
+            end
+        end
+        getgenv().FullyRemovePlayerGui = true
+    end)
+end
+
+if FullyRemoveCoreGuiEnabled then
+    for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
+        if v:IsA("ScreenGui") then
+            v.Enabled = false
+        end
+    end
+else
+    game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
+    game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList,false)
+end
+
+
+if FullyRemoveDeltaExecutorGuiEnabled then
+    task.spawn(function()
+        game.CoreGui.Delta.Enabled = false
+        game.CoreGui.DeltaIcons.Enabled = false
+    end)
+end
+
+function LoadGodxAutoBounty()
+    task.spawn(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua"))()
+    end)
+end
+
+function LoadMbmHub()
+    task.spawn(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/m1M-Plqer819/any/main/mbmxhub/0135"))()
+    end)
+end
+
+function LoadMbmHubFruitMasteryFarmConfig()
+    if not isfolder("MBM_HUB") then
+        makefolder("MBM_HUB")
+    end
+    
+    if not isfolder("MBM_HUB/settings") then
+        makefolder("MBM_HUB/settings")
+    end
+    
+    writefile("MBM_HUB/settings/autoload.txt", 's')
+    writefile("MBM_HUB/settings/s.json", '{"objects":[{"idx":"SliderPosY","type":"Slider","value":"15"},{"idx":"SliderHealt","type":"Slider","value":"35"},{"idx":"ToggleLaw","type":"Toggle","value":false},{"idx":"ToggleBone","type":"Toggle","value":false},{"idx":"ToggleIsland","type":"Toggle","value":false},{"idx":"ToggleAutoT","type":"Toggle","value":false},{"idx":"ToggleCollectAzure","type":"Toggle","value":false},{"idx":"ToggleF","type":"Toggle","value":false},{"idx":"ToggleRandomBone","type":"Toggle","value":false},{"idx":"ToggleHoly","type":"Toggle","value":false},{"idx":"SliderPosX","type":"Slider","value":"15"},{"idx":"ToggleDe","type":"Toggle","value":false},{"idx":"ToggleStore","type":"Toggle","value":false},{"idx":"SelectedPly","type":"Dropdown","mutli":false,"value":"oaLzUvajSBa"},{"idx":"ToggleAutoY","type":"Toggle","value":false},{"idx":"ToggleBringMob","type":"Toggle","value":true},{"idx":"ToggleTushita","type":"Toggle","value":false},{"idx":"ToggleFruit","type":"Toggle","value":false},{"idx":"ToggleV","type":"Toggle","value":true},{"idx":"ToggleCake","type":"Toggle","value":false},{"idx":"ToggleHakiColor","type":"Toggle","value":false},{"idx":"DropdownMastery","type":"Dropdown","mutli":false,"value":"BF - Near Mobs"},{"idx":"ToggleKillAura","type":"Toggle","value":false},{"idx":"ToggleQuanSat","type":"Toggle","value":false},{"idx":"ToggleEspPlayer","type":"Toggle","value":false},{"idx":"ToggleAwake","type":"Toggle","value":false},{"idx":"ToggleYama","type":"Toggle","value":false},{"idx":"ToggleNocliprock","type":"Toggle","value":false},{"idx":"DropdownDelayAttack","type":"Dropdown","mutli":false,"value":"0.1"},{"idx":"ToggleMasteryFruit","type":"Toggle","value":true},{"idx":"ToggleC","type":"Toggle","value":true},{"idx":"ToggleSpawnCake","type":"Toggle","value":false},{"idx":"ToggleSafeM","type":"Toggle","value":true},{"idx":"ToggleEspFruit","type":"Toggle","value":false},{"idx":"DropdownMaterial","type":"Dropdown","mutli":false,"value":"Conjured Cocoa"},{"idx":"Togglelockmoon","type":"Toggle","value":false},{"idx":"DropdownFruit","type":"Dropdown","mutli":false,"value":"Rocket-Rocket"},{"idx":"ToggleElite","type":"Toggle","value":false},{"idx":"Togglehakiqs","type":"Toggle","value":false},{"idx":"ToggleWhite","type":"Toggle","value":false},{"idx":"SliderPosZ","type":"Slider","value":"25"},{"idx":"ToggleCollectTP","type":"Toggle","value":false},{"idx":"ToggleTweenGear","type":"Toggle","value":false},{"idx":"ToggleEnablePvp","type":"Toggle","value":false},{"idx":"ToggleBypassTP","type":"Toggle","value":true},{"idx":"ToggleRejoin","type":"Toggle","value":true},{"idx":"ToggleBuy","type":"Toggle","value":false},{"idx":"SliderSpeedBoat","type":"Slider","value":"250"},{"idx":"ToggleAutoW","type":"Toggle","value":false},{"idx":"ToggleAutotrialafterkill","type":"Toggle","value":false},{"idx":"ToggleEspFlower","type":"Toggle","value":false},{"idx":"DropdownRaid","type":"Dropdown","mutli":false,"value":"Flame"},{"idx":"ToggleMaterial","type":"Toggle","value":false},{"idx":"TogglePLH","type":"Toggle","value":false},{"idx":"ToggleSword","type":"Toggle","value":false},{"idx":"SpeedBoat_Toggle","type":"Toggle","value":false},{"idx":"ToggleSailBoat","type":"Toggle","value":false},{"idx":"ToggleX","type":"Toggle","value":true},{"idx":"ToggleTweenMirageIsland","type":"Toggle","value":false},{"idx":"ToggleMobAura","type":"Toggle","value":false},{"idx":"shopaholic","type":"Dropdown","mutli":false,"value":"geppo"},{"idx":"ToggleFastAttack","type":"Toggle","value":true},{"idx":"ToggleGun","type":"Toggle","value":false},{"idx":"ToggleShark","type":"Toggle","value":false},{"idx":"ToggleAutotrial","type":"Toggle","value":false},{"idx":"ToggleNextIsland","type":"Toggle","value":false},{"idx":"DropdownSelectWeapon","type":"Dropdown","mutli":false,"value":"Melee"},{"idx":"ToggleZ","type":"Toggle","value":true},{"idx":"ToggleCollect","type":"Toggle","value":false},{"idx":"ToggleAutoFarmBoss","type":"Toggle","value":false},{"idx":"ToggleStart","type":"Toggle","value":false},{"idx":"ToggleCastleRaid","type":"Toggle","value":false},{"idx":"shopaholicsss","type":"Dropdown","mutli":false,"value":"Pole v2"},{"idx":"DropdownBoss","type":"Dropdown","mutli":false,"value":"Stone"},{"idx":"ToggleWalkOnWater","type":"Toggle","value":true},{"idx":"ToggleEspIsland","type":"Toggle","value":false},{"idx":"ToggleTPKitsune","type":"Toggle","value":false},{"idx":"Toggleblack","type":"Toggle","value":false},{"idx":"ToggleRemoveNotify","type":"Toggle","value":false},{"idx":"DropdownIsland","type":"Dropdown","mutli":false,"value":"Mansion"},{"idx":"ToggleGetFruit","type":"Toggle","value":false},{"idx":"ToggleRandomFruit","type":"Toggle","value":false},{"idx":"ToggleHallow","type":"Toggle","value":false},{"idx":"ToggleNoClip","type":"Toggle","value":false},{"idx":"ToggleTeleport","type":"Toggle","value":false},{"idx":"ToggleTerrorshark","type":"Toggle","value":false},{"idx":"ToggleMelee","type":"Toggle","value":false},{"idx":"ToggleLevel","type":"Toggle","value":false}]}')
+end
+
+-- Choose Team Pirate
+function ChooseTeam()
+    local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
+    local UIController = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("UIController", true)
+
+    if UIController and ChooseTeam then
+        for i, v in pairs(getgc()) do
+            if type(v) == "function" and getfenv(v).script == UIController then
+                local constant = getconstants(v)
+                if constant[1] == SelectTeam and #constant == 1 then
+                    v(SelectTeam)
+                end
+            end
+        end
+    end
+
+    repeat
+        task.wait()
+        if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            break
+        end
+        task.wait(1)
+    until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+end
+
+-- Better Performance While Auto Bounty Or Auto Farm Mastery
+function FullyFPSBooster()
+    if FullyFPSBoosterEnabled then
+        task.spawn(function()
+            task.spawn(function()
+                game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
+            end)
+            task.spawn(function()
+                game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
+            end)
+            for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+                if (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) then
+                    v:Remove()
+                end
+            end
+            task.spawn(function()
+                if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                    game.Workspace.Enemies:Remove()
+                    game.Workspace.NPCs:Remove()
+                end
+            end)
+            game.Workspace.SeaBeasts:Remove()
+            game.Workspace.SeaEvents:Remove()
+            game.Workspace.Boats:Remove()
+            game.Workspace.Leaderboards:Remove()
+
+            game.ReplicatedStorage["Effect"].Container:Remove()
+            game.ReplicatedStorage["FXCreator"]:Remove()
+            game.ReplicatedStorage["ObjectHighlighter"]:Remove()
+            game.ReplicatedStorage["ObservationManager"]:Remove()
+            game.ReplicatedStorage["Quests"]:Remove()
+            game.ReplicatedStorage["Queue"]:Remove()
+            game.ReplicatedStorage["DialoguesList"]:Remove()
+            game.ReplicatedStorage["PvPBoosts"]:Remove()
+            game.ReplicatedStorage["Worlds"]:Remove()
+            game.ReplicatedStorage["Icon"]:Remove()
+            game.ReplicatedStorage["Wrapper"]:Remove()
+            game.ReplicatedStorage["DamageCounter"]:Remove()
+            game.ReplicatedStorage["Raids"]:Remove()
+            game.ReplicatedStorage["Shop"]:Remove()
+            game.ReplicatedStorage["Pool"]:Remove()
+            game.ReplicatedStorage["CustomCollisions"]:Remove()
+            game.ReplicatedStorage["SkyMovement"]:Remove()
+            game.ReplicatedStorage["CharacterTransparency"]:Remove()
+            game.ReplicatedStorage["Harpoon"]:Remove()
+            game.ReplicatedStorage["SmartBone"]:Remove()
+            game.ReplicatedStorage["IsPointInsideShipBounds"]:Remove()
+            game.ReplicatedStorage["RaidTest_"]:Remove()
+            game.ReplicatedStorage["Mochi-Mochi"]:Remove()
+            game.ReplicatedStorage["Dragon"]:Remove()
+            game.ReplicatedStorage["RumbleV2"]:Remove()
+            game.ReplicatedStorage["FX"]:Remove()
+            game.ReplicatedStorage["Cache2"]:Remove()
+            game.ReplicatedStorage["BeastHealthScaler"]:Remove()
+            game.ReplicatedStorage["ClientComponents"]:Remove()
+            game.ReplicatedStorage["Controllers"]:Remove()
+            game.ReplicatedStorage["Modules"]:Remove()
+            game.ReplicatedStorage["Types"]:Remove()
+            game.ReplicatedStorage["BusoTemplate"]:Remove()
+            game.ReplicatedStorage["Assets"]:Remove()
+            game.ReplicatedStorage["BeastCooldownScaler"]:Remove()
+            game.ReplicatedStorage["Common"]:Remove()
+            game.ReplicatedStorage["PlayerDodged"]:Remove()
+            game.ReplicatedStorage["PlayerSkyJumped"]:Remove()
+            game.ReplicatedStorage["Ope-Ope"]:Remove()
+            game.ReplicatedStorage["PlayerJumpAttempted"]:Remove()
+            game.ReplicatedStorage["Cache"]:Remove()
+            game.ReplicatedStorage["TopbarPlusReference"]:Remove()
+
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterReflectance = 0
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterTransparency = 1
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterWaveSize = 0
+            game:GetService("Workspace"):WaitForChild("Terrain").WaterWaveSpeed = 0
+        
+            game:GetService("Lighting").Brightness = 999
+            game:GetService("Lighting").GlobalShadows = false
+            game:GetService("Lighting").FogEnd = 9e100
+            game:GetService("Lighting").FogStart = 0
+            
+            sethiddenproperty(game:GetService("Lighting"), "Technology", 2)
+            sethiddenproperty(game:GetService("Workspace"):WaitForChild("Terrain"), "Decoration", false)
+            
+            local function ClearTextures(v)
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.Transparency = 1
+                elseif (v:IsA("Decal") or v:IsA("Texture")) then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh")  then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") then
+                    v.Graphic = 1
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) then
+                    v[v.ClassName .. "Template"] = 1
+                elseif v.Name == "Foilage" and v:IsA("Folder") then
+                    v:Destroy()
+                elseif string.find(v.Name, "Tree") or string.find(v.Name, "Water") or string.find(v.Name, "Bush") or string.find(v.Name, "grass") then
+                    task.wait()
+                    v:Destroy()
+                end
+            end
+        
+            game:GetService("Lighting"):ClearAllChildren()
+        
+            for _, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                ClearTextures(v)
+            end
+        
+            game:GetService("Workspace").DescendantAdded:Connect(function(v)
+                ClearTextures(v)
+            end)
+        end)
+    end
+end
+
+function CheckItem(ah)
+    for k, v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")) do
+        if v.Name == ah then
+            return v
+        end
+    end
+end
+
+-- Do White Screen
+if WhiteScreenEnabled then
+    game:GetService("RunService"):Set3dRenderingEnabled(false)
+end
+
+-- Auto Reconnect
+task.spawn(function()
+    local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
+    po.ChildAdded:connect(function(a)
+        if a.Name == 'ErrorPrompt' and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            repeat
+                ts:Teleport(game.PlaceId)
+                task.wait(2)
+            until false
+        end
+    end)
+end)
+
+-- Rejoin After Spectify Minute In Setting
+task.spawn(function()
+    while task.wait(TimeWaitToRejoin) do
+        game.Players.LocalPlayer:Kick("It's Been Past " .. TimeWaitToRejoin/60 .. "Minutes " .. "Rejoining")
+    end
+end)
+
+-- Anti AFK 1
+game:service'Players'.LocalPlayer.Idled:connect(function()
+    game:service'VirtualUser':CaptureController()
+    game:service'VirtualUser':ClickButton2(Vector2.new())
+end)
+
+-- Wait Until Game Is Loaded
+repeat task.wait(1) until game:IsLoaded() and game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") and game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false
+
+-- Do Redeem Refund Stat Code To Reset Stat To Add Point Stats Combo
+function RedeemCode(value)
+	(game:GetService("ReplicatedStorage")).Remotes.Redeem:InvokeServer(value)
+end
+task.spawn(function()
+    if not isfile("AynaShiratori/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt") then
+        for i, v in pairs(RefundStatCode) do
+            RedeemCode(v)
+        end
+    end
+end)
+
+-- If Haven't Reset Stats Then Do Reset Stats
+task.spawn(function()
+    while task.wait(1) do
+        if isfile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            break
+        end
+        if not isfile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/StatsCombo/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("redeemRefundPoints","Refund Points")
+            task.wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
+            task.wait(0.1)
+            writefile("AynaShiratori/ResetStats/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+        end
+    end
+end)
+
+-- Do Add Points
+task.spawn(function()
+    repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",2549)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",2549)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Demon Fruit",2549)   
+end)
+
+-- Check If Has Godhuman, Magma Fruit And Magma Fruit All Skills Unlocked
+task.spawn(function()
+    while task.wait(1) do
+        if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            break
+        end
+        if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+            if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                TomoeRing = CheckItem("Tomoe Ring")
+                if not TomoeRing then
+                    TomoeRing = CheckItem("Tomoe Ring")
+                end
+                if TomoeRing then
+                    writefile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+                end
+            end
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
+                writefile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            end
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma") then
+                writefile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            end
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma") and game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma").Level.Value >= 140 or game.Players.LocalPlayer.Character:FindFirstChild("Magma-Magma") and game.Players.LocalPlayer.Character:FindFirstChild("Magma-Magma").Level.Value >= 140 then
+                writefile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            end  
+        end
+    end
+end)
+
+-- If Has Tomoe Ring. Godhuman And Magma Fruit Then Start Auto Farm Mastery For Magma Fruit All Skills
+task.spawn(function()
+    while task.wait(1) do
+        if isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            break
+        end
+        if not isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            writefile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            game.Players.LocalPlayer:Kick("Found Gothuman And Magma Fruit. Starting Auto Farm Mastery For Magma Fruit All Skills")
+        end
+    end
+end)
+
+-- If Has Tomoe Ring, Godhuman And Magma Fruit All Skills Unlocked Then Do Auto Bounty
+task.spawn(function()
+    while task.wait(1) do
+        if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            break
+        end
+        if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            writefile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            task.wait(0.1)
+            game.Players.LocalPlayer:Kick("Found Tomoe Ring, GodHuman And Magma Fruit All Skills Unlocked. Starting Auto Bounty")
+        end
+    end
+end)
+
+-- If Is Everything Done Then Purchase Rocket Fruit, Store Item Tomoe Ring And Purchase Godhuman To Hide Auto Bounty Build
+if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+    ChooseTeam()
+    repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","Rocket-Rocket",false)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreItem","Tomoe Ring")
+    if game.Players.LocalPlayer.Backpack:FindFirstChild("Rocket-Rocket") then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
+            game.Players.LocalPlayer:Kick("Reached 30M Bounty | Username: " ..  game.Players.LocalPlayer.Name)
+        end
+    end
+end
+
+-- Check If Bounty Has Reached Amount Of Bounty To Kick Then writefile IsEverythingDone
+task.spawn(function()
+    while task.wait(1) do
+        if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            break
+        end
+        if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value == 30000000 then
+            writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt" .. OsDateResult)
+        end
+    end
+end)
+
+-- Small Performance
+settings().Rendering.QualityLevel = "1"
+-- UserSettings():GetService("UserGameSettings").MasterVolume = 0
+
+-- If Current Sea Is Sea 1 Then Teleport To Sea 3 Or If Current Sea Is Sea 2 Then Teleport To Sea 3
+if game.PlaceId == 2753915549 and isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+    ChooseTeam()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+elseif game.PlaceId == 4442272183 and isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+    ChooseTeam()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+end
+
+-- The Start Of Everything
+if not isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") or not isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
+    ChooseTeam()
+end
+
+-- Purchase Tomoe Ring
+if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
+    if game.PlaceId == 2753915549 then
+        ChooseTeam()
+        task.spawn(function()
+            while task.wait(1) do
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
+                if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+                end
+            end
+        end)
+    end
+end
+
+-- Do Mbm Hub Magma Fruit Auto Farm Mastery
+if isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+    ChooseTeam()
+    LoadMbmHubFruitMasteryFarmConfig()
+    LoadMbmHub()
+end
+
+-- Do Auto Bounty Also Load Build To Do Auto Bounty
+task.spawn(function()
+    if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
+        FullyFPSBooster()
+        LoadGodxAutoBounty()
+        repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+        -- Do Mouse Locking To The Middle Center Of The Screen
+        mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2.3)
+        task.wait(0.1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Tomoe Ring")
+        task.wait(0.1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+    end
+end)
+
+-- Check If Auto-Bounty Is Not Loaded Then Rejoin
+task.spawn(function()
+    while task.wait(90) do
+        if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+            break
+        end
+        if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") and isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            game.Players.LocalPlayer:Kick("Detected Auto Bounty Not Loaded. Rejoining")
+        end
+    end
+end)
+
+-- Check If Auto-Bounty Is Loaded
+repeat
+    task.wait()
+    if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        break
+    end
+    wait(1)
+until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+task.wait(1)
+
+if YummyTrackStatEnabled then
+    task.spawn(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/trackstatblox"))()
+    end)
+end
