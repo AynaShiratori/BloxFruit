@@ -1,3 +1,20 @@
+getgenv().AynaShiratori = {
+    ["Script Key"] = "Ayna Shiratori 1",
+    ["Misc"] = {
+        ["Status UI"] = true,
+        ["Yummy Track Stat"] =  true,
+        ["Select Team"] = "Pirates",
+    },
+    ["Performance"] = {
+        ["Time Wait To Rejoin"] = 600,
+        ["White Screen"] = true,
+        ["Fully FPS Booster"] = false,
+        ["Fully Remove Player Gui"] = true,
+        ["Fully Remove Core Gui"] = true,
+        ["Fully Remove Delta Executor Gui"] = true,
+    },
+}
+
 local DeviceName = AynaShiratori["Device Name"]
 local ScriptKey = AynaShiratori["Script Key"]
 local Misc = AynaShiratori["Misc"]
@@ -19,51 +36,113 @@ end
 if getgenv().AynaShiratoriExecuted then return end
 getgenv().AynaShiratoriExecuted = true
 
--- Godx Auto Bounty Settings
-getgenv().AccountFilter = {
-    ["Enabled"] = false,
-    ["Accounts"] = {"account_name_here"}
-}
-
-getgenv().config = {
+getgenv().Configs = {
     ["Team"] = "Pirates",
+    ["Auto Ken"] = true,
+    ["Auto Buso"] = true,
+    ["Auto turn on race v3"] = true,
+    ["Auto turn on race v4"] = false,
     ["FPS Boost"] = false,
-    ["LocalPlayer"] = {
-        ["Ken Haki"] = true, ["Invisible"] = false, ["Click Delay"] = 0.05,
-        ["Panic Mode"] = {["Skip Player"] = true, ["Run"] = 3500, ["Max"] = 4500}
+    ["Click Time"] = 0.1,
+    ["Bypass TP"] = true,
+    ["Time to kill"] = 40,
+    ["Chat"] = {
+        ["Enable"] = true,
+        ["Message"] = {"get good losers", "no skill?", "dont cry xd", "u cant win lol", "try to hunt me", "get a good gaming chair losers", "feeling no skill?"}, -- Input your message here
     },
-    ["settings"] = {
-        ["Cam Farm"] = true,
-        ["White Screen"] = false,
-        ["Region_Hop"] = {["Enabled"] = true, ["Value"] = "Singapore"},
-        ["Webhook"] = {["Enabled"] = true, ["URL"] = {["Discord"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk", ["Thumbnail"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"}},
-        ["Chatkill"] = {["Enabled"] = true, ["Text"] = {"gg btw why did u run lol?"}},
-        ["FPS Locker"] = {["Enabled"] = true, ["Value"] = 9999},
-        ["Bounty Lock"] = {["Enabled"] = false, ["Value"] = 30000000},
-        ["Ignore"] = {["Buddha Users"] = false, ["Portal Users"] = true, ['Some Annoying V4'] = false},
-        ["Stats"] = {["Auto Reset Stat If Doesnt Match"] = false, ["Points"] = "Sword"},
+    ["Run When Low Health"] = {
+        ["Enable"] = true,
+        ["Health"] = 4500,
+        ["Come back"] = true
     },
-    ["Skills"] = {
-        ["Melee"] = {["Time"] = 3, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 0.2}, 
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0.1},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 2}
+    ["Region"] = "Singapore",
+    ["Weapons"] = {
+        ["Melee"] = {
+            ["Enable"] = true,
+            ["Delay"] = 3,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.1,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0.2,
+                },
+                ["C"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 2,
+                }
+            }
         },
-        ["Fruit"] = {["Time"] = 4, ["Enabled"] = true,
-            ["Z"] = {["Enabled"] = true, ["HoldTime"] = 2}, 
-            ["X"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["C"] = {["Enabled"] = true, ["HoldTime"] = 0}, 
-            ["V"] = {["Enabled"] = true, ["HoldTime"] = 0},
-            ["F"] = {["Enabled"] = true, ["HoldTime"] = 0}
+        ["Fruit"] = {
+            ["Enable"] = true,
+            ["Delay"] = 4,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 2,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["C"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["V"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["F"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                }
+            }
         },
-        ["Sword"] = {["Time"] = 0, ["Enabled"] = false,
-            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
-            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
+        ["Sword"] = {
+            ["Enable"] = false,
+            ["Delay"] = 0,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = false,
+                    ["HoldTime"] = 0,
+                },
+                ["X"] = {
+                    ["Enable"] = false,
+                    ["HoldTime"] = 0,
+                }
+            }
         },
-        ["Gun"] = {["Time"] = 0, ["Enabled"] = false, ["GunMode"] = false,
-            ["Z"] = {["Enabled"] = false, ["HoldTime"] = 0},
-            ["X"] = {["Enabled"] = false, ["HoldTime"] = 0},
+        ["Gun"] = {
+            ["Enable"] = false,
+            ["Delay"] = 0,
+            ["Skills"] = {
+                ["Z"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                },
+                ["X"] = {
+                    ["Enable"] = true,
+                    ["HoldTime"] = 0,
+                }
+            }
         }
+    },
+    ["Theme"] = {
+        ["Enable"] = false,
+        ["Name"] = "", -- Hutao, Raiden, Ayaka, Yelan
+        ["Custom Theme"] = {
+            ["Enable"] = false,
+            ["Text Color"] = Color3.fromRGB(30, 30, 30),
+            ["Character Position"] = UDim2.new(0.563000023, 0, -0.174999997, 0)
+        }
+    },
+    ["Webhook"] = {
+        ["Enable"] = true,
+        ["Url"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk",
+        ["Image"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"
     }
 }
 
@@ -412,15 +491,6 @@ if FullyRemovePlayerGuiEnabled then
         task.spawn(function()
             CameraShake:Stop()
         end)
-        -- Remove Godx Auto Bounty Ui
-        task.spawn(function()
-            while task.wait() do
-                if game.Players.LocalPlayer.PlayerGui:FindFirstChild("BountyTracker") then
-                    game.Players.LocalPlayer.PlayerGui.BountyTracker.Enabled = false
-                    break
-                end
-            end
-        end)
         for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
             if v:IsA("ScreenGui") then
                 v.Enabled = false
@@ -460,9 +530,9 @@ if FullyRemoveDeltaExecutorGuiEnabled then
     end)
 end
 
-function LoadGodxAutoBounty()
+function LoadXeroAutoBounty()
     task.spawn(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/LeNguyenBaoPhuc/BloxFruits/main/Bounty.lua"))()
+        loadstring(game:HttpGet("https://xerohub.click/script/autobounty.lua"))() 
     end)
 end
 
@@ -795,7 +865,7 @@ task.spawn(function()
         if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 10050000 then
+        if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value == 30000000 then
             writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt" .. OsDateResult)
         end
     end
@@ -823,7 +893,6 @@ end
 if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
     if game.PlaceId == 2753915549 then
-        ChooseTeam()
         task.spawn(function()
             while task.wait(1) do
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
@@ -835,7 +904,7 @@ if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. 
     end
 end
 
--- Do Mbm Hub Magma Fruit Auto Farm Mastery
+-- Do Redz Hub Magma Fruit Auto Farm Mastery
 if isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
     ChooseTeam()
     LoadMbmHubFruitMasteryFarmConfig()
@@ -846,10 +915,18 @@ end
 task.spawn(function()
     if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
         FullyFPSBooster()
-        LoadGodxAutoBounty()
+        ChooseTeam()
+        task.wait(0.5)
+        LoadXeroAutoBounty()
         repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
         -- Do Mouse Locking To The Middle Center Of The Screen
-        mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2.3)
+        task.spawn(function()
+            while task.wait() do
+                pcall(function()
+                    mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2.3)
+                end)
+            end
+        end)
         task.wait(0.1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Tomoe Ring")
         task.wait(0.1)
