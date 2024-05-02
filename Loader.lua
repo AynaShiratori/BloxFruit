@@ -894,6 +894,7 @@ if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. 
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
     if game.PlaceId == 2753915549 then
         task.spawn(function()
+            ChooseTeam()
             while task.wait(1) do
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
                 if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
