@@ -1,23 +1,3 @@
-getgenv().AynaShiratori = {
-    ["Device Name"] = "Pc 1",
-    ["Script Key"] = "Ayna Shiratori 1",
-    ["Misc"] = {
-        ["Status UI"] = true,
-        ["Yummy Track Stat"] =  true,
-        ["Select Team"] = "Pirates",
-        ["Webhooks Logs"] = true,
-    },
-    ["Performance"] = {
-        ["FPS Lock"] = true,
-        ["Time Wait To Rejoin"] = 900,
-        ["White Screen"] = true,
-        ["Fully FPS Booster"] = true,
-        ["Fully Remove Player Gui"] = true,
-        ["Fully Remove Core Gui"] = true,
-        ["Fully Remove Wazure Script Gui"] = true,
-    },
-}
-
 local DeviceName = AynaShiratori["Device Name"]
 local ScriptKey = AynaShiratori["Script Key"]
 local Misc = AynaShiratori["Misc"]
