@@ -1,17 +1,20 @@
 getgenv().AynaShiratori = {
+    ["Device Name"] = "Pc 1",
     ["Script Key"] = "Ayna Shiratori 1",
     ["Misc"] = {
         ["Status UI"] = true,
         ["Yummy Track Stat"] =  true,
         ["Select Team"] = "Pirates",
+        ["Webhooks Logs"] = true,
     },
     ["Performance"] = {
-        ["Time Wait To Rejoin"] = 600,
+        ["FPS Lock"] = true,
+        ["Time Wait To Rejoin"] = 900,
         ["White Screen"] = true,
-        ["Fully FPS Booster"] = false,
+        ["Fully FPS Booster"] = true,
         ["Fully Remove Player Gui"] = true,
         ["Fully Remove Core Gui"] = true,
-        ["Fully Remove Delta Executor Gui"] = true,
+        ["Fully Remove Wazure Script Gui"] = true,
     },
 }
 
@@ -21,129 +24,113 @@ local Misc = AynaShiratori["Misc"]
 local StatusUIEnabled = Misc["Status UI"]
 local YummyTrackStatEnabled = Misc["Yummy Track Stat"]
 local SelectTeam = Misc["Select Team"]
+local WebhooksLogsEnabled = Misc["Webhooks Logs"]
 local Performance = AynaShiratori["Performance"]
+local FPSLockEnabled = Performance["FPS Lock"]
 local TimeWaitToRejoin = Performance["Time Wait To Rejoin"]
 local WhiteScreenEnabled = Performance["White Screen"]
 local FullyFPSBoosterEnabled = Performance["Fully FPS Booster"]
 local FullyRemovePlayerGuiEnabled = Performance["Fully Remove Player Gui"]
 local FullyRemoveCoreGuiEnabled = Performance["Fully Remove Core Gui"]
-local FullyRemoveDeltaExecutorGuiEnabled = Performance["Fully Remove Delta Executor Gui"]
+local FullyRemoveWazureScriptGuiEnabled = Performance["Fully Remove Wazure Script Gui"]
 
 if not ScriptKey == "Ayna Shiratori 1" then
     game.Players.LocalPlayer:Kick("Invalid Key")
 end
 
-if getgenv().AynaShiratoriExecuted then return end
-getgenv().AynaShiratoriExecuted = true
+-- Wazure Settings
+script_key = "WinPShtjsOjPMYIuyeldlfhLfxJtkDWo"
+getgenv().Team = "Pirates"
+getgenv().WeaponsSetting = {
+    ["Melee"] = {
+        ["Enable"] = true,
+        ["Delay"] = 3, 
+        ["SwitchNextWeaponIfCooldown"] = true,
+        ["Skills"] = {
+            ["Z"] = {
+                ["Enable"] = true,
+                ["NoPredict"] = false,
+                ["HoldTime"] = 0.11,
+                ["TimeToNextSkill"] = 0,
+            },
+        [ "X"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.14,
+                ["TimeToNextSkill"] = 0,
+            },
 
-getgenv().Configs = {
-    ["Team"] = "Pirates",
-    ["Auto Ken"] = true,
-    ["Auto Buso"] = true,
-    ["Auto turn on race v3"] = true,
-    ["Auto turn on race v4"] = false,
-    ["FPS Boost"] = false,
-    ["Click Time"] = 0.1,
-    ["Bypass TP"] = true,
-    ["Time to kill"] = 40,
-    ["Chat"] = {
+            ["C"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.8,
+                ["TimeToNextSkill"] = 0,
+            },
+        },
+    },
+    ["Blox Fruit"] = {
         ["Enable"] = true,
-        ["Message"] = {"get good losers", "no skill?", "dont cry xd", "u cant win lol", "try to hunt me", "get a good gaming chair losers", "feeling no skill?"}, -- Input your message here
-    },
-    ["Run When Low Health"] = {
-        ["Enable"] = true,
-        ["Health"] = 4500,
-        ["Come back"] = true
-    },
-    ["Region"] = "Singapore",
-    ["Weapons"] = {
-        ["Melee"] = {
-            ["Enable"] = true,
-            ["Delay"] = 3,
-            ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.1,
-                },
-                ["X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0.2,
-                },
-                ["C"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 2,
-                }
-            }
+        ["Delay"] = 4,
+        ["SwitchNextWeaponIfCooldown"] = true,
+        ["Skills"] = {
+            ["Z"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 2,
+                ["TimeToNextSkill"] = 0,
+            },
+            ["X"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.3,
+                ["TimeToNextSkill"] = 0,
+            },
+
+            ["C"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.3,
+                ["TimeToNextSkill"] = 0,
+            },
+            ["V"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.3,
+                ["TimeToNextSkill"] = 0,
+            },
+            ["F"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0,
+                ["TimeToNextSkill"] = 0,
+            },
         },
-        ["Fruit"] = {
-            ["Enable"] = true,
-            ["Delay"] = 4,
-            ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 2,
-                },
-                ["X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0,
-                },
-                ["C"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0,
-                },
-                ["V"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0,
-                },
-                ["F"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0,
-                }
-            }
-        },
-        ["Sword"] = {
-            ["Enable"] = false,
-            ["Delay"] = 0,
-            ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = false,
-                    ["HoldTime"] = 0,
-                },
-                ["X"] = {
-                    ["Enable"] = false,
-                    ["HoldTime"] = 0,
-                }
-            }
-        },
-        ["Gun"] = {
-            ["Enable"] = false,
-            ["Delay"] = 0,
-            ["Skills"] = {
-                ["Z"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0,
-                },
-                ["X"] = {
-                    ["Enable"] = true,
-                    ["HoldTime"] = 0,
-                }
-            }
-        }
     },
-    ["Theme"] = {
+    ["Sword"] = {
         ["Enable"] = false,
-        ["Name"] = "", -- Hutao, Raiden, Ayaka, Yelan
-        ["Custom Theme"] = {
-            ["Enable"] = false,
-            ["Text Color"] = Color3.fromRGB(30, 30, 30),
-            ["Character Position"] = UDim2.new(0.563000023, 0, -0.174999997, 0)
-        }
+        ["Delay"] = 0.5,
+        ["Skills"] = {
+            ["Z"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 1.2,
+                ["TimeToNextSkill"] = 0,
+            },
+            ["X"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.5,
+                ["TimeToNextSkill"] = 0,
+            },
+        },
     },
-    ["Webhook"] = {
-        ["Enable"] = true,
-        ["Url"] = "https://discord.com/api/webhooks/1225439439464173568/IhEF4e3jRGIW8C33tHfWI_CC_7M-vKnsGDBRm5IiVj2sgNozkulBbrCIkfNxh_cRI6Vk",
-        ["Image"] = "https://r2.easyimg.io/xk94bq20f/b731f097-b9c9-4e72-a542-e47ecfa44475.jpeg"
-    }
+    ["Gun"] = {
+        ["Enable"] = false,
+        ["Delay"] = 0.5,
+        ["Skills"] = {
+            ["Z"] = {
+                ["Enable"] = false,
+                ["HoldTime"] = 0.1,
+                ["TimeToNextSkill"] = 0,
+            },
+            ["X"] = {
+                ["Enable"] = true,
+                ["HoldTime"] = 0.1,
+                ["TimeToNextSkill"] = 0,
+            },
+        },
+    },
 }
 
 -- Yummy Track Stat
@@ -156,9 +143,6 @@ _G.Config = {
 -- Create Main Folders To Store Stuffs
 if not isfolder("AynaShiratori") then
     makefolder("AynaShiratori")
-end
-if not isfolder("AynaShiratori/HasTomoeRing") then
-    makefolder("AynaShiratori/HasTomoeRing")
 end
 if not isfolder("AynaShiratori/HasGodhuman") then
     makefolder("AynaShiratori/HasGodhuman")
@@ -183,6 +167,9 @@ if not isfolder("AynaShiratori/StatsCombo") then
 end
 if not isfolder("AynaShiratori/IsEverythingDone") then
     makefolder("AynaShiratori/IsEverythingDone")
+end
+if not isfolder("AynaShiratori/IsReadyToChangeAccount") then
+    makefolder("AynaShiratori/IsReadyToChangeAccount")
 end
 
 local OSDateStringToFormat = "%x %X"
@@ -211,17 +198,6 @@ if StatusUIEnabled then
             if not game.Players.LocalPlayer.Data.Level.Value == 2550 then
                 CurrentStatus = "Level Is Not Maxed"
                 break
-            end
-            task.wait(1)
-            if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                if getgenv().HasTomoeRing then return end
-                getgenv().HasTomoeRing = true
-                CurrentStatus = "Found Tomoe Ring"
-            else
-                if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                    CurrentStatus = "!!! Missing Tomoe Ring !!!"
-                    break
-                end
             end
             task.wait(1)
             if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
@@ -268,217 +244,418 @@ end
 
 -- UI
 task.spawn(function()
-    while task.wait(1) do
-        if StatusUIEnabled then
-            if FullyRemovePlayerGui then
-                repeat task.wait(1) until getgenv().FullyRemovePlayerGui == true
-            else
-                local thisoneissocoldww = Instance.new("ScreenGui")
-                local madebybloodofbatus = Instance.new("Frame")
-                local UICornerw = Instance.new("UICorner")
-                local DestroyButton = Instance.new("TextButton")
-                local uselesslabelone = Instance.new("TextLabel")
-                local timerlabel = Instance.new("TextLabel")
-                local uselesslabeltwo = Instance.new("TextLabel")
-                local fpslabel = Instance.new("TextLabel")
-                local uselesslabelthree = Instance.new("TextLabel")
-                local pinglabel = Instance.new("TextLabel")
-                local uselessframeone = Instance.new("Frame")
-                local UICornerww = Instance.new("UICorner")
-                local uselesslabelfour = Instance.new("TextLabel")
+    if StatusUIEnabled then
+        if FullyRemovePlayerGuiEnabled or FullyRemoveCoreGuiEnabled then
+            repeat task.wait() until getgenv().FullyRemovePlayerGuiExecuted == true
+            local thisoneissocoldww = Instance.new("ScreenGui")
+            local madebybloodofbatus = Instance.new("Frame")
+            local UICornerw = Instance.new("UICorner")
+            local DestroyButton = Instance.new("TextButton")
+            local uselesslabelone = Instance.new("TextLabel")
+            local timerlabel = Instance.new("TextLabel")
+            local uselesslabeltwo = Instance.new("TextLabel")
+            local fpslabel = Instance.new("TextLabel")
+            local uselesslabelthree = Instance.new("TextLabel")
+            local pinglabel = Instance.new("TextLabel")
+            local uselessframeone = Instance.new("Frame")
+            local UICornerww = Instance.new("UICorner")
+            local uselesslabelfour = Instance.new("TextLabel")
 
-                thisoneissocoldww.IgnoreGuiInset = true
+            thisoneissocoldww.IgnoreGuiInset = true
 
-                thisoneissocoldww.Name = "thisoneissocoldww"
-                thisoneissocoldww.Parent = game.CoreGui
-                thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            thisoneissocoldww.Name = "thisoneissocoldww"
+            thisoneissocoldww.Parent = game.CoreGui
+            thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-                madebybloodofbatus.Name = "madebybloodofbatus"
-                madebybloodofbatus.Parent = thisoneissocoldww
-                madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-                madebybloodofbatus.Position = UDim2.new(0, 0, 0.13128835, 0)
-                madebybloodofbatus.Size = UDim2.new(0, 225, 0, 96)
+            madebybloodofbatus.Name = "madebybloodofbatus"
+            madebybloodofbatus.Parent = thisoneissocoldww
+            madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+            madebybloodofbatus.Position = UDim2.new(0, 0, 0.13128835, 0)
+            madebybloodofbatus.Size = UDim2.new(0, 225, 0, 96)
 
-                UICornerw.Name = "UICornerw"
-                UICornerw.Parent = madebybloodofbatus
+            UICornerw.Name = "UICornerw"
+            UICornerw.Parent = madebybloodofbatus
 
-                DestroyButton.Name = "DestroyButton"
-                DestroyButton.Parent = madebybloodofbatus
-                DestroyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                DestroyButton.BackgroundTransparency = 1.000
-                DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
-                DestroyButton.Size = UDim2.new(0, 27, 0, 15)
-                DestroyButton.Font = Enum.Font.SourceSans
-                DestroyButton.Text = "X"
-                DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-                DestroyButton.TextSize = 14.000
+            DestroyButton.Name = "DestroyButton"
+            DestroyButton.Parent = madebybloodofbatus
+            DestroyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            DestroyButton.BackgroundTransparency = 1.000
+            DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
+            DestroyButton.Size = UDim2.new(0, 27, 0, 15)
+            DestroyButton.Font = Enum.Font.SourceSans
+            DestroyButton.Text = "X"
+            DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            DestroyButton.TextSize = 14.000
 
-                DestroyButton.MouseButton1Click:connect(function()
-                    game:GetService("RunService"):Set3dRenderingEnabled(true)
-                end)
+            DestroyButton.MouseButton1Click:connect(function()
+                game:GetService("RunService"):Set3dRenderingEnabled(true)
+            end)
 
-                uselesslabelone.Name = "uselesslabelone"
-                uselesslabelone.Parent = madebybloodofbatus
-                uselesslabelone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabelone.BackgroundTransparency = 1.000
-                uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
-                uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
-                uselesslabelone.Font = Enum.Font.SourceSans
-                task.spawn(function()
-                    while task.wait() do
-                        uselesslabelone.Text = CurrentStatus
-                    end
-                end)
-                uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabelone.TextSize = 14.000
-
-                timerlabel.Name = "timerlabel"
-                timerlabel.Parent = madebybloodofbatus
-                timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                timerlabel.BackgroundTransparency = 1.000
-                timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
-                timerlabel.Size = UDim2.new(0, 60, 0, 24)
-                timerlabel.Font = Enum.Font.SourceSans
-                timerlabel.Text = "0:0:0"
-                timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                timerlabel.TextSize = 14.000
-
-                uselesslabeltwo.Name = "uselesslabeltwo"
-                uselesslabeltwo.Parent = madebybloodofbatus
-                uselesslabeltwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabeltwo.BackgroundTransparency = 1.000
-                uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
-                uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
-                uselesslabeltwo.Font = Enum.Font.SourceSans
-                uselesslabeltwo.Text = "Bounty: "
-                uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabeltwo.TextSize = 14.000
-
-                fpslabel.Name = "fpslabel"
-                fpslabel.Parent = madebybloodofbatus
-                fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                fpslabel.BackgroundTransparency = 1.000
-                fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
-                fpslabel.Size = UDim2.new(0, 55, 0, 24)
-                fpslabel.Font = Enum.Font.SourceSans
-                fpslabel.Text = ""
-                fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                fpslabel.TextSize = 14.000
-
-                uselesslabelthree.Name = "uselesslabelthree"
-                uselesslabelthree.Parent = madebybloodofbatus
-                uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabelthree.BackgroundTransparency = 1.000
-                uselesslabelthree.Position = UDim2.new(0.675, 0, 0.352585167, 0)
-                uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
-                uselesslabelthree.Font = Enum.Font.SourceSans
-                uselesslabelthree.Text = "Fps: "
-                uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabelthree.TextSize = 14.000
-
-                pinglabel.Name = "pinglabel"
-                pinglabel.Parent = madebybloodofbatus
-                pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                pinglabel.BackgroundTransparency = 1.000
-                pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
-                pinglabel.Size = UDim2.new(0, 55, 0, 24)
-                pinglabel.Font = Enum.Font.SourceSans
-                pinglabel.Text = ""
-
-                function comma_value(amount)
-                    local formatted = amount
-                    while task.wait() do
-                        formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)","%1,%2")
-                        if (k==0) then
-                            break
-                        end
-                    end
-                    return formatted
+            uselesslabelone.Name = "uselesslabelone"
+            uselesslabelone.Parent = madebybloodofbatus
+            uselesslabelone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelone.BackgroundTransparency = 1.000
+            uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
+            uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
+            uselesslabelone.Font = Enum.Font.SourceSans
+            task.spawn(function()
+                while task.wait() do
+                    uselesslabelone.Text = CurrentStatus
                 end
+            end)
+            uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelone.TextSize = 14.000
 
-                task.spawn(function()
-                    while task.wait(1) do
-                        pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+            timerlabel.Name = "timerlabel"
+            timerlabel.Parent = madebybloodofbatus
+            timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            timerlabel.BackgroundTransparency = 1.000
+            timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
+            timerlabel.Size = UDim2.new(0, 60, 0, 24)
+            timerlabel.Font = Enum.Font.SourceSans
+            timerlabel.Text = "0:0:0"
+            timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            timerlabel.TextSize = 14.000
+
+            uselesslabeltwo.Name = "uselesslabeltwo"
+            uselesslabeltwo.Parent = madebybloodofbatus
+            uselesslabeltwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabeltwo.BackgroundTransparency = 1.000
+            uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
+            uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
+            uselesslabeltwo.Font = Enum.Font.SourceSans
+            uselesslabeltwo.Text = "Bounty: "
+            uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabeltwo.TextSize = 14.000
+
+            fpslabel.Name = "fpslabel"
+            fpslabel.Parent = madebybloodofbatus
+            fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            fpslabel.BackgroundTransparency = 1.000
+            fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
+            fpslabel.Size = UDim2.new(0, 55, 0, 24)
+            fpslabel.Font = Enum.Font.SourceSans
+            fpslabel.Text = ""
+            fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            fpslabel.TextSize = 14.000
+
+            uselesslabelthree.Name = "uselesslabelthree"
+            uselesslabelthree.Parent = madebybloodofbatus
+            uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelthree.BackgroundTransparency = 1.000
+            uselesslabelthree.Position = UDim2.new(0.675, 0, 0.352585167, 0)
+            uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
+            uselesslabelthree.Font = Enum.Font.SourceSans
+            uselesslabelthree.Text = "Fps: "
+            uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelthree.TextSize = 14.000
+
+            pinglabel.Name = "pinglabel"
+            pinglabel.Parent = madebybloodofbatus
+            pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            pinglabel.BackgroundTransparency = 1.000
+            pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
+            pinglabel.Size = UDim2.new(0, 55, 0, 24)
+            pinglabel.Font = Enum.Font.SourceSans
+            pinglabel.Text = ""
+
+            function comma_value(amount)
+                local formatted = amount
+                while task.wait() do
+                    formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)","%1,%2")
+                    if (k==0) then
+                        break
                     end
-                end)
-
-                pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                pinglabel.TextSize = 14.000
-                pinglabel.TextWrapped = true
-
-                uselessframeone.Name = "uselessframeone"
-                uselessframeone.Parent = madebybloodofbatus
-                uselessframeone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                uselessframeone.Position = UDim2.new(0.00444444455, 0, 0.243312627, 0)
-                uselessframeone.Size = UDim2.new(0, 224, 0, 5)
-
-                UICornerww.CornerRadius = UDim.new(0, 50)
-                UICornerww.Name = "UICornerww"
-                UICornerww.Parent = uselessframeone
-
-                uselesslabelfour.Name = "uselesslabelfour"
-                uselesslabelfour.Parent = madebybloodofbatus
-                uselesslabelfour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabelfour.BackgroundTransparency = 1.000
-                uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
-                uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
-                uselesslabelfour.Font = Enum.Font.SourceSans
-                uselesslabelfour.Text = "Loading..."
-
-                uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
-                uselesslabelfour.TextSize = 14.000
-
-                -- FPS
-                local FPSsLabel = fpslabel
-                local RunService = game:GetService("RunService")
-                local RenderStepped = RunService.RenderStepped
-                local sec = nil
-                local FPS = {}
-
-                local function fre()
-                    local fr = tick()
-                    for index = #FPS,1,-1 do
-                        FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
-                    end
-                    FPS[1] = fr
-                    local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
-                    fps = math.floor(fps)
-                    fpslabel.Text = fps
                 end
-
-                sec = tick()
-                RenderStepped:Connect(fre)
-
-                -- TimerTracker
-                local DisplayedHours = 0
-                local DisplayedMinutes = 0
-                local DisplayedSeconds = 0
-                task.spawn(function()
-                    while task.wait(1) do
-                        DisplayedSeconds = DisplayedSeconds + 1
-                        if DisplayedSeconds >= 60 then
-                            DisplayedSeconds = 0
-                            DisplayedMinutes = DisplayedMinutes + 1
-                        end
-                        if DisplayedMinutes >= 60 then
-                            DisplayedMinutes = 0
-                            DisplayedHours = DisplayedHours + 1
-                        end
-                        timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
-                    end
-                end)
-
-                -- Ping
-                task.spawn(function()
-                    repeat
-                        task.wait(1)
-                        local ping = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
-                        ping = math.floor(ping)
-                        uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. ping
-                    until pinglabel == nil
-                end)
-                break
+                return formatted
             end
+
+            task.spawn(function()
+                while task.wait(1) do
+                    pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+                end
+            end)
+
+            pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            pinglabel.TextSize = 14.000
+            pinglabel.TextWrapped = true
+
+            uselessframeone.Name = "uselessframeone"
+            uselessframeone.Parent = madebybloodofbatus
+            uselessframeone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselessframeone.Position = UDim2.new(0.00444444455, 0, 0.243312627, 0)
+            uselessframeone.Size = UDim2.new(0, 224, 0, 5)
+
+            UICornerww.CornerRadius = UDim.new(0, 50)
+            UICornerww.Name = "UICornerww"
+            UICornerww.Parent = uselessframeone
+
+            uselesslabelfour.Name = "uselesslabelfour"
+            uselesslabelfour.Parent = madebybloodofbatus
+            uselesslabelfour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelfour.BackgroundTransparency = 1.000
+            uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
+            uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
+            uselesslabelfour.Font = Enum.Font.SourceSans
+            uselesslabelfour.Text = "Loading..."
+
+            uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelfour.TextSize = 14.000
+
+            -- FPS
+            local FPSsLabel = fpslabel
+            local RunService = game:GetService("RunService")
+            local RenderStepped = RunService.RenderStepped
+            local sec = nil
+            local FPS = {}
+
+            local function fre()
+                local fr = tick()
+                for index = #FPS,1,-1 do
+                    FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+                end
+                FPS[1] = fr
+                local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+                fps = math.floor(fps)
+                fpslabel.Text = fps
+            end
+
+            sec = tick()
+            RenderStepped:Connect(fre)
+
+            -- TimerTracker
+            local DisplayedHours = 0
+            local DisplayedMinutes = 0
+            local DisplayedSeconds = 0
+            task.spawn(function()
+                while task.wait(1) do
+                    DisplayedSeconds = DisplayedSeconds + 1
+                    if DisplayedSeconds >= 60 then
+                        DisplayedSeconds = 0
+                        DisplayedMinutes = DisplayedMinutes + 1
+                    end
+                    if DisplayedMinutes >= 60 then
+                        DisplayedMinutes = 0
+                        DisplayedHours = DisplayedHours + 1
+                    end
+                    timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
+                end
+            end)
+
+            -- Ping
+            task.spawn(function()
+                repeat
+                    task.wait(1)
+                    local ping = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
+                    ping = math.floor(ping)
+                    uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. ping
+                until pinglabel == nil
+            end)
+        else
+            local thisoneissocoldww = Instance.new("ScreenGui")
+            local madebybloodofbatus = Instance.new("Frame")
+            local UICornerw = Instance.new("UICorner")
+            local DestroyButton = Instance.new("TextButton")
+            local uselesslabelone = Instance.new("TextLabel")
+            local timerlabel = Instance.new("TextLabel")
+            local uselesslabeltwo = Instance.new("TextLabel")
+            local fpslabel = Instance.new("TextLabel")
+            local uselesslabelthree = Instance.new("TextLabel")
+            local pinglabel = Instance.new("TextLabel")
+            local uselessframeone = Instance.new("Frame")
+            local UICornerww = Instance.new("UICorner")
+            local uselesslabelfour = Instance.new("TextLabel")
+
+            thisoneissocoldww.IgnoreGuiInset = true
+
+            thisoneissocoldww.Name = "thisoneissocoldww"
+            thisoneissocoldww.Parent = game.CoreGui
+            thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+            madebybloodofbatus.Name = "madebybloodofbatus"
+            madebybloodofbatus.Parent = thisoneissocoldww
+            madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+            madebybloodofbatus.Position = UDim2.new(0, 0, 0.13128835, 0)
+            madebybloodofbatus.Size = UDim2.new(0, 225, 0, 96)
+
+            UICornerw.Name = "UICornerw"
+            UICornerw.Parent = madebybloodofbatus
+
+            DestroyButton.Name = "DestroyButton"
+            DestroyButton.Parent = madebybloodofbatus
+            DestroyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            DestroyButton.BackgroundTransparency = 1.000
+            DestroyButton.Position = UDim2.new(0.871702373, 0, 0.0245379955, 0)
+            DestroyButton.Size = UDim2.new(0, 27, 0, 15)
+            DestroyButton.Font = Enum.Font.SourceSans
+            DestroyButton.Text = "X"
+            DestroyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            DestroyButton.TextSize = 14.000
+
+            DestroyButton.MouseButton1Click:connect(function()
+                game:GetService("RunService"):Set3dRenderingEnabled(true)
+            end)
+
+            uselesslabelone.Name = "uselesslabelone"
+            uselesslabelone.Parent = madebybloodofbatus
+            uselesslabelone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelone.BackgroundTransparency = 1.000
+            uselesslabelone.Position = UDim2.new(0.302473009, 0, 0, 0)
+            uselesslabelone.Size = UDim2.new(0, 95, 0, 24)
+            uselesslabelone.Font = Enum.Font.SourceSans
+            task.spawn(function()
+                while task.wait() do
+                    uselesslabelone.Text = CurrentStatus
+                end
+            end)
+            uselesslabelone.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelone.TextSize = 14.000
+
+            timerlabel.Name = "timerlabel"
+            timerlabel.Parent = madebybloodofbatus
+            timerlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            timerlabel.BackgroundTransparency = 1.000
+            timerlabel.Position = UDim2.new(0.65344125, 0, 0.68194294, 0)
+            timerlabel.Size = UDim2.new(0, 60, 0, 24)
+            timerlabel.Font = Enum.Font.SourceSans
+            timerlabel.Text = "0:0:0"
+            timerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            timerlabel.TextSize = 14.000
+
+            uselesslabeltwo.Name = "uselesslabeltwo"
+            uselesslabeltwo.Parent = madebybloodofbatus
+            uselesslabeltwo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabeltwo.BackgroundTransparency = 1.000
+            uselesslabeltwo.Position = UDim2.new(0.038864471, 0, 0.373806685, 0)
+            uselesslabeltwo.Size = UDim2.new(0, 29, 0, 24)
+            uselesslabeltwo.Font = Enum.Font.SourceSans
+            uselesslabeltwo.Text = "Bounty: "
+            uselesslabeltwo.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabeltwo.TextSize = 14.000
+
+            fpslabel.Name = "fpslabel"
+            fpslabel.Parent = madebybloodofbatus
+            fpslabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            fpslabel.BackgroundTransparency = 1.000
+            fpslabel.Position = UDim2.new(0.724226236, 0, 0.358796299, 0)
+            fpslabel.Size = UDim2.new(0, 55, 0, 24)
+            fpslabel.Font = Enum.Font.SourceSans
+            fpslabel.Text = ""
+            fpslabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            fpslabel.TextSize = 14.000
+
+            uselesslabelthree.Name = "uselesslabelthree"
+            uselesslabelthree.Parent = madebybloodofbatus
+            uselesslabelthree.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelthree.BackgroundTransparency = 1.000
+            uselesslabelthree.Position = UDim2.new(0.675, 0, 0.352585167, 0)
+            uselesslabelthree.Size = UDim2.new(0, 26, 0, 24)
+            uselesslabelthree.Font = Enum.Font.SourceSans
+            uselesslabelthree.Text = "Fps: "
+            uselesslabelthree.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelthree.TextSize = 14.000
+
+            pinglabel.Name = "pinglabel"
+            pinglabel.Parent = madebybloodofbatus
+            pinglabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            pinglabel.BackgroundTransparency = 1.000
+            pinglabel.Position = UDim2.new(0.20330891, 0, 0.371578127, 0)
+            pinglabel.Size = UDim2.new(0, 55, 0, 24)
+            pinglabel.Font = Enum.Font.SourceSans
+            pinglabel.Text = ""
+
+            function comma_value(amount)
+                local formatted = amount
+                while task.wait() do
+                    formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)","%1,%2")
+                    if (k==0) then
+                        break
+                    end
+                end
+                return formatted
+            end
+
+            task.spawn(function()
+                while task.wait(1) do
+                    pinglabel.Text = comma_value(tonumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+                end
+            end)
+
+            pinglabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            pinglabel.TextSize = 14.000
+            pinglabel.TextWrapped = true
+
+            uselessframeone.Name = "uselessframeone"
+            uselessframeone.Parent = madebybloodofbatus
+            uselessframeone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselessframeone.Position = UDim2.new(0.00444444455, 0, 0.243312627, 0)
+            uselessframeone.Size = UDim2.new(0, 224, 0, 5)
+
+            UICornerww.CornerRadius = UDim.new(0, 50)
+            UICornerww.Name = "UICornerww"
+            UICornerww.Parent = uselessframeone
+
+            uselesslabelfour.Name = "uselesslabelfour"
+            uselesslabelfour.Parent = madebybloodofbatus
+            uselesslabelfour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelfour.BackgroundTransparency = 1.000
+            uselesslabelfour.Position = UDim2.new(0.0580285639, 0, 0.8125, 0)
+            uselesslabelfour.Size = UDim2.new(0, 95, 0, 12)
+            uselesslabelfour.Font = Enum.Font.SourceSans
+            uselesslabelfour.Text = "Loading..."
+
+            uselesslabelfour.TextColor3 = Color3.fromRGB(255, 255, 255)
+            uselesslabelfour.TextSize = 14.000
+
+            -- FPS
+            local FPSsLabel = fpslabel
+            local RunService = game:GetService("RunService")
+            local RenderStepped = RunService.RenderStepped
+            local sec = nil
+            local FPS = {}
+
+            local function fre()
+                local fr = tick()
+                for index = #FPS,1,-1 do
+                    FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+                end
+                FPS[1] = fr
+                local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+                fps = math.floor(fps)
+                fpslabel.Text = fps
+            end
+
+            sec = tick()
+            RenderStepped:Connect(fre)
+
+            -- TimerTracker
+            local DisplayedHours = 0
+            local DisplayedMinutes = 0
+            local DisplayedSeconds = 0
+            task.spawn(function()
+                while task.wait(1) do
+                    DisplayedSeconds = DisplayedSeconds + 1
+                    if DisplayedSeconds >= 60 then
+                        DisplayedSeconds = 0
+                        DisplayedMinutes = DisplayedMinutes + 1
+                    end
+                    if DisplayedMinutes >= 60 then
+                        DisplayedMinutes = 0
+                        DisplayedHours = DisplayedHours + 1
+                    end
+                    timerlabel.Text = DisplayedHours..":"..DisplayedMinutes..":"..DisplayedSeconds
+                end
+            end)
+
+            -- Ping
+            task.spawn(function()
+                repeat
+                    task.wait(1)
+                    local ping = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
+                    ping = math.floor(ping)
+                    uselesslabelfour.Text = game.Players.LocalPlayer.Name .. " " .. ping
+                until pinglabel == nil
+            end)
         end
     end
 end)
@@ -486,7 +663,9 @@ end)
 -- Better Vision
 if FullyRemovePlayerGuiEnabled then
     task.spawn(function()
-        game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+        task.spawn(function()
+            game:GetService("Players").LocalPlayer.PlayerGui.TouchGui:Destroy()
+        end)
         local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
         task.spawn(function()
             CameraShake:Stop()
@@ -507,7 +686,7 @@ if FullyRemovePlayerGuiEnabled then
                 break
             end
         end
-        getgenv().FullyRemovePlayerGui = true
+        getgenv().FullyRemovePlayerGuiExecuted = true
     end)
 end
 
@@ -517,22 +696,30 @@ if FullyRemoveCoreGuiEnabled then
             v.Enabled = false
         end
     end
+    getgenv().FullyRemoveCoreGuiExecuted = true
 else
     game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat,false)
     game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList,false)
 end
 
-
-if FullyRemoveDeltaExecutorGuiEnabled then
+if FullyRemoveWazureScriptGuiEnabled then
     task.spawn(function()
-        game.CoreGui.Delta.Enabled = false
-        game.CoreGui.DeltaIcons.Enabled = false
+        while task.wait() do
+            if game.CoreGui:FindFirstChild("ScreenGui") then
+                game.CoreGui.ScreenGui:Destroy()
+            end
+            if game.CoreGui:FindFirstChild("HUHU") then
+                game.CoreGui.HUHU:Destroy()
+                getgenv().FullyRemoveWazureScriptGuiExecuted = true
+                break
+            end
+        end
     end)
 end
 
-function LoadXeroAutoBounty()
+function LoadWazureAutoBounty()
     task.spawn(function()
-        loadstring(game:HttpGet("https://xerohub.click/script/autobounty.lua"))() 
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b6d24ef1f7dab9c7b22f259a3db6c47e.lua"))()
     end)
 end
 
@@ -600,6 +787,9 @@ function FullyFPSBooster()
                     game.Workspace.Enemies:Remove()
                     game.Workspace.NPCs:Remove()
                 end
+            end)
+            task.spawn(function()
+                game.Workspace["_WorldOrigin"]["Foam;"]:Remove()
             end)
             game.Workspace.SeaBeasts:Remove()
             game.Workspace.SeaEvents:Remove()
@@ -715,9 +905,203 @@ function CheckItem(ah)
     end
 end
 
+function SendAutoReconnectInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227587404135665704/zuhlkCKekjohRm-Fuvemq31lvRJR_uEmNjCDXKIIyTWhj-NgbBqqEoJSUruGdqHT4h26", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227587404135665704/zuhlkCKekjohRm-Fuvemq31lvRJR_uEmNjCDXKIIyTWhj-NgbBqqEoJSUruGdqHT4h26",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendIsAfkInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227588314849218640/U1kzcrh-a2obKsAtIwjtsgBoZB7gVQ6wJm1ZDtK8dW7UBDQeVQXu3AanRUIVeGjQIZZa", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227588314849218640/U1kzcrh-a2obKsAtIwjtsgBoZB7gVQ6wJm1ZDtK8dW7UBDQeVQXu3AanRUIVeGjQIZZa",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendBountyIsNotChangedInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227587608243081216/Qtag0oAcTP1pVC8QBb85_8GzcKTkQ9NFtO-MeMyWVA3VPAaCeR-vBn9b62LZTItqPbYf", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227587608243081216/Qtag0oAcTP1pVC8QBb85_8GzcKTkQ9NFtO-MeMyWVA3VPAaCeR-vBn9b62LZTItqPbYf",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendNotHasGodhumanInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227588777552121876/4C05_IY07edLi-tZiS5ySIfsmgyzkgTLVRIZdZFb8_ssRIqHlpI1-9DWsMlzOE1RMUrD", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227588777552121876/4C05_IY07edLi-tZiS5ySIfsmgyzkgTLVRIZdZFb8_ssRIqHlpI1-9DWsMlzOE1RMUrD",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendNotHasMagmaFruitInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1236651456539529326/R-o3ZFOMiK6ZdFWO3wmgMsA7QPUr7N_HT3yT9yqitFV1IapHTsQW2CJWv15hCYGloe_R", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1236651456539529326/R-o3ZFOMiK6ZdFWO3wmgMsA7QPUr7N_HT3yT9yqitFV1IapHTsQW2CJWv15hCYGloe_R",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendIsFarmingMagmaFruitMasteryInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1236652540301545472/D2YhZ9cQnRJ-bZVcnX_DqxjdIrIwjHBgACL8YY_WMgL8utWLbOe7l6Hq10CrligL9mPY", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1236652540301545472/D2YhZ9cQnRJ-bZVcnX_DqxjdIrIwjHBgACL8YY_WMgL8utWLbOe7l6Hq10CrligL9mPY",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendIsDoingAutoBountyInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227589798118817824/xGuVxqeB0yTYJ2vxfdeY2w5L-L-6ww6yW-9QqdHqLW1GV2_wDXoaSkG-RBCmPQDyKCZJ", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227589798118817824/xGuVxqeB0yTYJ2vxfdeY2w5L-L-6ww6yW-9QqdHqLW1GV2_wDXoaSkG-RBCmPQDyKCZJ",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendIsEverythingDoneInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227590013932404818/28tg7nghuX_QHyF4Ia6FXMhiZgm91vuz_j7LrOmJnjxrgZsvWe3ScUoRf3baCDOaz2Hl", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227590013932404818/28tg7nghuX_QHyF4Ia6FXMhiZgm91vuz_j7LrOmJnjxrgZsvWe3ScUoRf3baCDOaz2Hl",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendIsReadyToUseChangeAccountFunctionInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1236655553132888095/lrSTju4xmafguijOefe9wNfz-XZeduF_O7gPdka99V7HYByM17gHU20IlaluoKzHgdRb", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1236655553132888095/lrSTju4xmafguijOefe9wNfz-XZeduF_O7gPdka99V7HYByM17gHU20IlaluoKzHgdRb",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
+function SendScriptsSuccesfullyLoadedInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227588475520417913/dW2qqItui1Wl9gg_Q2izfdHu9cXvst_YExQoeEyX2yOtyuofswP69rv7qkc6XmMD8QMK", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227588475520417913/dW2qqItui1Wl9gg_Q2izfdHu9cXvst_YExQoeEyX2yOtyuofswP69rv7qkc6XmMD8QMK",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
 -- Do White Screen
 if WhiteScreenEnabled then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
+end
+
+if FPSLockEnabled then
+    setfpscap(30)
 end
 
 -- Auto Reconnect
@@ -789,72 +1173,73 @@ end)
 
 -- Check If Has Godhuman, Magma Fruit And Magma Fruit All Skills Unlocked
 task.spawn(function()
-    while task.wait(1) do
-        if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
-            break
-        end
-        if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-            if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                TomoeRing = CheckItem("Tomoe Ring")
-                if not TomoeRing then
-                    TomoeRing = CheckItem("Tomoe Ring")
+    task.spawn(function()
+        while task.wait(1) do
+            if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
+                break
+            end
+            if not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
+                    writefile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
                 end
-                if TomoeRing then
-                    writefile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma") then
+                    writefile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
                 end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma") and game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma").Level.Value >= 140 or game.Players.LocalPlayer.Character:FindFirstChild("Magma-Magma") and game.Players.LocalPlayer.Character:FindFirstChild("Magma-Magma").Level.Value >= 140 then
+                    writefile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+                end  
             end
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-                writefile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-            end
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma") then
-                writefile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-            end
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma") and game.Players.LocalPlayer.Backpack:FindFirstChild("Magma-Magma").Level.Value >= 140 or game.Players.LocalPlayer.Character:FindFirstChild("Magma-Magma") and game.Players.LocalPlayer.Character:FindFirstChild("Magma-Magma").Level.Value >= 140 then
-                writefile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-            end  
         end
+    end)
+    task.wait(60)
+    if not isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") then
+        SendNotHasGodhumanInfo()
+    end
+    if not isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
+        SendNotHasMagmaFruitInfo()
     end
 end)
 
--- If Has Tomoe Ring. Godhuman And Magma Fruit Then Start Auto Farm Mastery For Magma Fruit All Skills
+-- If Has Godhuman And Magma Fruit Then Start Auto Farm Mastery For Magma Fruit All Skills
 task.spawn(function()
     while task.wait(1) do
         if isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        if not isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
+        if not isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
             writefile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
             game.Players.LocalPlayer:Kick("Found Gothuman And Magma Fruit. Starting Auto Farm Mastery For Magma Fruit All Skills")
         end
     end
 end)
 
--- If Has Tomoe Ring, Godhuman And Magma Fruit All Skills Unlocked Then Do Auto Bounty
+-- If Has Godhuman And Magma Fruit All Skills Unlocked Then Do Auto Bounty
 task.spawn(function()
     while task.wait(1) do
         if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
+        if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") and isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
             writefile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
             task.wait(0.1)
-            game.Players.LocalPlayer:Kick("Found Tomoe Ring, GodHuman And Magma Fruit All Skills Unlocked. Starting Auto Bounty")
+            game.Players.LocalPlayer:Kick("Found GodHuman And Magma Fruit All Skills Unlocked. Starting Auto Bounty")
         end
     end
 end)
 
--- If Is Everything Done Then Purchase Rocket Fruit, Store Item Tomoe Ring And Purchase Godhuman To Hide Auto Bounty Build
+-- If Is Everything Done Then Purchase Rocket Fruit And Purchase Godhuman To Hide Auto Bounty Build Also Writefile Is Ready To Change Account
 if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
     ChooseTeam()
-    repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreItem","Warrior Helmet")
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","Rocket-Rocket",false)
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreItem","Tomoe Ring")
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Rocket-Rocket") then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
         if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-            game.Players.LocalPlayer:Kick("Reached 30M Bounty | Username: " ..  game.Players.LocalPlayer.Name)
+            writefile(game.Players.LocalPlayer.Name .. ".txt", "Yummytool")
+            writefile("AynaShiratori/IsReadyToChangeAccoutnt/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
+            game.Players.LocalPlayer:Kick("Reached 10M Bounty | Username: " ..  game.Players.LocalPlayer.Name)
         end
     end
 end
@@ -865,7 +1250,7 @@ task.spawn(function()
         if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
             break
         end
-        if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value == 30000000 then
+        if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") and game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 10050000 then
             writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt" .. OsDateResult)
         end
     end
@@ -873,13 +1258,13 @@ end)
 
 -- Small Performance
 settings().Rendering.QualityLevel = "1"
--- UserSettings():GetService("UserGameSettings").MasterVolume = 0
+UserSettings():GetService("UserGameSettings").MasterVolume = 0
 
 -- If Current Sea Is Sea 1 Then Teleport To Sea 3 Or If Current Sea Is Sea 2 Then Teleport To Sea 3
-if game.PlaceId == 2753915549 and isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+if game.PlaceId == 2753915549 then
     ChooseTeam()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-elseif game.PlaceId == 4442272183 and isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
+elseif game.PlaceId == 4442272183 then
     ChooseTeam()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
 end
@@ -889,23 +1274,7 @@ if not isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. "
     ChooseTeam()
 end
 
--- Purchase Tomoe Ring
-if not isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
-    if game.PlaceId == 2753915549 then
-        task.spawn(function()
-            ChooseTeam()
-            while task.wait(1) do
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
-                if isfile("AynaShiratori/HasTomoeRing/" .. game.Players.LocalPlayer.Name .. ".txt") then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-                end
-            end
-        end)
-    end
-end
-
--- Do Redz Hub Magma Fruit Auto Farm Mastery
+-- Do Mbm Hub Magma Fruit Auto Farm Mastery
 if isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
     ChooseTeam()
     LoadMbmHubFruitMasteryFarmConfig()
@@ -915,22 +1284,24 @@ end
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
 task.spawn(function()
     if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") and not isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
-        FullyFPSBooster()
-        ChooseTeam()
-        task.wait(0.5)
-        LoadXeroAutoBounty()
+        task.spawn(function()
+            if FullyRemoveWazureScriptGuiEnabled then
+                repeat task.wait() until getgenv().FullyRemoveWazureScriptGuiExecuted == true
+                FullyFPSBooster()
+            else
+                repeat task.wait() until game.CoreGui:FindFirstChild("HUHU")
+                FullyFPSBooster()
+            end
+        end)
+        LoadWazureAutoBounty()
         repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
         -- Do Mouse Locking To The Middle Center Of The Screen
         task.spawn(function()
             while task.wait() do
-                pcall(function()
-                    mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2.3)
-                end)
+                mousemoveabs(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2.3)
             end
         end)
-        task.wait(0.1)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Tomoe Ring")
-        task.wait(0.1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem","Warrior Helmet")
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
     end
 end)
@@ -957,8 +1328,31 @@ repeat
 until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
 task.wait(1)
 
+-- Check If Bounty Is Not Changed In 7.5 Minutes Then Kick
+task.spawn(function()
+    local CurrentBounty = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
+    print("Current Bounty: ", CurrentBounty)
+    while true do
+        task.wait(450)
+        print("Checking Bounty")
+        if game.Players.LocalPlayer then
+            local NewBounty = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
+            if (NewBounty == CurrentBounty) then
+                print("Bounty Is Not Changed After 7.5 Minutes")
+               game.Players.LocalPlayer:Kick("Detected Bounty Is Not Changed In 7.5 Minutes")
+            else
+                print("Bounty Has Changed After 7.5 Minutes")
+                CurrentBounty = NewBounty
+            end
+        end
+    end
+end)
+
 if YummyTrackStatEnabled then
     task.spawn(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/trackstatblox"))()
     end)
 end
+
+SendScriptsSuccesfullyLoadedInfo()
+print("executed")
