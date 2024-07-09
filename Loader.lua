@@ -4,7 +4,7 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-if not game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == true then repeat task.wait() until game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false end
+if not game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false then repeat task.wait() until game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false end
 
 getgenv().AynaShiratori = {
     ["Device Name"] = "Pc 1",
