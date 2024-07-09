@@ -953,7 +953,10 @@ elseif game.PlaceId == 4442272183 then
 end
 
 -- The Start Of Everything
-ChooseTeam()
+task.spawn(function()
+    task.wait(3)
+    ChooseTeam()
+end
 
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
 task.spawn(function()
@@ -1021,7 +1024,7 @@ end)
 -- Check If Bounty Has Reached Amount Of Bounty To Kick Then Writefile IsEverythingDone
 task.spawn(function()
     if IsAutoBounty and not IsEverythingDone then
-        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= AmountBountyToKick then
+        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 10000000 then
             writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
         end
     end
