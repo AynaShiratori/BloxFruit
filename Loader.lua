@@ -12,7 +12,7 @@ getgenv().AynaShiratori = {
     ["Performance"] = {
         ["FPS Lock"] = true,
         ["Time Wait To Kick"] = 450,
-        ["White Screen"] = true,
+        ["White Screen"] = false,
         ["Fully FPS Booster"] = true,
         ["Fully Remove Player Gui"] = false,
         ["Fully Remove Core Gui"] = false,
@@ -956,7 +956,7 @@ end
 task.spawn(function()
     task.wait(3)
     ChooseTeam()
-end
+end)
 
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
 task.spawn(function()
@@ -1024,7 +1024,7 @@ end)
 -- Check If Bounty Has Reached Amount Of Bounty To Kick Then Writefile IsEverythingDone
 task.spawn(function()
     if IsAutoBounty and not IsEverythingDone then
-        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 10000000 then
+        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= AmountBountyToKick then
             writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
         end
     end
