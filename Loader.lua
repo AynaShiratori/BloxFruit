@@ -7,7 +7,7 @@ getgenv().AynaShiratori = {
         ["Yummy Track Stat"] = true,
         ["Select Team"] = "Pirates",
         ["Webhooks Logs"] = true,
-        ["Amount Bounty To Kick"] = 30000000,
+        ["Amount Bounty To Kick"] = 10000000,
     },
     ["Performance"] = {
         ["FPS Lock"] = true,
@@ -1021,7 +1021,7 @@ end)
 -- Check If Bounty Has Reached Amount Of Bounty To Kick Then Writefile IsEverythingDone
 task.spawn(function()
     if IsAutoBounty and not IsEverythingDone then
-        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 30000000 then
+        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= AmountBountyToKick then
             writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
         end
     end
