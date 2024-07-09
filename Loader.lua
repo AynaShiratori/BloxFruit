@@ -1,6 +1,11 @@
 -- Wait Until Game Is Loaded
-repeat task.wait(1) until game:IsLoaded() 
-repeat task.wait(1) until game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false
+repeat task.wait(1) until game:IsLoaded()
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false
 
 getgenv().AynaShiratori = {
     ["Device Name"] = "Pc 1",
