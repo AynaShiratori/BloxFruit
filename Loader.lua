@@ -3,7 +3,10 @@ repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-if game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == true then repeat task.wait() until game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false end
+while task.wait() do
+    if game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false then
+    break
+end
 
 -- Wazure Settings ( Including Hub And Auto Bounty V2)
 script_key = "WinPShtjsOjPMYIuyeldlfhLfxJtkDWo"
@@ -104,9 +107,6 @@ getgenv().WeaponsSetting = {
         },
     },
 }
-task.spawn(function()
-        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b6d24ef1f7dab9c7b22f259a3db6c47e.lua"))()
-end)
 
 FullyFPSBoosterEnabled = true
 function FullyFPSBooster()
@@ -174,3 +174,7 @@ function FullyFPSBooster()
     end
 end
 FullyFPSBooster()
+
+task.spawn(function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b6d24ef1f7dab9c7b22f259a3db6c47e.lua"))()
+end)
