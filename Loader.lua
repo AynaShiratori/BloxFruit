@@ -1,11 +1,3 @@
-repeat task.wait() until game:IsLoaded()
-while task.wait(1) do
-    if game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false then
-        print("Game Is Loaded")
-        break
-    end
-end
-
 getgenv().AynaShiratori = {
     ["Device Name"] = "Pc 1",
     ["Script Key"] = "Ayna Shiratori 1",
