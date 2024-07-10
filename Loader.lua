@@ -1,12 +1,9 @@
--- Wait Until Game Is Loaded
 repeat task.wait() until game:IsLoaded()
-repeat task.wait() until game.Players
-repeat task.wait() until game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-while task.wait() do
+while task.wait(1) do
     if game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false then
-    break
+        print("Game Is Loaded")
+        break
+    end
 end
 
 getgenv().AynaShiratori = {
@@ -17,16 +14,14 @@ getgenv().AynaShiratori = {
         ["Yummy Track Stat"] = true,
         ["Select Team"] = "Pirates",
         ["Webhooks Logs"] = true,
-        ["Amount Bounty To Kick"] = 10000000,
+        ["Amount Bounty To Kick"] = 11000000,
     },
     ["Performance"] = {
         ["FPS Lock"] = true,
-        ["Time Wait To Kick"] = 450,
+        ["Time Wait To Kick"] = 900,
         ["White Screen"] = false,
         ["Fully FPS Booster"] = true,
-        ["Fully Remove Player Gui"] = false,
-        ["Fully Remove Core Gui"] = false,
-        ["Fully Remove Delta UI"] = false,
+        ["Fully Remove Delta UI"] = true,
         ["Fully Remove Wazure Script Gui"] = true,
     },
 }
@@ -44,8 +39,6 @@ local FPSLockEnabled = Performance["FPS Lock"]
 local TimeWaitToKick = Performance["Time Wait To Kick"]
 local WhiteScreenEnabled = Performance["White Screen"]
 local FullyFPSBoosterEnabled = Performance["Fully FPS Booster"]
-local FullyRemovePlayerGuiEnabled = Performance["Fully Remove Player Gui"]
-local FullyRemoveCoreGuiEnabled = Performance["Fully Remove Core Gui"]
 local FullyRemoveDeltaUIEnabled = Performance["Fully Remove Delta UI"]
 local FullyRemoveWazureScriptGuiEnabled = Performance["Fully Remove Wazure Script Gui"]
 
@@ -153,21 +146,21 @@ getgenv().WeaponsSetting = {
     },
 }
 
-
-
--- Yummy Track Stat
-_G.Config = {
-    UserID = "ca09d152-b7da-4218-950a-bed3c622fb2d",
-    discord_id = 986156689285861376,
-    Note = DeviceName,
-}
-
 -- Create Main Folders To Store Stuffs
 if not isfolder("AynaShiratori") then
     makefolder("AynaShiratori")
 end
 if not isfolder("AynaShiratori/HasGodhuman") then
     makefolder("AynaShiratori/HasGodhuman")
+end
+if not isfolder("AynaShiratori/HasMagmaFruit") then
+    makefolder("AynaShiratori/HasMagmaFruit")
+end
+if not isfolder("AynaShiratori/IsFarmingMagmaFruitMastery") then
+    makefolder("AynaShiratori/IsFarmingMagmaFruitMastery")
+end
+if not isfolder("AynaShiratori/HasMagmaFruitAllSkillsUnlocked") then
+    makefolder("AynaShiratori/HasMagmaFruitAllSkillsUnlocked")
 end
 if not isfolder("AynaShiratori/IsAutoBounty") then
     makefolder("AynaShiratori/IsAutoBounty")
@@ -181,15 +174,21 @@ end
 if not isfolder("AynaShiratori/IsEverythingDone") then
     makefolder("AynaShiratori/IsEverythingDone")
 end
-if not isfolder("AynaShiratori/IsReadyToChangeAccount") then
-    makefolder("AynaShiratori/IsReadyToChangeAccount")
-end
 
 -- Check Files
 task.spawn(function()
     while task.wait(1) do
         if isfile("AynaShiratori/HasGodhuman/" .. game.Players.LocalPlayer.Name .. ".txt") then
             getgenv().HasGodhuman = true
+        end
+        if isfile("AynaShiratori/HasMagmaFruit/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            getgenv().HasMagmaFruit = true
+        end
+        if isfile("AynaShiratori/IsFarmingMagmaFruitMastery/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            getgenv().IsFarmingMagmaFruitMastery = true
+        end
+        if isfile("AynaShiratori/HasMagmaFruitAllSkillsUnlocked/" .. game.Players.LocalPlayer.Name .. ".txt") then
+            getgenv().HasMagmaFruitAllSkillsUnlocked = true
         end
         if isfile("AynaShiratori/IsAutoBounty/" .. game.Players.LocalPlayer.Name .. ".txt") then
             getgenv().IsAutoBounty = true
@@ -202,9 +201,6 @@ task.spawn(function()
         end
         if isfile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt") then
             getgenv().IsEverythingDone = true
-        end
-        if isfile("AynaShiratori/IsReadyToChangeAccount/" .. game.Players.LocalPlayer.Name .. ".txt") then
-            getgenv().IsReadyToChangeAccount = true
         end
     end
 end)
@@ -251,6 +247,23 @@ if StatusUIEnabled then
                     CurrentStatus = "!!! Missing Godhuman !!!"
                     break
                 end
+            end
+            task.wait(1)
+            if HasMagmaFruit and not IsAutoBounty then
+                if getgenv().CurrentStatusHasMagmaFruit then return end
+                getgenv().CurrentStatusHasMagmaFruit = true
+                CurrentStatus = "Found Magma Fruit"
+            else
+                if not IsAutoBounty then
+                    CurrentStatus = "!!! Missing Magma Fruit !!!"
+                    break
+                end
+            end
+            task.wait(1)
+            if not HasMagmaFruitAllSkillsUnlocked and IsFarmingMagmaFruit then
+                if getgenv().CurrentStatusHasMagmaFruitAllSkillsUnlocked then return end
+                getgenv().CurrentStatusHasMagmaFruitAllSkillsUnlocked = true
+                CurrentStatus = "Farming Magma Fruit To Lv.140 Mastery"
             end
             task.wait(1)
             if IsAutoBounty and not IsEverythingDone then
@@ -691,6 +704,12 @@ function LoadWazureAutoBounty()
     end)
 end
 
+function LoadWazureHub()
+    task.spawn(function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+    end)
+end
+
 -- Choose Team Pirate
 function ChooseTeam()
     local ChooseTeam = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("ChooseTeam", true)
@@ -726,7 +745,9 @@ function FullyFPSBooster()
             task.spawn(function()
                 game.Players.LocalPlayer.PlayerScripts.EnhancementVisual.Disabled = true
             end)
-            game.Workspace.Map:Remove()
+            task.spawn(function()
+                game.Workspace.Map:Remove()
+            end)
             game.Workspace.NPCs:Remove()
             task.spawn(function()
                 game.Workspace["_WorldOrigin"]["Foam;"]:Remove()
@@ -790,6 +811,25 @@ function CheckItem(ah)
     end
 end
 
+function SendAutoReconnectInfo()
+    local MessagesToSend = {
+        ['content'] = "Device: " .. DeviceName .. " | " .. "Username: " .. game.Players.LocalPlayer.Name .. " " .. DateTime.now():ToIsoDate(),
+    }
+    local success, webMessage = pcall(function()
+        game:GetService("HttpService"):PostAsync("https://discord.com/api/webhooks/1227587404135665704/zuhlkCKekjohRm-Fuvemq31lvRJR_uEmNjCDXKIIyTWhj-NgbBqqEoJSUruGdqHT4h26", game:GetService("HttpService"):JSONEncode(MessagesToSend))
+    end)
+    if success == false then
+        local response = request({
+            Url = "https://discord.com/api/webhooks/1227587404135665704/zuhlkCKekjohRm-Fuvemq31lvRJR_uEmNjCDXKIIyTWhj-NgbBqqEoJSUruGdqHT4h26",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(MessagesToSend)
+        })
+    end
+end
+
 if FPSLockEnabled then
     setfpscap(60)
 end
@@ -807,41 +847,14 @@ game:service'Players'.LocalPlayer.Idled:connect(function()
     game:service'VirtualUser':ClickButton2(Vector2.new())
 end)
 
--- Better Vision
-if FullyRemovePlayerGuiEnabled then
-    task.spawn(function()
-        task.spawn(function()
-            game.Players.LocalPlayer.PlayerGui:WaitForChild("TouchGui"):Destroy()
-        end)
-        task.spawn(function()
-            game.Players.LocalPlayer.PlayerGui:WaitForChild("ContextActionGui"):Destroy()
-        end)
-        local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
-        task.spawn(function()
-            CameraShake:Stop()
-        end)
-        for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
-            if v:IsA("ScreenGui") then
-                v.Enabled = false
-            end
-        end
-        for i, v in pairs(game:GetService("StarterGui"):GetChildren()) do
-            if v:IsA("ScreenGui") then
-                v.Enabled = false
-            end
-        end
-        getgenv().FullyRemovePlayerGuiExecuted = true
-    end)
-end
+-- Wait Until Game Is Loaded
+repeat task.wait(1) until game:IsLoaded() and game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") and game.Players.LocalPlayer.PlayerGui.Main.Loading.Visible == false
 
-if FullyRemoveCoreGuiEnabled then
-    for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
-        if v:IsA("ScreenGui") then
-            v.Enabled = false
-        end
-    end
-    getgenv().FullyRemoveCoreGuiExecuted = true
-end
+-- Better Vision
+task.spawn(function()
+    local CameraShake = require(game.ReplicatedStorage.Util.CameraShaker)
+    CameraShake:Stop()
+end)
 
 if FullyRemoveWazureScriptGuiEnabled then
     task.spawn(function()
@@ -850,7 +863,6 @@ if FullyRemoveWazureScriptGuiEnabled then
     task.spawn(function()
         game.CoreGui:WaitForChild("HUHU"):Destroy()
          game:GetService("Lighting"):ClearAllChildren()
-        getgenv().FullyRemoveWazureScriptGuiExecuted = true
     end)
 end
 
@@ -897,7 +909,7 @@ task.spawn(function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Demon Fruit",2549)   
 end)
 
--- Check If Has Godhuman
+-- Check If Has Godhuman, Magma Fruit And Magma Fruit All Skills Unlocked
 task.spawn(function()
     task.spawn(function()
         while task.wait(1) do
@@ -914,7 +926,7 @@ task.spawn(function()
     end)
 end)
 
--- If Has Godhuman Then Do Auto Bounty
+-- If Has Godhuman And Magma Fruit All Skills Unlocked Then Do Auto Bounty
 task.spawn(function()
     while task.wait(1) do
         if IsAutoBounty then
@@ -929,21 +941,43 @@ task.spawn(function()
     end
 end)
 
+function TweenToTheSky()
+    local CreateNewPartToTween = Instance.new("Part") 
+    CreateNewPartToTween.Anchored = true
+    CreateNewPartToTween.Name = "PartToTweenTo"
+    CreateNewPartToTween.Position = Vector3.new(0, 200000, 0)
+    CreateNewPartToTween.Size = Vector3.new(100, 1, 100)
+    CreateNewPartToTween.Parent = game.Workspace
+
+    local PartToTweenToPath = workspace:WaitForChild("PartToTweenTo")
+
+    local InfoToTween = TweenInfo.new(
+        200,
+        Enum.EasingStyle.Linear,
+        Enum.EasingDirection.Out,
+        -1,
+        true,
+        0
+    )
+
+    local GoalToTween = {}
+    GoalToTween.Position = PartToTweenToPath.Position
+
+    local DoTween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), InfoToTween, GoalToTween)
+    DoTween:play()
+end
+
 -- If Is Everything Done Then Purchase Rocket Fruit And Purchase Godhuman To Hide Auto Bounty Build Also Writefile Is Ready To Change Account
 if IsEverythingDone then
+    FullyFPSBooster()
+    task.wait(3)
     ChooseTeam()
+    TweenToTheSky()
     while true do
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","Rocket-Rocket",false)
-        if game.Players.LocalPlayer.Backpack:FindFirstChild("Rocket-Rocket") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-            if game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-                writefile(game.Players.LocalPlayer.Name .. ".txt", "Yummytool")
-                writefile("AynaShiratori/IsReadyToChangeAccoutnt/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
-                game.Players.LocalPlayer:Kick("Reached " .. AmountBountyToKick .. " " .. "Bounty | Username: " ..  game.Players.LocalPlayer.Name)
-            end
-        end
-        task.wait(10)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+        task.wait(1)
     end
 end
 
@@ -960,10 +994,9 @@ elseif game.PlaceId == 4442272183 then
 end
 
 -- The Start Of Everything
-task.spawn(function()
-    task.wait(3)
+if not IsAutoBounty or IsEverythingDone then
     ChooseTeam()
-end)
+end
 
 -- Do Auto Bounty Also Load Build To Do Auto Bounty
 task.spawn(function()
@@ -981,10 +1014,6 @@ task.spawn(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
     end
 end)
-
-if EverythingIsDone then
-    FullyFPSBooster()
-end
 
 -- Check If Is Not Loaded Then Rejoin
 task.spawn(function()
@@ -1008,20 +1037,20 @@ repeat
 until not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")
 task.wait(1)
 
--- Check If Bounty Is Not Changed In 5 Minutes Then Kick
+-- Check If Bounty Is Not Changed In 7.5 Minutes Then Kick
 task.spawn(function()
     local CurrentBounty = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
     print("Current Bounty: ", CurrentBounty)
     while true do
-        task.wait(300)
+        task.wait(450)
         print("Checking Bounty")
         if game.Players.LocalPlayer then
             local NewBounty = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value
             if (NewBounty == CurrentBounty) then
-                print("Bounty Is Not Changed After 5 Minutes")
-               game.Players.LocalPlayer:Kick("Detected Bounty Is Not Changed In 5 Minutes")
+                print("Bounty Is Not Changed After 7.5 Minutes")
+               game.Players.LocalPlayer:Kick("Detected Bounty Is Not Changed In 7.5 Minutes")
             else
-                print("Bounty Has Changed After 5 Minutes")
+                print("Bounty Has Changed After 7.5 Minutes")
                 CurrentBounty = NewBounty
             end
         end
@@ -1031,16 +1060,11 @@ end)
 -- Check If Bounty Has Reached Amount Of Bounty To Kick Then Writefile IsEverythingDone
 task.spawn(function()
     if IsAutoBounty and not IsEverythingDone then
-        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= AmountBountyToKick then
+        if game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value >= 11000000 then
             writefile("AynaShiratori/IsEverythingDone/" .. game.Players.LocalPlayer.Name .. ".txt", OsDateResult)
         end
     end
 end)
 
-if YummyTrackStatEnabled then
-    task.spawn(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/unfazedfree/main/trackstatblox"))()
-    end)
-end
-
+SendScriptsSuccesfullyLoadedInfo()
 print("executed")
